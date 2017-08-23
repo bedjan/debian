@@ -1,0 +1,53 @@
+#!/bin/bash
+# Bash Menu Script Example
+
+PS3='Vyberte moznost a zadejte cislo moznosti: "$(cat a.sh)"'
+vyber=( "zadat a najit balicek" "zadat a zobrazit informace o balicku" "zadat a nainstalovat balicek bez zavislosti" "zadat a nainstalovat balicek" "zadat a odstranit balicek" "vypise vsechny nainstalovane balicky" "zadat a najit nainstalovany balicek" "zadat a najit v historii zadavany prikaz" "vycisti nepotrebne balicky" "mplayer prehraje zvuk,video z url adresy" "vlc prehraje zvuk,video z url adresy" "stahnout video z url adresy" "Ukoncit vyber" )
+
+select x in "${vyber[@]}"
+do
+    case $x in
+
+"zadat a najit balicek")
+        echo "zadat a najit balicek";apt-cache search $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a najit balicek
+            ;;
+"zadat a zobrazit informace o balicku")
+echo "zadat a zobrazit informace o balicku";apt-cache show $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a zobrazit informace o balicku
+            ;;
+"zadat a nainstalovat balicek bez zavislosti")
+        echo "zadat a nainstalovat balicek bez zavislosti";sudo apt-get install --no-install-recommends $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a nainstalovat balicek bez zavislosti
+            ;;
+"zadat a nainstalovat balicek")
+        echo "zadat a nainstalovat balicek";sudo apt-get install $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a nainstalovat balicek 
+            ;;
+"zadat a odstranit balicek")
+        echo "zadat a odstranit balicek";sudo apt-get remove $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a odstranit balicek
+            ;;
+"vypise vsechny nainstalovane balicky")
+echo "vypise vsechny nainstalovane balicky";dpkg -l | awk '{ print $2 }' | tr -s '\n' ' ' #vypise vsechny nainstalovane balicky
+ ;;
+"zadat a najit nainstalovany balicek")
+echo "zadat a najit nainstalovany balicek";dpkg -l | grep $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a najit nainstalovany balicek
+ ;;
+"zadat a najit v historii zadavany prikaz")
+echo "zadat a najit v historii zadavany prikaz";history | grep $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a najit v historii zadavany prikaz
+ ;;
+"vycisti nepotrebne balicky")
+echo "vycisti nepotrebne balicky";sudo apt-get autoremove #vycisti nepotrebne balicky
+ ;;
+"mplayer prehraje zvuk,video z url adresy")
+echo "mplayer prehraje zvuk,video z url adresy";mplayer $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #mplayer prehraje zvuk,video z url adresy 
+ ;;
+"vlc prehraje zvuk,video z url adresy")
+echo "vlc prehraje zvuk,video z url adresy";vlc --playlist-autostart --loop --playlist-tree $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #vlc prehraje zvuk,video z url adresy
+ ;;
+"stahnout video z url adresy")
+echo "stahnout video z url adresy";youtube-dl $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #stahnout video z url adresy
+ ;; 
+
+        "Ukoncit vyber")
+            break; echo "Ukoncuji se"
+            ;;
+        *) echo "cislo neni ve vyberu, zadej cislo podle vyctu ... mas zapnutou numerickou klavesnici?";;
+    esac
+done
