@@ -332,6 +332,3 @@ Nastavení jádra
   &gt;&gt; vm.dirty_background_bytes = 4194304
   &gt;&gt; vm.dirty_bytes = 4194304
   &gt;&gt; </pre>
-
-                    <!-- wikipage stop -->
-                                    </div>
