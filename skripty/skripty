@@ -1,0 +1,75 @@
+#!/bin/bash
+#vsechny nainstalovane balicky  z dpkg -l v souboru dpkg
+#leafpad ~/skr/dpkg
+dpkg -l>1
+dpkg -l>1
+cat 1 | awk '{ print $2 }'>2
+cat 2 | tr -s '\n' ' '>3
+mv 3 dpkg
+echo "vypisuji sechny nainstalovane balicky  z dpkg -l v souboru dpkg"
+cat dpkg
+
+#!/bin/bash
+#vypne monitor za 5s
+#leafpad ~/skr/monitor
+sleep 5 | echo "Monitor se za 5 s vypne" | osd_cat -d 1 -s 1 -A left -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1' && xset dpms force off
+
+#!/bin/bash
+#vypne usporu energie DPMS - switch zapne/vypne 
+#leafpad ~/skr/dpms
+STATUS=`xset -q | grep -e 'DPMS is'| cut -c 10-17`
+if [ "$STATUS" = " Disable" ]] ;
+then xset s on +dpms 
+echo "Zapinam DPMS ..."  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'
+elif [ "$STATUS" = " Enabled" ]] ; 
+then xset s on -dpms 
+echo "Vypinam DPMS ..."  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'
+fi
+# | echo "Hlasitost vypnuta/zapnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'
+
+#!/bin/bash
+#prevede hudbu z youtube do mp3 a ulozi do adresare ~/Hudba
+#leafpad ~/skr/youtube_mp3
+urxvt -geometry 80x20+60+150 -title Online_do_mp3 +hold -e bash -c "mkdir ~/Hudba; cd ~/Hudba; youtube-dl --no-playlist --extract-audio --audio-format mp3 $(xsel --clipboard)"
+#sudo apt-get install youtube-dl ffmpeg
+
+#!/bin/bash
+#přehraje video z webu skopirovane do schránky, tedy "http://....."
+#leafpad ~/skr/mpv
+urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv --ytdl '$(xsel --clipboard)' --fs --ontop --initial-audio-sync"
+#; wait && pkill urxvt
+#xterm -title Video_online -e "mpv `youtube-dl $(xsel --clipboard) -f 36  -g`"
+#--vo=xv 
+
+#!/bin/bash
+#přehraje video z youtube skopirovane do schránky, tedy "http://....."
+#leafpad ~/skr/mpv_youtube
+urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl --ytdl-format=243,134,43,18 --fs --ontop --initial-audio-sync --slang=cs --alang=cs  --hwdec-codecs=h264,mpeg2video"
+#; wait && kill $(pidof)
+#-title Video_online
+#xterm -title Video_online -e "mpv `youtube-dl $(xsel --clipboard) -f 36  -g`"
+
+#!/bin/bash
+#ukaze status baterie v ntb pres program xmessage
+#leafpad ~/skr/baterie_status
+battery_level=`acpi -b | grep -P -o '[0-9]+(?=%)'`
+if [ $battery_level -eq 98 ]
+then
+    xmessage -timeout 2 "Baterie plne nabita/_Uroven baterie je ${battery_level}%!"
+if [ $battery_level -le 10 ]
+then
+    xmessage -timeout 2 "Baterie vybita/_Uroven baterie je ${battery_level}%!"
+else
+echo "Baterie je nabita"
+fi
+fi
+#xmessage  -timeout 10 "$(acpi -i -b)"
+#zvuky
+# & mplayer /usr/lib/libreoffice/share/gallery/sounds/horse.wav
+# & mplayer /usr/lib/libreoffice/share/gallery/sounds/beam.wav
+
+#!/bin/bash
+#spusti moduly k wifi, wifi a wicd-gtk
+#leafpad ~/skr/wifi
+sudo modprobe -r b43 && sudo modprobe b43 && sudo ifconfig wlan0 up && sudo wicd-gtk
+
