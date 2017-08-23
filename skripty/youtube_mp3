@@ -1,0 +1,5 @@
+#!/bin/bash
+#prevede hudbu z youtube do mp3 a ulozi do adresare ~/Hudba
+#leafpad ~/skr/youtube_mp3
+urxvt -geometry 80x20+60+150 -title Online_do_mp3 +hold -e bash -c "mkdir ~/Hudba; cd ~/Hudba; youtube-dl --no-playlist --extract-audio --audio-format mp3 $(xsel --clipboard)"
+#sudo apt-get install youtube-dl ffmpeg
