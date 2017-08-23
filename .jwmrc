@@ -1,0 +1,479 @@
+#konfigurace k JWM
+<JWM>
+<!-- navod na links http://debianlinux.page.tl/Debian.htm -->
+<!-- INSTALOVAT sudo apt-get install  --no-install-recommends  xterm  xorg jwm evilvte xterm xosd-bin ffmpeg links mc sudo fairjail rxvt-unicode-lite -->
+<!-- /etc/sudoers | zadat #visudo pridat tvoje_uzivatelske_heslo   ALL=NOPASSWD:ALL -->
+<!-- sudo nano /etc/inittab #1:2345:respawn:/sbin/getty 38400 tty1 zakomentovat a pridat 1:2345:respawn:/bin/login -f tvoje_uzivatelske_heslo tty1 </dev/tty1 >/dev/tty1 2>&1 -->
+<!-- sudo nano .xinitrc  pridat exec jwm -->
+<!-- start se po prvnim spusteni vytvori ale bude prazdny= doplnit prikazy  -->
+
+<!-- cat .jwmrc | grep "INSTALOVAT" | tr -d 'INSTALOVAT'> install &amp;&amp; apt-get install --no-install-recommends $(cat install) &amp;&amp; rm -f install -->
+
+<!-- oprava v config error &amp; $sed -i "s#&amp;#&amp;amp;#g" .jwmrc -->
+<!-- JWM themes http://puppy.b0x.me/jwm-themes -->
+<!-- JWM web https://joewing.net/projects/jwm/index.shtml -->
+<!-- sudo apt-get install xorg jwm evilvte xterm fairjail xosd-bin ffmpeg -->
+<!-- ikony windows10 na https://uloz.to/!CD2kZlcKA8Hq/windows10icons-v1-1-tar-gz -->
+<!-- symboly http://fsymbols.com/all/ -->
+<!-- <StartupCommand>sudo hdparm -a256 -W /dev/sda</StartupCommand> -->
+<!-- <StartupCommand>conky</StartupCommand> -->
+<StartupCommand>chmod +x start &amp;&amp; sh start | printf '%b\n' "$(cat start)" | osd_cat -d 1 -s 1 -A left -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</StartupCommand>
+<StartupCommand>/bin/sync || /usr/bin/sudo /bin/sh -c '/bin/echo 3 >/proc/sys/vm/drop_caches'
+</StartupCommand>
+<StartupCommand>xset -display :0.0 dpms 0 0 300</StartupCommand>
+<StartupCommand>sudo ntpdate -s time.nist.gov</StartupCommand>
+<StartupCommand>numlockx;which numlockx || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends numlockx</StartupCommand>
+<StartupCommand>clipit</StartupCommand>
+
+<RestartCommand>xterm -title Je_JWM_konfigurace_kompatibilni -hold -e "jwm -p"</RestartCommand>
+
+<ShutdownCommand>xterm -title Vypinam_PC -hold -e echo Vypinam_PC</ShutdownCommand>
+
+  <RootMenu height="16" onroot="123">
+<Menu  label="Hlavni">
+<Program label="Prikaz">gmrun;which gmrun || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends gmrun</Program>
+<Program label="Htop ROOT">xterm -title HTOP_ROOT -e "sudo htop";which htop || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends htop</Program>
+<Program label="Lxtask ROOT">exec:sudo lxtask;which lxtask || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends lxtask</Program>
+<Program label="Terminal">evilvte;which evilvte || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends evilvte</Program>
+<Program label="Midnight Commander ROOT">sudo mc;which mc || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends mc</Program>
+<Program label="Web-Netsurf">netsurf;which netsurf || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends netsurf</Program>
+<Program label="Web-Palemoon">firejail --noprofile ~/programy/palemoon/palemoon</Program>
+<Program label="Web-Chromium">chromium</Program>
+<Program label="Tor Browser">~/Downloads/tor-browser_en-US/Browser/start-tor-browser</Program>
+<Program label="#TV">freetuxtv;which freetuxtv || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends freetuxtv</Program>
+</Menu>
+
+
+
+<Menu  label="Kancelar">
+<Program label="Calculator">qalculate #xcalc;which qalculate || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends qalculate</Program>
+<Program label="Xpaint">xpaint;which xpaint || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends xpaint</Program>
+<Program label="Gimp">gimp;which gimp || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends gimp</Program>
+<Program label="Poznamky">leafpad poznamky.txt;which leafpad || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends leafpad</Program>
+<Program label="Konverze">winff;which winff || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends winff</Program>
+</Menu>
+<Menu label="System">
+<Program label="JWM Restart">jwm -restart</Program>
+<Program label="JWM kompatibilita">xterm -hold -e "jwm -p"</Program>
+<Program label="jwmrc">leafpad .jwmrc;which leafpad || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends leafpad</Program>
+<Program label="start">leafpad start;which leafpad || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends leafpad</Program>
+<Program label="znovu spuštění start">sh start</Program>
+<Program label="jwm webove stranky">netsurf https://joewing.net/projects/jwm/index.shtml</Program>
+<Program label="Synaptic">sudo synaptic;which evilvte || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends synaptic</Program>
+<Program label="Vzhled">xterm -e lxappearance;which lxappearance || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends lxappearance</Program>
+<Program label="Xorg restart">sudo killall Xorg</Program>
+<Program label="sysv-rc-conf">xterm -title sysv-rc-conf -e "sudo sysv-rc-conf";which sysv-rc-conf || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends sysv-rc-conf</Program>
+<Program label="Conky upraveni">xterm -title conky_upraveni -e "leafpad .conkyrc";which leafpad || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends leafpad</Program>
+<Program label="Simplescreenrecorder">simplescreenrecorder;which simplescreenrecorder || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends simplescreenrecorder</Program>
+<!-- <Program  label="Upgrade youtube-dl">xterm -title youtube-dl -e "sudo pip install --upgrade youtube-dl"</Program> -->
+</Menu>
+ <Separator/>
+<Menu  label="Systemove upravy">
+<Program label="zadat a najit balicek k instalaci, prohlizeni posuvnikem">urxvt -geometry 800x600+60+150 -title "zadat a najit balicek  k instalaci" -hold -e bash -c ' echo "zadej balicek ktery hledas  k instalaci"; read -n 100 -t 10 PROMENA ; apt-cache search "$PROMENA" #zadat a najit balicek'</Program>
+
+<Program label="zadat a zobrazit informace o balicku">urxvt -geometry 800x600+60+150 -title "zadat a zobrazit informace o balicku" -hold -e bash -c 'echo "zadej balicek ktery hledas";apt-cache show $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a zobrazit informace o balicku'</Program>
+<Program label="zadat a nainstalovat balicek bez zavislosti">urxvt -geometry 800x600+60+150 -title "zadat a nainstalovat balicek bez zavislosti" -hold -e bash -c 'echo "zadej balicek ktery hledas";sudo apt-get install --no-install-recommends $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a nainstalovat balicek bez zavislosti'</Program>
+<Program label="zadat a nainstalovat balicek se zavislostmi">urxvt -geometry 800x600+60+150 -title "zadat a nainstalovat balicek se zavislostmi" -hold -e bash -c 'echo "zadej balicek ktery chces nainstalovat";sudo apt-get install $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a nainstalovat balicek '</Program>
+<Program label="zadat a odstranit balicek">urxvt -geometry 800x600+60+150 -title "zadat a odstranit balicek" -hold -e bash -c 'echo "zadej balicek ktery chces odstanit";sudo apt-get remove $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a odstranit balicek'</Program>
+<Program label="vypise vsechny nainstalovane balicky  do souboru dpkgl">dpkg -l | awk '{ print $2 }' | tr -s '\n' ' ' | sed 's/:i386//g' >dpkgl &amp;&amp; urxvt -geometry 800x600+60+150 -title "vypise vsechny nainstalovane balicky  do souboru dpkgl" -hold -e cat dpkgl #vypise vsechny nainstalovane balicky do souboru dpkgl</Program>
+<Program label="zadat a najit nainstalovany balicek">urxvt -geometry 800x600+60+150 -title "zadat a najit nainstalovany balicek" -hold -e bash -c 'echo "zadej vyraz ktery hledas v historii";read -n 100 -t 10 PROMENA ; echo "hledam $PROMENA"; dpkg -l | grep "$PROMENA" #zadat a najit nainstalovany balicek'</Program>
+<Program label="zadat a najit v historii zadavany prikaz">urxvt -geometry 800x600+60+150 -title "zadat a najit v historii zadavany prikaz" -hold -e bash -c 'read -n 100 -t 10 PROMENA ; echo "hledam $PROMENA"; history | grep "$PROMENA" #zadat a najit v historii zadavany prikaz'</Program>
+<Program label="vycisti nepotrebne balicky">urxvt -geometry 800x600+60+150 -title "vycisti nepotrebne balicky, nic vic neni potreba zadavat" -hold -e bash -c 'echo "automaticky mazu nepotrebne balicky";sudo apt-get autoremove #vycisti nepotrebne balicky'</Program>
+<Program label="chyby grafickeho serveru Xorg">urxvt -geometry 800x600+60+150 -title "chyby grafickeho serveru Xorg" -hold -e bash -c "egrep '\(EE\)|\(WW\)' /var/log/Xorg.1*"</Program>
+
+</Menu>
+ <Separator/>
+
+<Menu  label="Prehravani z webu = URL ve schrance a spustit">
+<Program label="vlc prehraje zvuk,video z url adresy, vlozit adresu zkopirovanim do schranky">urxvt -geometry 80x20+60+150 -title "vlc prehraje zvuk,video z url adresy, vlozit adresu zkopirovanim do schranky" -hold -e bash -c 'echo "prehravam vlc adresu $(xsel --clipboard)"; vlc --playlist-autostart --loop --playlist-tree  "$(xsel --clipboard)"  #vlc prehraje zvuk,video z url adresy'</Program>
+
+<Program label="mplayer prehraje zvuk,video z url adresy, vlozit adresu zkopirovanim do schranky">urxvt -geometry 80x20+60+150 -title "mplayer prehraje zvuk,video z url adresy, vlozit adresu zkopirovanim do schranky" -hold -e bash -c 'echo "prehravam mplayerem adresu $(xsel --clipboard)";mplayer "$(xsel --clipboard)" #mplayer prehraje zvuk,video z url adresy'</Program>
+
+<Program label="stahnout video z url adresy, vlozit adresu zkopirovanim do schranky">urxvt -geometry 80x20+60+150 -title "stahnout youtube-dl video z url adresy, vlozit adresu zkopirovanim do schranky" -hold -e bash -c 'echo "stahuji video z adresy $(xsel --clipboard)";youtube-dl "$(xsel --clipboard)" '</Program>
+
+</Menu>
+
+ <Separator/>
+<Menu  label="TV online_prehled">
+<Program  label="TV program">~/programy/palemoon/palemoon -private-window http://tv.sms.cz/ | echo "TV program" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program> 
+<Program  label="Ivysilani">~/programy/palemoon/palemoon -private-window http://www.ceskatelevize.cz/ivysilani/podle-abecedy/ | echo "Ivysilani, kopirovat url adresu" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program> 
+<Program  label="Youtube">~/programy/palemoon/palemoon -private-window "https://www.youtube.com" | echo "Youtube, kopirovat url adresu" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program> 
+</Menu>
+
+<Menu  label="TV online_1">
+<Program  label="Prima COOL"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://208.43.120.148:5000/live/116/116.m3u8</Program>
+<Program  label="NOVA 2"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://208.43.120.148:5000/live/854/854.m3u8</Program>
+<Program  label="NOVA Cinema"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://208.43.120.148:5000/live/120/120.m3u8</Program>
+<Program  label="CSfilm_Horor"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://208.43.120.148:5000/live/122/122.m3u8</Program>
+<Program  label="TV Barrandov"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://208.43.120.148:5000/live/121/121.m3u8</Program>
+<Program  label="MINIMAX"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://108.168.175.182:5000/live/278/278.m3u8</Program>
+<Program  label="Sport 1 HD"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://108.168.175.182:5000/live/103/103.m3u8</Program>
+<Program  label="Sport 2"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://108.168.175.182:5000/live/279/279.m3u8</Program>
+<Program  label="NOVA HD"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://108.168.175.182:5000/live/156/156.m3u8</Program>
+<Program  label="AXN"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://69.39.239.166:5000/live/205/205.m3u8</Program>
+<Program  label="AXN White"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://69.39.239.166:5000/live/281/281.m3u8</Program>
+<Program  label="AXN Black"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://69.39.239.166:5000/live/282/282.m3u8</Program>
+<Program  label="Spektrum HOME"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://199.195.199.196:5000/live/312/312.m3u8</Program>
+<Program  label="STV 1"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://199.195.199.196:5000/live/365/365.m3u8</Program>
+<Program  label="STV 2"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://199.195.199.196:5000/live/366/366.m3u8</Program>
+<Program  label="Doma"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://199.195.199.196:5000/live/368/368.m3u8</Program>
+<Program  label="JOJ+"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://199.195.199.196:5000/live/367/367.m3u8</Program>
+<Program  label="RebeL"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://199.195.199.196:5000/live/410/410.m3u8</Program>
+<Program  label="REtrO"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://199.195.199.196:5000/live/412/412.m3u8</Program>
+<Program  label="Ceskoslovensko HD"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://65.254.55.10:4000/live/196/196.m3u8</Program>
+<Program  label="DokuCZ"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://65.254.55.10:4000/live/195/195.m3u8</Program>
+<Program  label="Eurosport"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://65.254.55.10:4000/live/197/197.m3u8</Program>
+<Program  label="Prima"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://prima-ott-live-sec.service.cdn.cra.cz/channels/prima_family/playlist/cze/live_hq.m3u8</Program>
+<Program  label="Nat geo wild"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://109.69.210.13:3000/ngcwild</Program>
+<Program  label="Fanda"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://109.69.210.13:3000/fanda</Program>
+<Program  label="CT1"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://109.69.210.13:3000/ct1</Program>
+<Program  label="STV2"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://109.69.210.13:3000/stv2</Program>
+<Program  label="Rock_tv"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://212.96.163.139:8020/1-tv-pc/924.m3u8</Program>
+<Program  label="Ocko"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://ocko-live.service.cdn.cra.cz/channels/ocko/playlist/cze/live_hq.m3u8</Program>
+<Program  label="Ocko_gold"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://se01.se.ocko-live.service.cdn.cra.cz/channels/ocko_gold/playlist/cze/live_hq.m3u8</Program>
+<Program  label="Ocko_express"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://ocko-live.service.cdn.cra.cz/channels/ocko_expres/playlist/cze/live_hq.m3u8</Program>
+<Program  label="Ct1"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/CT1HD_low.m3u8</Program>
+<Program  label="Ct2"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/CT2HD_low.m3u8</Program>
+<Program  label="Nova"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/NovaHD_low.m3u8</Program>
+<Program  label="Prima_cool"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/PrimaCoolHD_low.m3u8</Program>
+<Program  label="Prima_zoom"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/PrimaZOOM_low.m3u8</Program>
+<Program  label="Prima_max"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/PrimaMaxHD_low.m3u8</Program>
+<Program  label="Barrandov"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/BarrandovHD_low.m3u8</Program>
+<Program  label="Kino_barrandov"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/KinoBarrandovHD_low.m3u8</Program>
+<Program  label="Barrandov_plus"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/BarrandovPlusHD_low.m3u8</Program>
+<Program  label="Telka"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/TelkaHD_low.m3u8</Program>
+<Program  label="Smichov"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/SmichovHD_low.m3u8</Program>
+ </Menu>
+<Menu  label="TV online_2">
+<Program  label="Stv1"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/STV1_low.m3u8</Program>
+<Program  label="Stv2"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/STV2_low.m3u8</Program>
+<Program  label="Markiza"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/Markiza_low.m3u8</Program>
+<Program  label="Axn"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/AXN_low.m3u8</Program>
+<Program  label="Axn_white"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/AXNWhite_low.m3u8</Program>
+<Program  label="Axn_black"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/AXNBlack_low.m3u8</Program>
+<Program  label="Filmbox_extra"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/FilmboxHD_low.m3u8</Program>
+<Program  label="Filmbox_family"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/FilmboxFamily_low.m3u8</Program>
+<Program  label="Filmbox_premium"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/FilmboxExtra_low.m3u8</Program>
+<Program  label="Kino_cs"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/KinoCS_low.m3u8</Program>
+<Program  label="Animal_planet"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/AnimalPlanet_low.m3u8</Program>
+<Program  label="Discovery_science"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/DiscoveryScience_low.m3u8</Program>
+<Program  label="Discovery_showcase"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/DiscHDShowCase_low.m3u8</Program>
+<Program  label="Discovery_turbo_xtra"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/DiscoveryWorld_low.m3u8</Program>
+<Program  label="Doku_cs"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/DokuCS_low.m3u8</Program>
+<Program  label="Fishing_hunting"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/FishHunt_low.m3u8</Program>
+<Program  label="Nat_geo_wild"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/NationalGeographicWild_low.m3u8</Program>
+<Program  label="Nat_geo"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/NatGeo_low.m3u8</Program>
+<Program  label="Ct_sport"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/CT4HD_low.m3u8</Program>
+<Program  label="Arena_sport_2"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/SlovakSPORT2HD_low.m3u8</Program>
+<Program  label="Eurosport1"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/EurosportHD_low.m3u8</Program>
+<Program  label="Eurosport2"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/Eurosport2HD_low.m3u8</Program>
+<Program  label="Sport1"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/Sport1_low.m3u8</Program>
+<Program  label="Sport2"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/Sport2HD_low.m3u8</Program>
+<Program  label="Filmbox_family"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/FilmboxFamily_low.m3u8</Program>
+<Program  label="Deutsche_welle"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/DeutcheWelle_low.m3u8</Program>
+<Program  label="Regionalni_tv"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/RegionalniTV_low.m3u8</Program>
+<Program  label="Tv_slovacko"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/TVSlovacko_low.m3u8</Program>
+<Program  label="Vychodoceska_tv"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/V1_low.m3u8</Program>
+<Program  label="Baby_tv"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/BabyTV_low.m3u8</Program>
+<Program  label="Disney_junior"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/DisneyJunior_low.m3u8</Program>
+<Program  label="Nickelodeon_junior"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/NickelodeonJunior_low.m3u8</Program>
+<Program  label="Muzika_cs"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/MuzikaCS_low.m3u8</Program>
+<Program  label="Tunebox"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/360TuneBox_low.m3u8</Program>
+<Program  label="Deluxe_music"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/DeLuxeMusic_low.m3u8</Program>
+<Program  label="Mtv_europe"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/MTVlow.m3u8</Program>
+<Program  label="Euronews"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://46.47.133.91:80/hls/Euronews_low.m3u8</Program>
+<Program  label="Prima_love"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://prima-ott-live-sec.service.cdn.cra.cz/channels/prima_love/playlist/cze/live_hq.m3u8</Program>
+<Program  label="Prima_zoom"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://prima-ott-live-sec.service.cdn.cra.cz/channels/prima_zoom/playlist/cze/live_hq.m3u8</Program>
+<Program  label="Ocko_gold"> urxvt -geometry 80x20+60+150 -title Video_online +hold -e mpv http://ocko-live.service.cdn.cra.cz/playlist/live/ocko_gold/live_lq.m3u8</Program>
+<Program  label="Elektrika">mpv rtmp://rtmp.elektrika.cz/live/myStream.sdp</Program>
+ </Menu>
+
+<Menu  label="Radia">
+<Program label="Humor">urxvt -geometry 80x20+60+150 -title Radio_Humor -hold -e mplayer http://mp3stream4.abradio.cz:8000/humor128.mp3 | echo "Radio Humor" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program>
+<Program label="Folk">urxvt -geometry 80x20+60+150 -title Radio_Folk -hold -e mplayer http://mp3stream2.abradio.cz:8000/folk128.mp3 | echo "Radio Folk" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program>
+<Program label="Pohadka">urxvt -geometry 80x20+60+150 -title Radio_Pohadka -hold -e mplayer http://ice3.abradio.cz/pohadka128.mp3 | echo "Radio Pohadka" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program>
+<Program label="Cimrman">urxvt -geometry 80x20+60+150 -title Radio_Cimrman -hold -e mplayer http://liquiddoom.net:8000/cimrman | echo "Radio Cimrman" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program>
+<Program label="Eurod">urxvt -geometry 80x20+60+150 -title Radio_C_ED -hold -e mplayer http://pub1.diforfree.org:8000/di_classiceurodance_hi | echo "Radio Classic Eurodance" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program>
+</Menu>
+ <Separator/>
+<Include>/etc/jwm/debian-menu</Include>
+<!-- <Program  label="Zamknout PC">slock</Program> -->
+     <Restart label="Restart"/>
+     <Menu  label="Odhlásit a vypnout">
+     <Program  label="Xorg restart">sudo killall Xorg</Program>
+     <Exit label="Odhlásit | ctrl-c | startx" confirm="false" icon="exit.png"/>
+     <Program  label="Restart PC">sudo shutdown -r now</Program>
+     <Program  label="Vypnuti PC">sudo shutdown -h now</Program>
+     <Program  label="Vypnuti PC v 00:00">xterm -title PC_se_vypne_v_00:00 -hold -e "sudo shutdown -h 00:00"</Program>
+     </Menu>
+
+  </RootMenu>
+<!--
+   <Group>
+      <Name>xterm</Name>
+      <Option>desktop:2</Option>
+   </Group>
+   <Group>
+      <Name>evilvte</Name>
+      <Option>desktop:1</Option>
+      <Option>layer:above</Option>
+   </Group>
+   <Group>
+      <Name>deadbeef</Name>
+      <Option>desktop:2</Option>
+      <Option>layer:above</Option>
+   </Group>
+
+   <Group>
+      <Name>palemoon</Name>
+      <Option>maximized</Option>
+   </Group>
+   <Group>
+      <Name>vlc</Name>
+      <Option>layer:above</Option>
+   </Group>
+   <Group>
+      <Name>sylpheed</Name>
+      <Option>maximized</Option>
+   </Group>
+   <Group>
+      <Name>smpv</Name>
+      <Option>layer:above</Option>
+   </Group>
+   <Group>
+      <Name>vlc</Name>
+      <Option>maximized</Option>
+   </Group>
+--> 
+
+<Group>
+    <Class>Conky</Class>
+    <Option>nolist</Option>
+    <Option>noborder</Option>
+    <Option>notitle</Option>
+    <Option>sticky</Option>
+</Group>
+
+   <Group>
+      <Name>xosview</Name>
+      <Option>layer:above</Option>
+      <Option>border</Option>
+
+   </Group>
+   <Group>
+      <Name>lxtask</Name>
+      <Option>layer:above</Option>
+   </Group>
+   <Group>
+      <Name>mpv</Name>
+      <Option>layer:above</Option>
+   </Group>
+   <Group>
+      <Name>vlc</Name>
+      <Option>layer:above</Option>
+   </Group>
+   <Group>
+      <Name>xterm -hold -e htop</Name>
+      <Option>maximized</Option>
+   </Group>
+
+ <!-- <Tray  autohide="off" layer="above" layout="horizontal" valign="top" halign="left" height="20"> -->
+<Tray valign="top" layer="above" halign="left" height="20" autohide="top">
+
+ 
+     <TrayButton label="? Run" popup="Spustit prikaz">exec:gmrun | echo "Spust" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton label="!Proc" popup="Vsechny procesy">exec:sudo lxtask | echo "Procesy" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton label="$Term" popup="Terminal">exec:evilvte | echo "Terminal" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton label=☣Sys" popup="System:cpu,ram,disk,swap,sit,page,baterie">exec:xosview | echo "Informace o systemu" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton label="⌂Files" popup="Spravce souboru">exec:pcmanfm | echo "Soubory" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton label="✌W"  popup="Internetovy prohlizec Palemoon  pres firejail sandbox">exec:firejail --noprofile ~/programy/palemoon/palemoon &amp; echo "Palemoon" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton label="✌Wp"  popup="Internetovy prohlizec privatni Palemoon pres firejail sandbox">exec:firejail --noprofile ~/programy/palemoon/palemoon -private-window &amp; echo "Palemoon privatni mod" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton label="✉Email" popup="Emailovy klient   pres firejail sandbox">exec:firejail --noprofile sylpheed &amp; echo "Email" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> 
+<TrayButton label="✌W2"  popup="Internetovy prohlizec Qtweb">exec:~/programy/./QtWeb | echo "Qtweb" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+<!--     <TrayButton label="W2" popup="Internetovy prohlizec Qtweb">exec:~/programy/./QtWeb | echo "Qtweb" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> -->
+<TrayButton label="✌W3" popup="Internetovy prohlizec Netsurf">exec:netsurf | echo "Netsurf" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+ <!--     <TrayButton label="W4"   popup="Internetovy prohlizec Google chrome">exec:google-chrome</TrayButton>  -->
+<TrayButton label="✄YTB" popup="(youtube) V internetovem prohlizeci zkopiruj url online videa a spust video">exec:urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "youtube-dl 'ytsearch:$(xsel --clipboard)' -f 43,243,134,18 --output - | mpv -" #přehraje video z youtube skopirovane do schránky, tedy "http://....." | echo "Youtube video" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+<!-- <TrayButton label="✄YTB" popup="(youtube) V internetovem prohlizeci zkopiruj url online videa a spust video">exec:urxvt -geometry 80x20+60+150 -title Video_online -hold -e bash -c "mpv '$(xsel --clipboard)' --fs --ontop --initial-audio-sync --slang=cs --alang=cs  --hwdec-codecs=h264,mpeg2video" #přehraje video z youtube skopirovane do schránky, tedy "http://....." | echo "Youtube video" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> -->
+     <TrayButton label="✄Vid" popup="V internetovem prohlizeci zkopiruj url online videa a spust video">exec:urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "vlc --video-on-top --loop '$(xsel --clipboard)' # --fullscreen" #přehraje video z webu skopirovane do schránky, tedy "http://....." | echo "Video online" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton popup="V internetovem prohlizeci zkopiruj url online videa a spust hudbu" label="✄Zvuk">exec:vlc --no-video $(xsel --clipboard) #přehraje video ze schránky | echo "Youtube jen zvuk" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+<!--     <TrayButton popup="V internetovem prohlizeci zkopiruj url online videa a spust hudbu" label="✄Zvuk">exec:urxvt -geometry 80x20+60+150 -title Jen_zvuk_z_Youtube -hold -e bash -c "mpv --no-video --ao=alsa --save-position-on-quit $(xsel --clipboard)" #přehraje video ze schránky | echo "Youtube jen zvuk" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> ->
+     <TrayButton popup="V internetovem prohlizeci zkopiruj url online videa a spust =prevedede se na mp3 a ulozi do ~/Hudba" label="✄Mp3">exec:urxvt -geometry 80x20+60+150 -title Online_do_mp3 -hold -e bash -c "mkdir ~/Hudba; cd ~/Hudba; youtube-dl --no-playlist --extract-audio --audio-format mp3 $(xsel --clipboard)" #prevede hudbu z youtube do mp3 a ulozi do adresare ~/Hudba | echo "Převede youtube do mp3" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+<!-- <TrayButton popup="Spusti TV online " label="☂TV">exec:vlc --playlist-autostart --loop --playlist-tree https://gist.github.com/bedjan/92f06608c30099c8215e7ce58db204d0/raw/037f26c1c2fbc44399055a22e4d50f41abc8bff8/tv_online.m3u | echo "Spusti TV online  playlist" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> -->
+<TrayButton popup="V internetovem prohlizeci zkopiruj url online videa a spust stahovani videa do adresare Videa" label="✄Vid-s">exec:mkdir Videa;cd Videa;urxvt -geometry 80x20+60+150 -title Video_stahovani -hold -e bash -c "youtube-dl $(xsel --clipboard)" #stahne video ze schránky | echo "Stahuji video" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+<TrayButton popup="Spusti playlist Radia " label="☂Radia">exec:vlc --playlist-autostart --loop --playlist-tree https://gist.githubusercontent.com/bedjan/c3332ced0d80bed12a0d01cc068ab07e/raw/a8292c93760e662420ea0ed62825584b249594a7/radia_online.m3u | echo "Radia vsechna playlist" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+<TrayButton popup="Spusti playlist DI.FM " label="☂DI.FM">exec:vlc --playlist-autostart --loop --playlist-tree https://gist.githubusercontent.com/sim642/4f73e3e145fd1eac8c39/raw/43dbe82623404c0f549a7391b5a618f5fd89f4dc/DI.m3u | echo "Radia DI.FM playlist" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton popup="Spusti nahravani radia Eurodance" label="♒E_n">exec:xterm -geometry 80x20-30+30 -title Eurodance_nahravani -e "streamripper http://pub1.diforfree.org:8000/di_classiceurodance_hi"</TrayButton>
+     <TrayButton popup="Spusti nahravani radia Epic_trance" label="♒T_n">exec:xterm -geometry 80x20-30-30 -title Epic_trance_nahravani -e "streamripper http://pub1.diforfree.org:8000/di_epictrance_hi"</TrayButton>       
+     <TrayButton label="½Calc" popup="Spusti kalkulacku">exec:qalculate #xcalc</TrayButton >
+<TrayButton popup="devices/display.png"  label="✍Dat" popup="Spusti program Datovka">exec:datovka</TrayButton>
+     <TrayButton label="∞UP" popup="Spusti upgrade debian systemu - bez potvrzovani ">exec:xterm -title system_update -hold -e bash -c "echo youtube-dl_upgrade;sudo -H pip install --upgrade youtube-dl;sudo apt-get update; wait;sudo apt-get dist-upgrade -y;wait;echo !!!_upgrade_youtube_dl_mpv_!!!!;sudo apt-get -t jessie-backports install mpv -y"</TrayButton >
+<TrayButton label="INFO" popup="Info o ovladani debian systemu">exec:urxvt -title Stahuji_soubor_jwm.txt +hold -e wget -c -O jwm.txt --progress=dot https://gist.githubusercontent.com/bedjan/925c9d022c30ea027380e937eab7e21b/raw/69bfe4f2fa17d42cf59a8c244934015161dd963b/jwm.txt &amp;&amp; xterm  -geometry 800x600-0-0  -title Info_o_ovladani_debian_systemu -hold -e bash -c "cat jwm.txt"</TrayButton >
+<Spacer width="5"/>
+<!-- <Swallow name="space" width="200">space</Swallow> -->
+
+  </Tray>
+
+
+  <Tray valign="bottom"  layer="above"  halign="left" height="20" autohide="off">
+  <TrayButton label="✔ Start"  popup="Start - vyber programu na spusteni | v menu Debian= zde najdes vsechny nainstalovane programy">root:1</TrayButton>
+  <TrayButton label="☒ "  popup="Zobrazit plochu" >showdesktop</TrayButton>
+<Pager labeled="true"/>
+<TrayButton label="☠ "  popup="Ukončit nasilne zaseklou aplikaci" >exec:xkill</TrayButton>
+     <TaskList/>
+
+<!-- <TrayButton label="|" popup="Zamknout PC | zadat heslo pro odemknuti">exec:slock</TrayButton> -->
+<!-- <TrayButton label="|"  popup="Wifi zap/vyp | zadat heslo pro odemknuti">exec:sudo modprobe -r b43 || sudo modprobe b43 || sudo ifconfig wlan0 up || sudo wicd-gtk #spusti moduly k wifi, wifi a wicd-gtk</TrayButton> -->
+
+<!--  <TrayButton  label="|" popup="Status baterie v ntb pres program xmessage">exec:xmessage  -timeout 10 "$(acpi -i -b)" #ukaze status baterie v ntb pres program xmessage</TrayButton> -->
+
+     <TrayButton label="▼"  popup="Hlasitost snizi">exec:amixer set Master 3%- unmute | echo "Snizuju hlasitost = $(amixer get Master | tail -1 | awk '{print$5}')" | osd_cat -d 1 -s 1 -A center -l 1 -p bottom -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton label="▲"  popup="Hlasitost zvysi">exec:amixer set Master 3%+ unmute | echo "Zvysuju hlasitost = $(amixer get Master | tail -1 | awk '{print$5}')" | osd_cat -d 1 -s 1 -A center -l 1 -p top -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton label="✘" popup="Hlasitost vypne/zapne">exec:amixer set Master toggle;STATUS=`amixer get Master | egrep 'Left.*?\[o' | egrep -o '\[o.+\]'  | tr -d "[]"`; if  [ "$STATUS" = "on" ]; then $(echo "Hlasitost zapnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = "off" ] ;then $(echo "Hlasitost vypnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); fi #vypne usporu energie DPMS - switch zapne/vypne </TrayButton>
+<TrayButton label="♪" popup="Nastaveni hlasitosti">exec:qasmixer &amp;&amp; sudo alsactl store #xterm -title Zvuk -e "alsamixer" #qasmixer</TrayButton>
+<TrayButton label="♻"  popup="Vypne monitor za 5s">exec:sleep 5 | echo "Monitor se za 5 s vypne" | osd_cat -d 1 -s 1 -A left -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'; xset dpms force off #vypne monitor za 5s</TrayButton>
+<TrayButton label="ϟ"  popup="DPMS zapne/vypne">exec:STATUS=`xset -q | grep -e 'DPMS is'| cut -c 10-17`; if  [ "$STATUS" = " Disable" ]]; then $(xset s on +dpms; echo "Zapinam DPMS ... setrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = " Enabled" ]] ;then $(xset s on -dpms ;echo "Vypinam DPMS ...nesetrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1');  fi #vypne usporu energie DPMS - switch zapne/vypne </TrayButton>
+ 
+<!-- <Swallow name="xload" width="44">
+         xload -nolabel -bg black -fg #000000 -hl black
+      </Swallow> 
+-->
+
+<!-- <Clock  width="50" format="%H:%M %a">exec:xterm -geometry 150x36-0-0 -title Kalendar_cely_rok -hold -e ncal -M -y | echo Kalendar_cely_rok | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Clock> -->
+<Dock/>
+<Clock format="%H:%M %a">exec:xterm -geometry 100x36-0-0 -title Kalendar_cely_rok -hold -e "ncal -M -y" | echo Kalendar_cely_rok | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Clock>
+<Spacer width="5"/>
+       </Tray>
+
+<!-- <Font>-*-*-*-*-*-*-6-*-*-*-*-*-*-*</Font> -->
+<!-- evil #000000 glow -->
+
+
+<!-- <Font>-*-nimbus-*-*-*-*-6-*-*-*-*-*-*-*</Font> --> -->
+
+<WindowStyle>
+<Font antialias="false">traditional</Font>
+<Width>4</Width>
+<Height>20</Height>
+
+<Active>
+<!-- 
+<Text>cyan</Text>
+<Title>darkcyan:grey13</Title>
+<Outline>cyan</Outline>
+ -->
+</Active>
+
+<!-- 
+<Inactive>
+<Text>white</Text>
+<Title>cyan:grey0</Title>
+<Outline>darkcyan</Outline>
+</Inactive>
+ -->
+
+</WindowStyle>
+
+<TaskListStyle>
+<Font antialias="false">traditional</Font>
+<!-- 
+<ActiveForeground>cyan</ActiveForeground>
+<ActiveBackground>darkcyan:grey13</ActiveBackground>
+ -->
+<Foreground>white</Foreground>
+<Background>grey:grey13</Background>
+</TaskListStyle>
+
+<!-- Additional TrayStyle attribute: insert -->
+
+<TrayStyle>
+<Font antialias="false">traditional</Font>
+<Background>grey13</Background>
+<Foreground>cyan</Foreground>
+</TrayStyle>
+
+<PagerStyle>
+<Outline>cyan</Outline>
+<Foreground>black</Foreground>
+<Background>white</Background>
+<!-- 
+<ActiveForeground>cyan</ActiveForeground>
+<ActiveBackground>darkcyan:grey13</ActiveBackground>
+ -->
+</PagerStyle>
+
+<MenuStyle>
+<Font antialias="false">traditional</Font>
+<Foreground>white</Foreground>
+<Background>grey0</Background>
+<!-- 
+<ActiveForeground>cyan</ActiveForeground>
+<ActiveBackground>darkcyan:grey13</ActiveBackground>
+ -->
+</MenuStyle>
+
+<PopupStyle>
+<Font antialias="false">traditional</Font>
+<Outline>grey22</Outline>
+<Foreground>grey0</Foreground>
+<Background>cyan</Background>
+</PopupStyle>
+
+<!--
+<ButtonClose>~/.icons/xbm2/close.xbm</ButtonClose>
+   <ButtonMax>~/.icons/xbm2/max.xbm</ButtonMax>
+   <ButtonMaxActive>~/.icons/xbm2/maxact.xbm</ButtonMaxActive>
+   <ButtonMin>~/.icons/xbm2/min.xbm</ButtonMin>
+-->
+<!--
+   <IconPath>
+      $HOME/.icons/Windows10Icons
+   </IconPath>
+
+-->
+
+  <Desktops count="2" width="2" height="1">
+<!--   <Background type="image">/usr/share/wallpapers/Grass/contents/images/1280x1024.jpg</Background> -->
+       <Desktop><Background type="solid">#000000</Background></Desktop>
+       <Desktop><Background type="solid">#000000</Background></Desktop>
+  </Desktops>
+
+  <DoubleClickSpeed>400</DoubleClickSpeed>
+  <DoubleClickDelta>2</DoubleClickDelta>
+  <FocusModel>click</FocusModel>
+  <SnapMode distance="10">border</SnapMode>
+  <MoveMode>outline</MoveMode>
+  <ResizeMode>outline</ResizeMode>
+
+  <Key key="Up">up</Key>
+  <Key key="Down">down</Key>
+  <Key key="Right">right</Key>
+  <Key key="Left">left</Key>
+  <Key key="Return">select</Key>
+  <Key key="Escape">escape</Key>
+
+  <Key mask="A" key="F2">exec:gmrun</Key>
+<Key mask="" key="Print">exec:mkdir screenshot;scrot screenshot/$(date +%F_%H.%M.%S).png ;echo "Screenshot vyfocen" | osd_cat -d 1 -s 1 -A left -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Key>
+<!--  <Key mask="" key="Print">exec:scrot screenshot/$(date +%F_%H.%M.%S).png # xmessage -geometry 200x100+60+150 -timeout 1 "Screenshot vyfocen"</Key> -->
+     <Key mask="4" key="Down">exec:amixer set Master 3%- unmute | echo "Snizuju hlasitost = $(amixer get Master | tail -1 | awk '{print$5}')" | osd_cat -d 1 -s 1 -A center -l 1 -p bottom -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Key>
+     <Key mask="4" key="Up">exec:amixer set Master 3%+ unmute | echo "Zvysuju hlasitost = $(amixer get Master | tail -1 | awk '{print$5}')" | osd_cat -d 1 -s 1 -A center -l 1 -p top -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Key>
+     <Key mask="4" key="End">exec:amixer set Master toggle;STATUS=`amixer get Master | egrep 'Left.*?\[o' | egrep -o '\[o.+\]'  | tr -d "[]"`; if  [ "$STATUS" = "on" ]; then $(echo "Hlasitost zapnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = "off" ] ;then $(echo "Hlasitost vypnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1');  fi #vypne usporu energie DPMS - switch zapne/vypne</Key>
+
+
+<!-- #DEBIAN unused -->
+<Key mask="A" key="Tab">nextstacked</Key>
+-->
+<!-- #DEBIAN add -->
+<Key mask="A" key="Tab">next</Key>
+<Key mask="A" key="F4">close</Key>
+<Key mask="C" key="F4">close</Key>
+<Key mask="C" key="#">desktop#</Key>
+<Key mask="C" key="F1">root:1</Key>
+<Key mask="C" key="F2">window</Key>
+<Key mask="4" key="j">exec:xterm -hold -e "jwm -p"</Key>
+<Key mask="4" key="r">exec:jwm -restart</Key>
+<Key mask="4" key="m">exec:sleep 5 | echo "Monitor se za 5 s vypne" | osd_cat -d 1 -s 1 -A left -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'; xset dpms force off #vypne monitor za 5s</Key>
+<Key mask="4" key="d">exec:STATUS=`xset -q | grep -e 'DPMS is'| cut -c 10-17`; if  [ "$STATUS" = " Disable" ]]; then $(xset s on +dpms; echo "Zapinam DPMS ...setrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = " Enabled" ]] ;then $(xset s on -dpms ;echo "Vypinam DPMS ...nesetrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1');  fi #vypne usporu energie DPMS - switch zapne/vypne</Key>
+<Key mask="CA" key="Delete">exec:jwm -exit</Key>
+<Key mask="4" key="a">exec:wmctrl -r :ACTIVE: -b toggle,above</Key>
+</JWM> 
