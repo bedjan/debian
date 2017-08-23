@@ -1,0 +1,4 @@
+#!/bin/bash
+#vypne monitor za 5s
+#leafpad ~/skr/monitor
+sleep 5 | echo "Monitor se za 5 s vypne" | osd_cat -d 1 -s 1 -A left -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1' && xset dpms force of
