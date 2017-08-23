@@ -1,0 +1,7 @@
+#!/bin/bash
+#přehraje video z webu skopirovane do schránky, tedy "http://....."
+#leafpad ~/skr/mpv
+urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv --ytdl '$(xsel --clipboard)' --fs --ontop --initial-audio-sync"
+#; wait && pkill urxvt
+#xterm -title Video_online -e "mpv `youtube-dl $(xsel --clipboard) -f 36  -g`"
+#--vo=xv 
