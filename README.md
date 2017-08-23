@@ -1,0 +1,1 @@
+# debian nastaveni a skripty
