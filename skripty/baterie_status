@@ -1,0 +1,17 @@
+#!/bin/bash
+#ukaze status baterie v ntb pres program xmessage
+battery_level=`acpi -b | grep -P -o '[0-9]+(?=%)'`
+if [ $battery_level -eq 98 ]
+then
+    xmessage -timeout 2 "Baterie plne nabita/_Uroven baterie je ${battery_level}%!"
+if [ $battery_level -le 10 ]
+then
+    xmessage -timeout 2 "Baterie vybita/_Uroven baterie je ${battery_level}%!"
+else
+echo "Baterie je nabita"
+fi
+fi
+#xmessage  -timeout 10 "$(acpi -i -b)"
+#zvuky
+# & mplayer /usr/lib/libreoffice/share/gallery/sounds/horse.wav
+# & mplayer /usr/lib/libreoffice/share/gallery/sounds/beam.wav
