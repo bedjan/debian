@@ -1,0 +1,203 @@
+# conky horizontal bottom - special pro JWM
+# To use #! in a conky use: ${exec echo '#!'}
+# by Sector11 - 14 Aug 2011
+# killall conky && conky -c ~/Conky/OB_1-liner-bot &
+# WARNING: Change name and passwords on e-mail code if posting!!
+
+###  Begin Window Settings  ##################################################
+# Create own window instead of using desktop (required in nautilus)
+background yes
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,skip_taskbar,skip_pager,sticky
+double_buffer yes
+draw_outline no 
+draw_borders no 
+draw_graph_borders yes 
+stippled_borders 0
+border_margin 0 
+border_width 0
+
+# Use the Xdbe extension? (eliminates flicker)
+# It is highly recommended to use own window with this one
+# so double buffer won't be so big.
+double_buffer yes
+
+### ARGB can be used for real transparency
+### NOTE that a composite manager is required for real transparency.
+### This option will not work as desired (in most cases) in conjunction with
+### 'own_window_type override'
+own_window_argb_visual yes
+
+### When ARGB visuals are enabled, this use this to modify the alpha value
+### Valid range is 0-255, where 0 is 0% opacity, and 255 is 100% opacity.
+# # own_window_argb_value 0
+
+#minimum_size 1013 14     ## width, height
+#maximum_width 1013       ## width, usually a good idea to equal minimum width
+
+
+
+alignment bottom_left
+###################################################  End Window Settings  ###
+###  Font Settings  ##########################################################
+# Use Xft (anti-aliased font and stuff)
+use_xft yes
+xftfont Sans:size=10
+#xftfont dejavu sans:size=11
+# xftfont ProggySmallTT:size=12
+# xftfont ProggyCleanTT:size=12
+# xftfont ProggySquareTT:size=12
+# xftfont Unispace Regular:size=8
+#xftfont Anonymous Pro:size=9
+
+# Alpha of Xft font. Must be a value at or between 1 and 0 ###
+xftalpha 0
+# Force UTF8? requires XFT ###
+override_utf8_locale yes
+
+draw_shades no
+default_shade_color black
+
+draw_outline no # amplifies text if yes
+default_outline_color black
+
+uppercase no
+######################################################  End Font Settings  ###
+###  Color Settings  #########################################################
+default_shade_color grey
+default_outline_color black
+
+default_color DCDCDC #Gainsboro
+color0 DAA520 #Goldenrod  FFFFF0 #Ivory
+color1 778899 #LightSlateGrey
+color2 FF8C00 #Darkorange
+color3 7FFF00 #Chartreuse
+color4 FFA07A #LightSalmon
+color5 FFDEAD #NavajoWhite
+color6 00BFFF #DeepSkyBlue
+color7 00FFFF #Cyan 48D1CC #MediumTurquoise
+color8 FFFF00 #Yellow
+color9 FF0000 #Red
+#####################################################  End Color Settings  ###
+###  Borders Section  ########################################################
+draw_borders no
+# Stippled borders?
+stippled_borders 0
+# border margins
+border_inner_margin 0
+border_outer_margin 0
+# border width
+border_width 0
+# graph borders
+draw_graph_borders no
+#####################################################  End Borders Secton  ###
+###  Miscellaneous Section  ##################################################
+
+# Boolean value, if true, Conky will be forked to background when started.
+background no
+
+# Adds spaces around certain objects to stop them from moving other things
+# around, this only helps if you are using a mono font
+# Options: right, left or none
+use_spacer none
+
+# Default and Minimum size is 256 - needs more for single commands that
+# "call" a lot of text IE: bash scripts
+text_buffer_size 1028
+
+# Subtract (file system) buffers from used memory?
+no_buffers yes
+
+# change GiB to G and MiB to M
+short_units yes
+
+# Like it says, ot pads the decimals on % values
+# doesn't seem to work since v1.7.1
+pad_percents 2
+
+
+# The all important - How often conky refreshes.
+# If you have a "Crey" try: 0.2 - smokin' - but watch the CPU useage go UP!
+update_interval 1
+#Uptime ${goto 933}|  ${color}${uptime_short}${voffset -8}
+
+gap_x 5 # left-right
+gap_y 20 # up-down
+
+TEXT
+${color3}VIDEO: ${color}
+${color2}Leve tlacitko mysi zmacknout ${color}= pres celou plochu/zmenseno
+${color2}Prave tlacitko mysi zmacknout ${color}= hrat/pauznout
+${color2}Mezernik ${color}= hrat/pauznout
+${color2}Kolecko mysi zmacknout ${color}= ztlumeno/neztlumeno
+${color2}▲ ${color}= vyssi hlasitost
+${color2}▼ ${color}= nizsi hlasitost
+${color2}End ${color}= ztlumeno/neztlumeno
+${color3}KLAVESOVE ZKRATKY: ${color}
+${color2}WIN ▲ ${color}= vyssi hlasitost
+${color2}WIN ▼ ${color}= nizsi hlasitost
+${color2}WIN End ${color}= ztlumeno/neztlumeno
+${color2}ALT F4 ${color}= zavre program
+${color2}CTRL F4 ${color}= zavre program
+${color2}ALT F2 ${color}= spustit program
+${color2}ALT Tab ${color}= dalsi aplikace
+${color2}WIN m ${color}= ♻ Vypne monitor za 5s 
+${color2}WIN d ${color}= ϟ DPMS zapne/vypne usinani monitoru
+${color2}WIN a ${color}= okno aplikace nad ostatnimi 
+${color2}☠ ${color}= ukonci zaseklou aplikaci ( staci na ni ukazat )
+${color2}WIN j ${color}= kompatibilni JWM?
+${color2}WIN r ${color}= restart JWM?
+${color2}CTRL ALT Delete ${color}= ukonceni JWM
+${color3}HORNI LISTA: ${color}
+${color2}? Run ${color}= Spustit jakykoliv prikaz, pres sipky se vyvola historie
+${color2}!Proc ${color}= Vsechny procesy, lze ukoncovat pravym tlacitkem
+${color2}$Term ${color}= Terminal, pres sipky se vyvola historie
+${color2}☣Sys ${color}= System:zatez, procesor,paměť,disk,swap,stranky,sit,baterie
+${color2}⌂Files ${color}= Spravce souboru
+${color2}✌W ${color}= Internetovy prohlizec Palemoon, podobny jako Firefox
+${color2}✌Wp ${color}= Internetovy prohlizec Palemoon, privatni mod, podobny jako Firefox
+${color2}✉Email ${color}= Emailovy klient 
+${color2}✌W2 ${color}= Internetovy prohlizec Qtweb
+${color2}✌W3 ${color}= Internetovy prohlizec Netsurf - odlehceny
+${color2}✄YTB ${color}= V internetovem prohlizeci zkopiruj url ; spusti jen youtube video 
+${color2}✄Vid ${color}= V internetovem prohlizeci zkopiruj url ; spusti video 
+${color2}✄Zvuk ${color}= V internetovem prohlizeci zkopiruj url;přehraje zvuk z youtube videa 
+${color2}✄Mp3 ${color}= V internetovem prohlizeci zkopiruj url; prevede hudbu z youtube do mp3 a ulozi do adresare ~/Hudba
+${color2}☂Radia ${color}= spusti playlist radii
+${color2}☂DI.FM ${color}= spusti playlist radii DI.FM
+${color2}♒E_n ${color}= Spusti Eurodance_nahravani
+${color2}♒T_n ${color}= Spusti Epic_trance_nahravani       
+${color2}½Calc ${color}= Spusti kalkulacku
+${color2}✍Dat ${color}= Spusti program Datovka
+${color2}∞UP ${color}= Spusti upgrade debian systemu - bez potvrzovani
+${color3}DOLNI LISTA: ${color}
+${color2}✔ Start ${color}${color}= Vyber programu na spusteni "v menu Debian -> zde najdes vsechny nainstalovane programy" 
+${color2}☒ ${color}= Zobrazit plochu  
+${color2}"Prepinani ploch" ${color}= prepina pracovni plochy mezi 1, nebo 2 
+${color2}☠ ${color}= Ukončit nasilne zaseklou aplikaci 
+${color2}▼ ${color}= Hlasitost snizi 
+${color2}▲ ${color}= Hlasitost zvysi 
+${color2}✘ ${color}= Hlasitost vypne/zapne 
+${color2}♪ ${color}= Nastaveni hlasitosti 
+${color2}♻ ${color}= Vypne monitor za 5s 
+${color2}ϟ ${color}= DPMS zapne/vypne usinani monitoru 
+${color2}"Skryte aplikace" ${color}= nektere spustene aplikace v liste 
+${color2}"Hodiny" ${color}= Kalendar cely rok
+${color3}SYSTEM: ${color}\
+  PLOCHA ${color3}${desktop_name}${color}\
+ | LOAD ${color2}${loadavg}${color}\
+ | CPU ${color2}${cpu cpu0}${color}\
+ | RAM_FREE ${color2}${memfree}${color}\
+ | SWAP_FREE ${color2}${swapfree}${color}\
+ | ROOT ${color2}${fs_free_perc /}%${color}\
+ | HOME ${color2}${fs_free_perc /home}%${color}\
+ | UPTIME ${color2}${uptime_short}${color}\
+ | T_I/O ${color2}${top_io name 1}${color}\
+ | T_TIME ${color2}${top_time name 1}${color}
+ | T_CPU ${color2}${top name 1} | ${top cpu 1}${color}\
+ | T_RAM ${color2}${top_mem name 1} | ${top_mem mem_res 1} ${color}\
+
+
+
