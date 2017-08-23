@@ -1,0 +1,10 @@
+#!/bin/bash
+#vsechny nainstalovane balicky  z dpkg -l v souboru dpkg
+#leafpad ~/skr/dpkg
+dpkg -l>1
+dpkg -l>1
+cat 1 | awk '{ print $2 }'>2
+cat 2 | tr -s '\n' ' '>3
+mv 3 dpkg
+echo "vypisuji sechny nainstalovane balicky  z dpkg -l v souboru dpkg"
+cat dpkg
