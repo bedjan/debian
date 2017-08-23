@@ -1,0 +1,24 @@
+# https://debgen.simplylinux.ch/ # Debian Sources List Generator
+
+# deb cdrom:[Debian GNU/Linux 8.8.0 _Jessie_ - Official i386 NETINST Binary-1 20170506-12:50]/ jessie main
+
+# deb cdrom:[Debian GNU/Linux 8.8.0 _Jessie_ - Official i386 NETINST Binary-1 20170506-12:50]/ jessie main
+
+deb http://ftp2.de.debian.org/debian/ jessie main contrib non-free
+deb-src http://ftp2.de.debian.org/debian/ jessie main contrib non-free
+
+deb http://security.debian.org/ jessie/updates main contrib non-free
+deb-src http://security.debian.org/ jessie/updates main contrib non-free
+
+# jessie-updates, previously known as 'volatile'
+deb http://ftp2.de.debian.org/debian/ jessie-updates main contrib non-free
+deb-src http://ftp2.de.debian.org/debian/ jessie-updates main contrib non-free
+
+#Backports
+deb http://ftp.debian.org/debian jessie-backports main contrib non-free
+
+#Multimedia
+deb http://www.deb-multimedia.org jessie main non-free
+
+#datovka
+deb http://ppa.launchpad.net/cz.nic-labs/datovka/ubuntu trusty main
