@@ -41,7 +41,7 @@ výpis zařízení přes USB
 </p>
 
 <p>
-$ lsusb -tv
+<code>$ lsusb -tv</code>
 </p>
 
 <p>
@@ -49,7 +49,7 @@ vypnutí systému hned
 </p>
 
 <p>
-# shutdown -h now
+<code># shutdown -h now</code>
 </p>
 
 <p>
@@ -57,7 +57,7 @@ restart systému hned
 </p>
 
 <p>
-# shutdown -r now
+<code># shutdown -r now</code>
 </p>
 
 <p>
@@ -65,7 +65,7 @@ vypnutí systému v 16:30
 </p>
 
 <p>
-# shutdown -h 16:30 &amp;amp;
+<code># shutdown -h 16:30 &amp;amp;</code>
 </p>
 
 <p>
@@ -73,7 +73,7 @@ zrušení vypnutí
 </p>
 
 <p>
-# shutdown -c
+<code># shutdown -c</code>
 </p>
 
 <p>
@@ -81,11 +81,11 @@ přepnutí klávesnice v Xorg
 </p>
 
 <p>
-$ setxkbmap -model pc105 -layout en_US -variant basic  (anglická)
+<code>$ setxkbmap -model pc105 -layout en_US -variant basic</code>  (anglická)
 </p>
 
 <p>
-$ setxkbmap -model pc105 -layout cz_qwerty -variant basic (česká)
+<code>$ setxkbmap -model pc105 -layout cz_qwerty -variant basic</code> (česká)
 </p>
 
 <p>
@@ -93,7 +93,7 @@ zobrazí cestu k binárce ??
 </p>
 
 <p>
-$ whereis ??
+<code>$ whereis ??</code>
 </p>
 
 <p>
@@ -101,7 +101,7 @@ plná cesta k binárce ??
 </p>
 
 <p>
-$ which ??
+<code>$ which ??</code>
 </p>
 
 <p>
@@ -109,7 +109,7 @@ cesta k aktuálnímu adresáři
 </p>
 
 <p>
-$ pwd
+<code>$ pwd</code>
 </p>
 
 <p>
@@ -117,7 +117,7 @@ výpis adresáře do stromu
 </p>
 
 <p>
-$ tree
+<code>$ tree</code>
 </p>
 
 <p>
@@ -125,7 +125,7 @@ smazání souboru
 </p>
 
 <p>
-$ rm -f
+<code>$ rm -f</code>
 </p>
 
 <p>
@@ -133,7 +133,7 @@ smazání adresáře – rekurzivně =se všemi soubory v něm
 </p>
 
 <p>
-$ rm -rf
+<code>$ rm -rf</code>
 </p>
 
 <p>
@@ -141,7 +141,7 @@ přesunutí se do adresáře ??
 </p>
 
 <p>
-cd ??
+<code>cd ??</code>
 </p>
 
 <p>
@@ -149,7 +149,7 @@ přesunutí se do adresáře uživatele
 </p>
 
 <p>
-cd
+<code>cd</code>
 </p>
 
 <p>
@@ -157,7 +157,7 @@ vrátit se v adresářové struktuře o pozici níž
 </p>
 
 <p>
-$ cd ..
+<code>$ cd ..</code>
 </p>
 
 <p>
@@ -165,7 +165,7 @@ vytvoření adresáře ??
 </p>
 
 <p>
-$ mkdir ??
+<code>$ mkdir ??</code>
 </p>
 
 <p>
@@ -173,11 +173,11 @@ kopie souboru, nebo adresáře ??
 </p>
 
 <p>
-$ cp ??
+<code>$ cp ??</code>
 </p>
 
 <p>
-(od/ kam) 1) ( soubory = $ cp soubor1 soubor2 ) 2) ( všechny soubory z adresáře $ cp ??/* ??
+(od/ kam) 1) ( soubory = <code>$ cp soubor1 soubor2</code> ) 2) ( všechny soubory z adresáře <code>$ cp ??/* ??</code>
 </p>
 
 <p>
@@ -185,7 +185,7 @@ vytvoření souboru ??
 </p>
 
 <p>
-$ touch ??
+<code>$ touch ??</code>
 </p>
 
 <p>
@@ -193,7 +193,7 @@ přejmenování, nebo přesun souboru nebo adresáře ??
 </p>
 
 <p>
-$ mv ??
+<code>$ mv ??</code>
 </p>
 
 <p>
@@ -201,7 +201,7 @@ spustitelný soubor ??
 </p>
 
 <p>
-$ chmod +x  ??
+</code>$ chmod +x  ??</code>
 </p>
 
 <p>
@@ -209,7 +209,7 @@ změna práv soub a adresáře
 </p>
 
 <p>
-$ chmod 777
+<code>$ chmod 777</code>
 </p>
 
 <p>
@@ -217,7 +217,7 @@ výpis souborů adresáře
 </p>
 
 <p>
-$ ls -l
+<code>$ ls -l</code>
 </p>
 
 <p>
@@ -225,7 +225,7 @@ výpis souborů ( i skryté) adresáře
 </p>
 
 <p>
-$ ls -a
+<code>$ ls -a</code>
 </p>
 
 <p>
@@ -233,7 +233,7 @@ výpis souborů adresáře s čísly v názvu
 </p>
 
 <p>
-$ ls *[0-9]*
+<code>$ ls *[0-9]*</code>
 </p>
 
 <p>
@@ -241,7 +241,7 @@ výpis souborů adresáře s jejich právy
 </p>
 
 <p>
-$ ls -lh
+<code>$ ls -lh</code>
 </p>
 
 <p>
@@ -249,7 +249,7 @@ výpis souboru ??
 </p>
 
 <p>
-$ cat ??
+<code>$ cat ??</code>
 </p>
 
 <p>
@@ -257,7 +257,7 @@ interaktivní náhled na soubor ??
 </p>
 
 <p>
-$ less ?? (ruší se q)
+<code>$ less ??</code> (ruší se q)
 </p>
 
 <p>
@@ -265,7 +265,7 @@ interaktivní náhled na soubor ?? – postupně
 </p>
 
 <p>
-$ more ?? (ruší se q)
+<code>$ more ??</code> (ruší se q)
 </p>
 
 <p>
@@ -273,7 +273,7 @@ kódování znaků výpis v systému
 </p>
 
 <p>
-$ iconv -l
+<code>$ iconv -l</code>
 </p>
 
 <p>
@@ -281,7 +281,7 @@ převod kodování souboru
 </p>
 
 <p>
-$ iconv -f z_Encoding -t do_Encoding vstupní_soubor &amp;gt; výstupní_soubor
+<code>$ iconv -f z_Encoding -t do_Encoding vstupní_soubor &amp;gt; výstupní_soubor</code>
 </p>
 
 <p>
@@ -289,7 +289,7 @@ výpis připojených zařízení s velikostmi obsazení
 </p>
 
 <p>
-$ df -h
+<code>$ df -h</code>
 </p>
 
 <p>
@@ -297,7 +297,7 @@ vyhledání souborů s příponou??
 </p>
 
 <p>
-$ locate \*.??
+<code>$ locate \*.??</code>
 </p>
 
 <p>
