@@ -1,685 +1,347 @@
-                   
-<p>
-<em class="u"><strong>Command line</strong></em>
-</p>
+_**Command line**_
 
-<p>
-zdroj <a href="http://www.linuxguide.it/command_line/linux_commands_cz.html" class="urlextern" target="_blank" title="http://www.linuxguide.it/command_line/linux_commands_cz.html"  rel="nofollow">http://www.linuxguide.it/command_line/linux_commands_cz.html</a>
-</p>
+zdroj [http://www.linuxguide.it/command_line/linux_commands_cz.html](http://www.linuxguide.it/command_line/linux_commands_cz.html "http://www.linuxguide.it/command_line/linux_commands_cz.html")
 
-<p>
-zdroj 1-24 díl <a href="http://www.abclinuxu.cz/clanky/navody/unixove-nastroje-1-uvod-cat-head-tail" class="urlextern" target="_blank" title="http://www.abclinuxu.cz/clanky/navody/unixove-nastroje-1-uvod-cat-head-tail"  rel="nofollow">http://www.abclinuxu.cz/clanky/navody/unixove-nastroje-1-uvod-cat-head-tail</a>
-</p>
-<hr />
+zdroj 1-24 díl [http://www.abclinuxu.cz/clanky/navody/unixove-nastroje-1-uvod-cat-head-tail](http://www.abclinuxu.cz/clanky/navody/unixove-nastroje-1-uvod-cat-head-tail "http://www.abclinuxu.cz/clanky/navody/unixove-nastroje-1-uvod-cat-head-tail")
 
-<p>
+* * *
+
 znaky na klávesnici
-</p>
 
-<p>
-<code>@</code> =altgr+v,<code>|</code> = altgr+w, <code>~</code> =altgr+a,<code> $</code> = alt+č ,<code>$</code> = alt+X, <code>&amp;amp;</code> = alt+C, <code>~</code> = alt+A, <code>{}</code> = alt+BN,<code> []</code> = alt+ú a alt + ,  <code>\</code> = alt+Q
-</p>
+`@` =altgr+v,`|` = altgr+w, `~` =altgr+a, `$` = alt+č ,`$` = alt+X, `&amp;` = alt+C, `~` = alt+A, `{}` = alt+BN, `[]` = alt+ú a alt + , `\` = alt+Q
 
-<p>
 verze jádra
-</p>
 
-<p>
-<code>$ uname -r</code>
-</p>
+`$ uname -r`
 
-<p>
 výpis zařízení přes PCI
-</p>
 
-<p>
-<code>$ lspci -tv</code>
-</p>
+`$ lspci -tv`
 
-<p>
 výpis zařízení přes USB
-</p>
 
-<p>
-<code>$ lsusb -tv</code>
-</p>
+`$ lsusb -tv`
 
-<p>
 vypnutí systému hned
-</p>
 
-<p>
-<code># shutdown -h now</code>
-</p>
+`# shutdown -h now`
 
-<p>
 restart systému hned
-</p>
 
-<p>
-<code># shutdown -r now</code>
-</p>
+`# shutdown -r now`
 
-<p>
 vypnutí systému v 16:30
-</p>
 
-<p>
-<code># shutdown -h 16:30 &amp;amp;</code>
-</p>
+`# shutdown -h 16:30 &amp;`
 
-<p>
 zrušení vypnutí
-</p>
 
-<p>
-<code># shutdown -c</code>
-</p>
+`# shutdown -c`
 
-<p>
 přepnutí klávesnice v Xorg
-</p>
 
-<p>
-<code>$ setxkbmap -model pc105 -layout en_US -variant basic</code>  (anglická)
-</p>
+`$ setxkbmap -model pc105 -layout en_US -variant basic` (anglická)
 
-<p>
-<code>$ setxkbmap -model pc105 -layout cz_qwerty -variant basic</code> (česká)
-</p>
+`$ setxkbmap -model pc105 -layout cz_qwerty -variant basic` (česká)
 
-<p>
 zobrazí cestu k binárce ??
-</p>
 
-<p>
-<code>$ whereis ??</code>
-</p>
+`$ whereis ??`
 
-<p>
 plná cesta k binárce ??
-</p>
 
-<p>
-<code>$ which ??</code>
-</p>
+`$ which ??`
 
-<p>
 cesta k aktuálnímu adresáři
-</p>
 
-<p>
-<code>$ pwd</code>
-</p>
+`$ pwd`
 
-<p>
 výpis adresáře do stromu
-</p>
 
-<p>
-<code>$ tree</code>
-</p>
+`$ tree`
 
-<p>
 smazání souboru
-</p>
 
-<p>
-<code>$ rm -f</code>
-</p>
+`$ rm -f`
 
-<p>
 smazání adresáře – rekurzivně =se všemi soubory v něm
-</p>
 
-<p>
-<code>$ rm -rf</code>
-</p>
+`$ rm -rf`
 
-<p>
 přesunutí se do adresáře ??
-</p>
 
-<p>
-<code>cd ??</code>
-</p>
+`cd ??`
 
-<p>
 přesunutí se do adresáře uživatele
-</p>
 
-<p>
-<code>cd</code>
-</p>
+`cd`
 
-<p>
 vrátit se v adresářové struktuře o pozici níž
-</p>
 
-<p>
-<code>$ cd ..</code>
-</p>
+`$ cd ..`
 
-<p>
 vytvoření adresáře ??
-</p>
 
-<p>
-<code>$ mkdir ??</code>
-</p>
+`$ mkdir ??`
 
-<p>
 kopie souboru, nebo adresáře ??
-</p>
 
-<p>
-<code>$ cp ??</code>
-</p>
+`$ cp ??`
 
-<p>
-(od/ kam) 1) ( soubory = <code>$ cp soubor1 soubor2</code> ) 2) ( všechny soubory z adresáře <code>$ cp ??/* ??</code>
-</p>
+(od/ kam) 1) ( soubory = `$ cp soubor1 soubor2` ) 2) ( všechny soubory z adresáře `$ cp ??/* ??`
 
-<p>
 vytvoření souboru ??
-</p>
 
-<p>
-<code>$ touch ??</code>
-</p>
+`$ touch ??`
 
-<p>
 přejmenování, nebo přesun souboru nebo adresáře ??
-</p>
 
-<p>
-<code>$ mv ??</code>
-</p>
+`$ mv ??`
 
-<p>
 spustitelný soubor ??
-</p>
 
-<p>
-</code>$ chmod +x  ??</code>
-</p>
+$ chmod +x ??
 
-<p>
-změna práv soub a adresáře 
-</p>
+změna práv soub a adresáře
 
-<p>
-<code>$ chmod 777</code>
-</p>
+`$ chmod 777`
 
-<p>
 výpis souborů adresáře
-</p>
 
-<p>
-<code>$ ls -l</code>
-</p>
+`$ ls -l`
 
-<p>
 výpis souborů ( i skryté) adresáře
-</p>
 
-<p>
-<code>$ ls -a</code>
-</p>
+`$ ls -a`
 
-<p>
 výpis souborů adresáře s čísly v názvu
-</p>
 
-<p>
-<code>$ ls *[0-9]*</code>
-</p>
+`$ ls *[0-9]*`
 
-<p>
 výpis souborů adresáře s jejich právy
-</p>
 
-<p>
-<code>$ ls -lh</code>
-</p>
+`$ ls -lh`
 
-<p>
 výpis souboru ??
-</p>
 
-<p>
-<code>$ cat ??</code>
-</p>
+`$ cat ??`
 
-<p>
 interaktivní náhled na soubor ??
-</p>
 
-<p>
-<code>$ less ??</code> (ruší se q)
-</p>
+`$ less ??` (ruší se q)
 
-<p>
 interaktivní náhled na soubor ?? – postupně
-</p>
 
-<p>
-<code>$ more ??</code> (ruší se q)
-</p>
+`$ more ??` (ruší se q)
 
-<p>
 kódování znaků výpis v systému
-</p>
 
-<p>
-<code>$ iconv -l</code>
-</p>
+`$ iconv -l`
 
-<p>
 převod kodování souboru
-</p>
 
-<p>
-<code>$ iconv -f z_Encoding -t do_Encoding vstupní_soubor &amp;gt; výstupní_soubor</code>
-</p>
+`$ iconv -f z_Encoding -t do_Encoding vstupní_soubor &gt; výstupní_soubor`
 
-<p>
 výpis připojených zařízení s velikostmi obsazení
-</p>
 
-<p>
-<code>$ df -h</code>
-</p>
+`$ df -h`
 
-<p>
 vyhledání souborů s příponou??
-</p>
 
-<p>
-<code>$ locate \*.??</code>
-</p>
+`$ locate \*.??`
 
-<p>
 vyhledá soubory s příponou ‚.??‘ a upraví jim práva
-</p>
 
-<p>
-<code>find / -name *.?? -exec chmod 755 &#039;{}&#039; \;</code>
-</p>
+`find / -name *.?? -exec chmod 755 '{}' \;`
 
-<p>
 vytvoření nového uživatele ??
-</p>
 
-<p>
-<code>$ useradd ??</code>
-</p>
+`$ useradd ??`
 
-<p>
 smazání uživatele ??
-</p>
 
-<p>
-<code>$ userdel -r ??</code>
-</p>
+`$ userdel -r ??`
 
-<p>
 změna hesla
-</p>
 
-<p>
-<code>$ passwd</code>
-</p>
+`$ passwd`
 
-<p>
 změní vlastníka souboru
-</p>
 
-<p>
-<code>$ chown uživatel soubor</code>
-</p>
+`$ chown uživatel soubor`
 
-<p>
-změní vlastníka adresáře a všeho co obsahuje  
-</p>
+změní vlastníka adresáře a všeho co obsahuje
 
-<p>
-<code>$ chown -R uživatel_adresář</code>
-</p>
+`$ chown -R uživatel_adresář`
 
-<p>
 rozbalení tar archivu ??
-</p>
 
-<p>
-<code>$  tar -xvf ??.tar</code>
-</p>
+`$ tar -xvf ??.tar`
 
-<p>
 rozbalí komprimovaný bz2 soubor včetně tar archivu
-</p>
 
-<p>
-<code>$ tar -xvfj ??.tar.bz2</code>
-</p>
+`$ tar -xvfj ??.tar.bz2`
 
-<p>
 rozbalí rar archiv ??
-</p>
 
-<p>
-<code>$ unrar x ??.rar</code>
-</p>
+`$ unrar x ??.rar`
 
-<p>
 rozbalí zip archiv ??
-</p>
 
-<p>
-<code>$ unzip ??.zip</code>
-</p>
+`$ unzip ??.zip`
 
-<p>
-zobrazí obsah souboru počínaje první řádkou 
-</p>
+zobrazí obsah souboru počínaje první řádkou
 
-<p>
-<code>$ cat ??1</code>
-</p>
+`$ cat ??1`
 
-<p>
-zobrazí první dva řádky souboru  
-</p>
+zobrazí první dva řádky souboru
 
-<p>
-<code>$ head -2 ??1</code>
-</p>
+`$ head -2 ??1`
 
-<p>
 stejné jako předchozí, ale souborem je možno procházet i zpětně
-</p>
 
-<p>
-<code>$ less ??1</code>
-</p>
+`$ less ??1`
 
-<p>
-zobrazí soubor a mužní jeho procházení  
-</p>
+zobrazí soubor a mužní jeho procházení
 
-<p>
-<code>$ more ??1</code>
-</p>
+`$ more ??1`
 
-<p>
-zobrazí obsah souboru počínaje poslední řádkou  
-</p>
+zobrazí obsah souboru počínaje poslední řádkou
 
-<p>
-<code>$ tac ??1</code>
-</p>
+`$ tac ??1`
 
-<p>
-zobrazí poslední 2 řádky souboru  
-</p>
+zobrazí poslední 2 řádky souboru
 
-<p>
-<code>$ tail -2 ??1</code>
-</p>
+`$ tail -2 ??1`
 
-<p>
 zobrazuje v reálném čase řádky přidávané na konec souboru
-</p>
 
-<p>
-<code>$ tail -f /var/log/messages</code>
-</p>
+`$ tail -f /var/log/messages`
 
-<p>
 odstraní ze souboru example.txt všechny sudé řádky
-</p>
 
-<p>
-<code>$ cat example.txt | awk &#039;NR%2==1&#039;</code>
-</p>
+`$ cat example.txt | awk 'NR%2==1'`
 
-<p>
 zobrazí první sloupec řádku
-</p>
 
-<p>
-<code>$ echo a b c | awk &#039;{print $1}&#039;</code>
-</p>
+`$ echo a b c | awk '{print $1}'`
 
-<p>
-zobrazí první a třetí sloupec řádku  
-</p>
+zobrazí první a třetí sloupec řádku
 
-<p>
-<code>$ echo a b c | awk &#039;{print $1,$3}&#039;</code>
-</p>
+`$ echo a b c | awk '{print $1,$3}'`
 
-<p>
-spočítá řádky souboru  
-</p>
+spočítá řádky souboru
 
-<p>
-<code>$ cat -n ??1</code>
-</p>
+`$ cat -n ??1`
 
-<p>
 porovná obsah dvou souborů smazáním pouze neduplicitních řádek z ‚??1′
-</p>
 
-<p>
-<code>$ comm -1 ??1 ??2</code>
-</p>
+`$ comm -1 ??1 ??2`
 
-<p>
-porovná obsah dvou souborů smazáním pouze neduplicitních řádek z ‚??2′  
-</p>
+porovná obsah dvou souborů smazáním pouze neduplicitních řádek z ‚??2′
 
-<p>
-<code>$ comm -2 ??1 ??2</code>
-</p>
+`$ comm -2 ??1 ??2`
 
-<p>
-porovná obsah dvou souborů smazáním pouze řádek objevivších se v obou souborech  
-</p>
+porovná obsah dvou souborů smazáním pouze řádek objevivších se v obou souborech
 
-<p>
-<code>$ comm -3 ??1 ??2</code>
-</p>
+`$ comm -3 ??1 ??2`
 
-<p>
-najde rozdíly mezi soubory  
-</p>
+najde rozdíly mezi soubory
 
-<p>
-<code>$ diff ??1 ??2</code>
-</p>
+`$ diff ??1 ??2`
 
-<p>
 Vyhledá slovo
-</p>
 
-<p>
-<code>$ grep Aug /var/log/messages</code>
-</p>
+`$ grep Aug /var/log/messages`
 
-<p>
 Vyhledá slova začínající
-</p>
 
-<p>
-<code>$ grep ^Aug /var/log/messages</code>
-</p>
+`$ grep ^Aug /var/log/messages`
 
-<p>
-vybere ze souboru ‚/var/log/messages‘ všechny řádky obsahující čísla 
-</p>
+vybere ze souboru ‚/var/log/messages‘ všechny řádky obsahující čísla
 
-<p>
-<code>$ grep [0-9] /var/log/messages</code>
-</p>
+`$ grep [0-9] /var/log/messages`
 
-<p>
 vyhledá řetězec
-</p>
 
-<p>
-<code>$ grep Aug -R /var/log/*</code>
-</p>
+`$ grep Aug -R /var/log/*`
 
-<p>
 spojí obsahy dvou souborů zarovnané do sloupců
-</p>
 
-<p>
-<code>$ paste ??1 ??2</code>
-</p>
+`$ paste ??1 ??2`
 
-<p>
 spojí obsahy dvou souborů zarovnané do sloupců s ‚+‘ jako oddělovačem uprostřed
-</p>
 
-<p>
-<code>$ paste -d &#039;+&#039; ??1 ??2</code>
-</p>
+`$ paste -d '+' ??1 ??2`
 
-<p>
-najde rozdíly mezi soubory a zobrazí je, podobné jako diff   
-</p>
+najde rozdíly mezi soubory a zobrazí je, podobné jako diff
 
-<p>
-<code>$ sdiff ??1 ??2</code>
-</p>
+`$ sdiff ??1 ??2`
 
-<p>
-nahradí string1 řetězcem  string2 v example.txt  
-</p>
+nahradí string1 řetězcem string2 v example.txt
 
-<p>
-<code>$ sed &#039;s/string1/string2/g&#039; example.txt</code>
-</p>
+`$ sed 's/string1/string2/g' example.txt`
 
-<p>
-odstraní ze souboru example.txt všechny prázdné řádky  
-</p>
+odstraní ze souboru example.txt všechny prázdné řádky
 
-<p>
-<code>$ sed &#039;/^$/d&#039; example.txt</code>
-</p>
+`$ sed '/^$/d' example.txt`
 
-<p>
-odstraní komentáře a prázdné řádky ze souboru example.txt 
-</p>
+odstraní komentáře a prázdné řádky ze souboru example.txt
 
-<p>
-<code>$ sed &#039;/ *$/d; /^$/d&#039; example.txt</code>
-</p>
+`$ sed '/ *$/d; /^$/d' example.txt`
 
-<p>
 smaže ze souboru example.txt první řádek
-</p>
 
-<p>
-<code>$ sed -e &#039;1d&#039; exampe.txt</code>
-</p>
+`$ sed -e '1d' exampe.txt`
 
-<p>
 zobrazí pouze řádky obsahující slovo string1
-</p>
 
-<p>
-<code>$ sed -n &#039;/string1/p&#039;</code>
-</p>
+`$ sed -n '/string1/p'`
 
-<p>
-zobrazí prázdné znaky z konce každého řádku 
-</p>
+zobrazí prázdné znaky z konce každého řádku
 
-<p>
-<code>$ sed -e &#039;s/ *$<em>&#039; example.txt</code>
-</p>
+`$ sed -e 's/ *$_' example.txt_`
 
-<p>
-smaže z textu pouze slovo string1 a zbytek nechá na pokoji  
-</p>
+_
 
-<p>
-<code>$ sed -e &#039;s/string1</em>g&#039; example.txt</code>
-</p>
+smaže z textu pouze slovo string1 a zbytek nechá na pokoji
 
-<p>
-vypíše řádky 1 až 5 souboru example.txt 
-</p>
+_
 
-<p>
-<code>$ sed -n &#039;1,5p&#039; example.txt</code>
-</p>
+_`$ sed -e 's/string1`_`g' example.txt`
 
-<p>
-vypíše řádek 5 souboru example.txt 
-</p>
+vypíše řádky 1 až 5 souboru example.txt
 
-<p>
-<code>$ sed -n &#039;5p;5q&#039; example.txt</code>
-</p>
+`$ sed -n '1,5p' example.txt`
 
-<p>
-nahradí více nul jedinou  
-</p>
+vypíše řádek 5 souboru example.txt
 
-<p>
-<code>$ sed -e &#039;s/00*/0/g&#039; example.txt</code>
-</p>
+`$ sed -n '5p;5q' example.txt`
 
-<p>
-seřadí obsah dvou souborů  
-</p>
+nahradí více nul jedinou
 
-<p>
-<code>$ sort ??1 ??2</code>
-</p>
+`$ sed -e 's/00*/0/g' example.txt`
 
-<p>
+seřadí obsah dvou souborů
+
+`$ sort ??1 ??2`
+
 seřadí obsah dvou souborů a ignoruje duplikující řádky
-</p>
 
-<p>
-<code>$</code> sort ??1 ??2 | uniq</code>
-</p>
+`$` sort ??1 ??2 | uniq
 
-<p>
 seřadí obsah dvou souborů a zobrazí pouze neduplicitní řádky
-</p>
 
-<p>
-<code>$ sort ??1 ??2 | uniq -u</code>
-</p>
+`$ sort ??1 ??2 | uniq -u`
 
-<p>
 seřadí obsah dvou souborů a zobrazí pouze duplicitní řádky
-</p>
 
-<p>
-<code>$ sort ??1 ??2 | uniq -d</code>
-</p>
+`$ sort ??1 ??2 | uniq -d`
 
-<p>
-prohodí malá písmena za velká 
-</p>
+prohodí malá písmena za velká
 
-<p>
-<code>$ echo &#039;word&#039; | tr &#039;[:lower:]&#039; &#039;[:upper:]&#039;</code>
-</p>
+`$ echo 'word' | tr '[:lower:]' '[:upper:]'`
 
-<p>
-přejmenuje přípony JPG na jpg 
-</p>
+přejmenuje přípony JPG na jpg
 
-<p>
-<code>$ rename &#039;s/\.JPG$/\.jpg/&#039; *.JPG</code>
-</p>
+`$ rename 's/\.JPG$/\.jpg/' *.JPG`
