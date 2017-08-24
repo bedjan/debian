@@ -25,7 +25,7 @@ verze jádra
 </p>
 
 <p>
-$ uname -r
+<code>$ uname -r</code>
 </p>
 
 <p>
@@ -33,7 +33,7 @@ výpis zařízení přes PCI
 </p>
 
 <p>
-$ lspci -tv
+<code>$ lspci -tv</code>
 </p>
 
 <p>
