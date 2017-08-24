@@ -4,13 +4,13 @@ Debian
 
 Jakou architekturu máme? – jsou 4 způsoby jak to zjistit z CPU:
 
-$ uname -m „i686″`
+<code>$ uname -m „i686″</code>
 
-$ dpkg –print-architecture „i386″
+<code>$ dpkg –print-architecture „i386″</code>
 
-$ file /sbin/init „/sbin/init: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.26, BuildID[sha1]=0xeaea626bea4cbe89f35fdd64e8c1bd5ff8c85414, stripped“
+<code>$ file /sbin/init „/sbin/init: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.26, BuildID[sha1]=0xeaea626bea4cbe89f35fdd64e8c1bd5ff8c85414, stripped“
 
-$ grep flags /proc/cpuinfo | grep lm “ pokud nic nevypíše je to 32 bit, pokud ano je to 64 bit CPU “
+<code>$ grep flags /proc/cpuinfo | grep lm</code> “ pokud nic nevypíše je to 32 bit, pokud ano je to 64 bit CPU “
 
 ISO přehled a možnosti stažení: [http://www.debian.org/distrib/index.cs.html](http://www.debian.org/distrib/index.cs.html "http://www.debian.org/distrib/index.cs.html")
 
@@ -20,7 +20,7 @@ amd64 netinst (180 <abbr title="Megabyte">MB</abbr>): [http://cdimage.debian.org
 
 2) Vypálení ISO obrazu (hlavní programy = xfburn, wodim,dvd+rw-format
 
-„rychlé zjištění CD a DVD machanik v systému = $ ls -l /dev | grep -E „(cd|dvd)“
+„rychlé zjištění CD a DVD machanik v systému = <code>$ ls -l /dev | grep -E „(cd|dvd)“</code>
 
 A) na CD
 
@@ -28,7 +28,7 @@ V Linuxu mechaniky „zjištění CD mechaniky = $ls -l /dev/cdrw “ „nepodpo
 
 V Linuxu grafika = xfburn, brasero, k3b
 
-V Linuxu command = wodim „zjištění mechanik přes wodim = $wodim –devices“ „prázný = $wodim -vv dev=/dev/cdrw blank=all“ „vypálení ISO = $wodim dev=/dev/cdrw -v -data _.iso“ „u nepodporované mechaniky = $wodim dev=ATAPI:/dev/hda -data -v -eject _.iso“
+V Linuxu command = wodim „zjištění mechanik přes wodim = $wodim –devices“ „prázný = $wodim -vv dev=/dev/cdrw blank=all“ „vypálení ISO = <code>$wodim dev=/dev/cdrw -v -data _.iso“</code> „u nepodporované mechaniky = <code>$wodim dev=ATAPI:/dev/hda -data -v -eject _.iso“</code>
 
 Ve Windows = [http://infrarecorder.sourceforge.net/](http://infrarecorder.sourceforge.net/ "http://infrarecorder.sourceforge.net/")
 
@@ -36,9 +36,9 @@ B) na DVD a Blueray
 
 V Linuxu mechaniky „zjištění DVD mechaniky $ ls -l /dev/dvdrw“
 
-V Linuxu grafika = xfburn, brasero, k3b
+V Linuxu grafika = <code>xfburn, brasero, k3b</code>
 
-V Linuxu command = dvd+rw-tools „prázný = $ dvd+rw-tools -blank /dev/dvdrw“ „vypálení ISO = $growisofs -speed=2 -dvd-compat -Z /dev/dvdrw=dvd_image.iso“ „další příkazy = growisofs -Z /dev/dvdrw -R -J /some/files; nová session vypalování = growisofs -M dev/dvdwriter additionaldata“
+V Linuxu command = dvd+rw-tools „prázný = $ dvd+rw-tools -blank /dev/dvdrw“ „vypálení ISO = <code>$growisofs -speed=2 -dvd-compat -Z /dev/dvdrw=dvd_image.iso</code> „další příkazy = </code>$growisofs -Z /dev/dvdrw -R -J /some/files</code>; nová session vypalování = </code>$growisofs -M dev/dvdwriter additionaldata</code>
 
 Ve Windows = [http://infrarecorder.sourceforge.net/](http://infrarecorder.sourceforge.net/ "http://infrarecorder.sourceforge.net/")
 
@@ -64,13 +64,13 @@ Ve Windows = [http://infrarecorder.sourceforge.net/](http://infrarecorder.source
 
 „instalace programů bez zbytečných závislostí –out-recommends “
 
-„aptitude install –out-recommends mc links htop sudo xorg slim openbox obconf obmenu tint2 conky feh wbar numlockx grun lxtask leafpad iceweasel iceweasel-l10n-cs iceweasel-adblock-plus claws-mail-i18n sakura pcmanfm dwb midori audacious smplayer vlc alsamixergui volti wbar“
+<code>$aptitude install –out-recommends mc links htop sudo xorg slim openbox obconf obmenu tint2 conky feh wbar numlockx grun lxtask leafpad iceweasel iceweasel-l10n-cs iceweasel-adblock-plus claws-mail-i18n sakura pcmanfm dwb midori audacious smplayer vlc alsamixergui volti wbar</code>
 
-„konfigurace sudo = # visudo ; UŽIVATEL ALL=(ALL) NOPASSWD: ALL+ %SKUPINA ALL=(ALL) NOPASSWD: ALL“
-
+„konfigurace sudo = <code># visudo</code>
+<code>UŽIVATEL ALL=(ALL) NOPASSWD: ALL+ %SKUPINA ALL=(ALL) NOPASSWD: ALL“</code>
 Nastavení terminálu, aliasy
 
-„$sudo leafpad .bashrc ⇒ může vypadat nějak takhle“
+<code>$sudo leafpad .bashrc</code> ⇒ může vypadat nějak takhle“
 
 <pre class="code">  >> # System-wide .bashrc file for interactive bash(1) shells.
   >> #
