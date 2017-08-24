@@ -17,7 +17,7 @@ znaky na klávesnici
 </p>
 
 <p>
-@ =altgr+v,| = altgr+w, ~ =altgr+a, $ = alt+č ,$ = alt+X, &amp;amp; = alt+C, ~ = alt+A, {} = alt+BN, [] = alt+ú a alt + ,  \ = alt+Q
+<code>@</code> =altgr+v,<code>|</code> = altgr+w, <code>~</code> =altgr+a,<code> $</code> = alt+č ,<code>$</code> = alt+X, <code>&amp;amp;</code> = alt+C, <code>~</code> = alt+A, <code>{}</code> = alt+BN,<code> []</code> = alt+ú a alt + ,  <code>\</code> = alt+Q
 </p>
 
 <p>
