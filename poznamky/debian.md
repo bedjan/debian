@@ -4,7 +4,7 @@ Debian
 
 Jakou architekturu máme? – jsou 4 způsoby jak to zjistit z CPU:
 
-$ uname -m „i686″
+$ uname -m „i686″`
 
 $ dpkg –print-architecture „i386″
 
