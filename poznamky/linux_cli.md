@@ -305,7 +305,7 @@ vyhledá soubory s příponou ‚.??‘ a upraví jim práva
 </p>
 
 <p>
-find / -name *.?? -exec chmod 755 &#039;{}&#039; \;
+<code>find / -name *.?? -exec chmod 755 &#039;{}&#039; \;</code>
 </p>
 
 <p>
@@ -313,7 +313,7 @@ vytvoření nového uživatele ??
 </p>
 
 <p>
-$ useradd ??
+<code>$ useradd ??</code>
 </p>
 
 <p>
@@ -321,7 +321,7 @@ smazání uživatele ??
 </p>
 
 <p>
-$ userdel -r ??
+<code>$ userdel -r ??</code>
 </p>
 
 <p>
@@ -329,15 +329,15 @@ změna hesla
 </p>
 
 <p>
-$ passwd
+<code>$ passwd</code>
 </p>
 
 <p>
-změní vlastníka souboru  
+změní vlastníka souboru
 </p>
 
 <p>
-$ chown uživatel soubor
+<code>$ chown uživatel soubor</code>
 </p>
 
 <p>
@@ -345,7 +345,7 @@ změní vlastníka adresáře a všeho co obsahuje
 </p>
 
 <p>
-$ chown -R uživatel adresář
+<code>$ chown -R uživatel_adresář</code>
 </p>
 
 <p>
@@ -353,7 +353,7 @@ rozbalení tar archivu ??
 </p>
 
 <p>
-$  tar -xvf ??.tar
+<code>$  tar -xvf ??.tar</code>
 </p>
 
 <p>
@@ -361,7 +361,7 @@ rozbalí komprimovaný bz2 soubor včetně tar archivu
 </p>
 
 <p>
-$ tar -xvfj ??.tar.bz2
+<code>$ tar -xvfj ??.tar.bz2</code>
 </p>
 
 <p>
@@ -369,7 +369,7 @@ rozbalí rar archiv ??
 </p>
 
 <p>
-$ unrar x ??.rar
+<code>$ unrar x ??.rar</code>
 </p>
 
 <p>
@@ -377,7 +377,7 @@ rozbalí zip archiv ??
 </p>
 
 <p>
-$ unzip ??.zip
+<code>$ unzip ??.zip</code>
 </p>
 
 <p>
@@ -385,7 +385,7 @@ zobrazí obsah souboru počínaje první řádkou
 </p>
 
 <p>
-$ cat ??1
+<code>$ cat ??1</code>
 </p>
 
 <p>
@@ -393,7 +393,7 @@ zobrazí první dva řádky souboru
 </p>
 
 <p>
-$ head -2 ??1
+<code>$ head -2 ??1</code>
 </p>
 
 <p>
@@ -401,7 +401,7 @@ stejné jako předchozí, ale souborem je možno procházet i zpětně
 </p>
 
 <p>
-$ less ??1
+<code>$ less ??1</code>
 </p>
 
 <p>
@@ -409,7 +409,7 @@ zobrazí soubor a mužní jeho procházení
 </p>
 
 <p>
-$ more ??1
+<code>$ more ??1</code>
 </p>
 
 <p>
@@ -417,7 +417,7 @@ zobrazí obsah souboru počínaje poslední řádkou
 </p>
 
 <p>
-$ tac ??1
+<code>$ tac ??1</code>
 </p>
 
 <p>
@@ -425,7 +425,7 @@ zobrazí poslední 2 řádky souboru
 </p>
 
 <p>
-$ tail -2 ??1
+<code>$ tail -2 ??1</code>
 </p>
 
 <p>
@@ -433,7 +433,7 @@ zobrazuje v reálném čase řádky přidávané na konec souboru
 </p>
 
 <p>
-$ tail -f /var/log/messages
+<code>$ tail -f /var/log/messages</code>
 </p>
 
 <p>
@@ -441,7 +441,7 @@ odstraní ze souboru example.txt všechny sudé řádky
 </p>
 
 <p>
-$ cat example.txt | awk &#039;NR%2==1&#039;
+<code>$ cat example.txt | awk &#039;NR%2==1&#039;</code>
 </p>
 
 <p>
@@ -449,7 +449,7 @@ zobrazí první sloupec řádku
 </p>
 
 <p>
-$ echo a b c | awk &#039;{print $1}&#039;
+<code>$ echo a b c | awk &#039;{print $1}&#039;</code>
 </p>
 
 <p>
@@ -457,7 +457,7 @@ zobrazí první a třetí sloupec řádku
 </p>
 
 <p>
-$ echo a b c | awk &#039;{print $1,$3}&#039;
+<code>$ echo a b c | awk &#039;{print $1,$3}&#039;</code>
 </p>
 
 <p>
@@ -465,7 +465,7 @@ spočítá řádky souboru
 </p>
 
 <p>
-$ cat -n ??1
+<code>$ cat -n ??1</code>
 </p>
 
 <p>
@@ -473,7 +473,7 @@ porovná obsah dvou souborů smazáním pouze neduplicitních řádek z ‚??1�
 </p>
 
 <p>
-$ comm -1 ??1 ??2
+<code>$ comm -1 ??1 ??2</code>
 </p>
 
 <p>
@@ -481,7 +481,7 @@ porovná obsah dvou souborů smazáním pouze neduplicitních řádek z ‚??2�
 </p>
 
 <p>
-$ comm -2 ??1 ??2
+<code>$ comm -2 ??1 ??2</code>
 </p>
 
 <p>
@@ -489,7 +489,7 @@ porovná obsah dvou souborů smazáním pouze řádek objevivších se v obou so
 </p>
 
 <p>
-$ comm -3 ??1 ??2
+<code>$ comm -3 ??1 ??2</code>
 </p>
 
 <p>
@@ -497,7 +497,7 @@ najde rozdíly mezi soubory
 </p>
 
 <p>
-$ diff ??1 ??2
+<code>$ diff ??1 ??2</code>
 </p>
 
 <p>
@@ -505,7 +505,7 @@ Vyhledá slovo
 </p>
 
 <p>
-$ grep Aug /var/log/messages
+<code>$ grep Aug /var/log/messages</code>
 </p>
 
 <p>
@@ -513,7 +513,7 @@ Vyhledá slova začínající
 </p>
 
 <p>
-$ grep ^Aug /var/log/messages
+<code>$ grep ^Aug /var/log/messages</code>
 </p>
 
 <p>
@@ -521,7 +521,7 @@ vybere ze souboru ‚/var/log/messages‘ všechny řádky obsahující čísla
 </p>
 
 <p>
-$ grep [0-9] /var/log/messages
+<code>$ grep [0-9] /var/log/messages</code>
 </p>
 
 <p>
@@ -529,7 +529,7 @@ vyhledá řetězec
 </p>
 
 <p>
-$ grep Aug -R /var/log/*
+<code>$ grep Aug -R /var/log/*</code>
 </p>
 
 <p>
@@ -537,7 +537,7 @@ spojí obsahy dvou souborů zarovnané do sloupců
 </p>
 
 <p>
-$ paste ??1 ??2
+<code>$ paste ??1 ??2</code>
 </p>
 
 <p>
@@ -545,7 +545,7 @@ spojí obsahy dvou souborů zarovnané do sloupců s ‚+‘ jako oddělovačem 
 </p>
 
 <p>
-$ paste -d &#039;+&#039; ??1 ??2
+<code>$ paste -d &#039;+&#039; ??1 ??2</code>
 </p>
 
 <p>
@@ -553,7 +553,7 @@ najde rozdíly mezi soubory a zobrazí je, podobné jako diff
 </p>
 
 <p>
-$ sdiff ??1 ??2
+<code>$ sdiff ??1 ??2</code>
 </p>
 
 <p>
@@ -561,7 +561,7 @@ nahradí string1 řetězcem  string2 v example.txt
 </p>
 
 <p>
-$ sed &#039;s/string1/string2/g&#039; example.txt
+<code>$ sed &#039;s/string1/string2/g&#039; example.txt</code>
 </p>
 
 <p>
@@ -569,7 +569,7 @@ odstraní ze souboru example.txt všechny prázdné řádky
 </p>
 
 <p>
-$ sed &#039;/^$/d&#039; example.txt
+<code>$ sed &#039;/^$/d&#039; example.txt</code>
 </p>
 
 <p>
@@ -577,7 +577,7 @@ odstraní komentáře a prázdné řádky ze souboru example.txt
 </p>
 
 <p>
-$ sed &#039;/ *$/d; /^$/d&#039; example.txt
+<code>$ sed &#039;/ *$/d; /^$/d&#039; example.txt</code>
 </p>
 
 <p>
@@ -585,7 +585,7 @@ smaže ze souboru example.txt první řádek
 </p>
 
 <p>
-$ sed -e &#039;1d&#039; exampe.txt
+<code>$ sed -e &#039;1d&#039; exampe.txt</code>
 </p>
 
 <p>
@@ -593,7 +593,7 @@ zobrazí pouze řádky obsahující slovo string1
 </p>
 
 <p>
-$ sed -n &#039;/string1/p&#039;
+<code>$ sed -n &#039;/string1/p&#039;</code>
 </p>
 
 <p>
@@ -601,11 +601,15 @@ zobrazí prázdné znaky z konce každého řádku
 </p>
 
 <p>
-$ sed -e &#039;s/ *$<em>&#039; example.txt
+<code>$ sed -e &#039;s/ *$<em>&#039; example.txt</code>
+</p>
 
+<p>
 smaže z textu pouze slovo string1 a zbytek nechá na pokoji  
+</p>
 
-$ sed -e &#039;s/string1</em>g&#039; example.txt
+<p>
+<code>$ sed -e &#039;s/string1</em>g&#039; example.txt</code>
 </p>
 
 <p>
@@ -613,7 +617,7 @@ vypíše řádky 1 až 5 souboru example.txt
 </p>
 
 <p>
-$ sed -n &#039;1,5p&#039; example.txt
+<code>$ sed -n &#039;1,5p&#039; example.txt</code>
 </p>
 
 <p>
@@ -621,7 +625,7 @@ vypíše řádek 5 souboru example.txt
 </p>
 
 <p>
-$ sed -n &#039;5p;5q&#039; example.txt
+<code>$ sed -n &#039;5p;5q&#039; example.txt</code>
 </p>
 
 <p>
@@ -629,7 +633,7 @@ nahradí více nul jedinou
 </p>
 
 <p>
-$ sed -e &#039;s/00*/0/g&#039; example.txt
+<code>$ sed -e &#039;s/00*/0/g&#039; example.txt</code>
 </p>
 
 <p>
@@ -637,7 +641,7 @@ seřadí obsah dvou souborů
 </p>
 
 <p>
-$ sort ??1 ??2
+<code>$ sort ??1 ??2</code>
 </p>
 
 <p>
@@ -645,7 +649,7 @@ seřadí obsah dvou souborů a ignoruje duplikující řádky
 </p>
 
 <p>
-$ sort ??1 ??2 | uniq
+<code>$</code> sort ??1 ??2 | uniq</code>
 </p>
 
 <p>
@@ -653,7 +657,7 @@ seřadí obsah dvou souborů a zobrazí pouze neduplicitní řádky
 </p>
 
 <p>
-$ sort ??1 ??2 | uniq -u
+<code>$ sort ??1 ??2 | uniq -u</code>
 </p>
 
 <p>
@@ -661,7 +665,7 @@ seřadí obsah dvou souborů a zobrazí pouze duplicitní řádky
 </p>
 
 <p>
-$ sort ??1 ??2 | uniq -d
+<code>$ sort ??1 ??2 | uniq -d</code>
 </p>
 
 <p>
@@ -669,7 +673,7 @@ prohodí malá písmena za velká
 </p>
 
 <p>
-$ echo &#039;word&#039; | tr &#039;[:lower:]&#039; &#039;[:upper:]&#039;
+<code>$ echo &#039;word&#039; | tr &#039;[:lower:]&#039; &#039;[:upper:]&#039;</code>
 </p>
 
 <p>
@@ -677,5 +681,5 @@ přejmenuje přípony JPG na jpg
 </p>
 
 <p>
-$ rename &#039;s/\.JPG$/\.jpg/&#039; *.JPG
+<code>$ rename &#039;s/\.JPG$/\.jpg/&#039; *.JPG</code>
 </p>
