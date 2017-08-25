@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
+	<menu id="root-menu" label="Openbox 3">
+		<item label="megasync">
+			<action name="Execute">
+				<execute>megasync</execute>
+			</action>
+		</item>
+		<item label="qupzilla">
+			<action name="Execute">
+				<execute>qupzilla</execute>
+			</action>
+		</item>
+		<item label="retext - markdown to html">
+			<action name="Execute">
+				<execute>retext</execute>
+			</action>
+		</item>
+		<item label="yandex-disk sync">
+			<action name="Execute">
+				<execute>xterm -hold -e yandex-disk sync</execute>
+			</action>
+		</item>
+		<item label="Pošta lišta">
+			<action name="Execute">
+				<execute>sh skripty/gmail_xml</execute>
+			</action>
+		</item>
+		<item label="Evernote">
+			<action name="Execute">
+				<execute>nixnote</execute>
+			</action>
+		</item>
+		<item label="rstudio">
+			<action name="Execute">
+				<execute>rstudio</execute>
+			</action>
+		</item>
+		<item label="Qbittorrent">
+			<action name="Execute">
+				<execute>qbittorrent</execute>
+			</action>
+		</item>
+		<item label="HP systray">
+			<action name="Execute">
+				<execute>python /usr/bin/hp-systray --force-startup --ignore-update-firsttime</execute>
+			</action>
+		</item>
+		<item label="VLC remote">
+			<action name="Execute">
+				<execute>vlc --extraintf=luahttp --fullscreen channels.xspf</execute>
+			</action>
+		</item>
+		<item label="Tor-browser">
+			<action name="Execute">
+				<execute>tor-browser_en-US/./start-tor-browser</execute>
+			</action>
+		</item>
+		<item label="Scribus ">
+			<action name="Execute">
+				<execute>scribus</execute>
+			</action>
+		</item>
+		<item label="Freemind">
+			<action name="Execute">
+				<execute>freemind</execute>
+			</action>
+		</item>
+		<menu id="root-menu-54552" label="dalsi">
+			<item label="google-chrome">
+				<action name="Execute">
+					<execute>google-chrome</execute>
+				</action>
+			</item>
+			<item label="xxxterm www.abclinuxu.cz">
+				<action name="Execute">
+					<execute>xxxterm www.abclinuxu.cz</execute>
+				</action>
+			</item>
+			<item label="xfburn">
+				<action name="Execute">
+					<execute>xfburn</execute>
+				</action>
+			</item>
+			<item label="dia">
+				<action name="Execute">
+					<execute>dia</execute>
+				</action>
+			</item>
+			<item label="yEd">
+				<action name="Execute">
+					<execute>/bin/sh &quot;/home/d/yEd/yEd&quot;</execute>
+				</action>
+			</item>
+			<item label="3D ATI Radeon 3000 Graphics">
+				<action name="Execute">
+					<execute>xterm -hold -e glxinfo</execute>
+				</action>
+			</item>
+			<item label="xbmc">
+				<action name="Execute">
+					<execute>xterm -hold -e xbmc</execute>
+				</action>
+			</item>
+			<item label="mdcharm - markdown">
+				<action name="Execute">
+					<execute>mdcharm</execute>
+				</action>
+			</item>
+			<item label="jitsi - volání">
+				<action name="Execute">
+					<execute>xterm -hold -e jitsi</execute>
+				</action>
+			</item>
+			<item label="assaultcube ">
+				<action name="Execute">
+					<execute>assaultcube</execute>
+				</action>
+			</item>
+			<item label="Thunar">
+				<action name="Execute">
+					<execute>thunar</execute>
+				</action>
+			</item>
+			<item label="DraftSight">
+				<action name="Execute">
+					<execute>/opt/dassault-systemes/DraftSight/Linux/DraftSight</execute>
+				</action>
+			</item>
+			<item label="gpe-calendar">
+				<action name="Execute">
+					<execute>gpe-calendar</execute>
+				</action>
+			</item>
+			<item label="Qupzilla">
+				<action name="Execute">
+					<execute>qupzilla</execute>
+				</action>
+			</item>
+			<item label="gscan2pdf">
+				<action name="Execute">
+					<execute>gscan2pdf</execute>
+				</action>
+			</item>
+			<item label="mumble">
+				<action name="Execute">
+					<execute>mumble</execute>
+				</action>
+			</item>
+			<item label="master-pdf-editor">
+				<action name="Execute">
+					<execute>/opt/master-pdf-editor/master-pdf-editor</execute>
+				</action>
+			</item>
+			<item label="netsurf">
+				<action name="Execute">
+					<execute>netsurf</execute>
+				</action>
+			</item>
+			<item label="icedove">
+				<action name="Execute">
+					<execute>icedove</execute>
+				</action>
+			</item>
+			<item label="CopyAgent">
+				<action name="Execute">
+					<execute>/home/d/copy/x86/./CopyAgent</execute>
+				</action>
+			</item>
+			<item label="chromium">
+				<action name="Execute">
+					<execute>chromium</execute>
+				</action>
+			</item>
+			<item label="darktable">
+				<action name="Execute">
+					<execute>darktable</execute>
+				</action>
+			</item>
+			<item label="qgis">
+				<action name="Execute">
+					<execute>qgis</execute>
+				</action>
+			</item>
+			<item label="myslenkove mapy">
+				<action name="Execute">
+					<execute>mmarchitect</execute>
+				</action>
+			</item>
+			<item label="mucommander">
+				<action name="Execute">
+					<execute>mucommander</execute>
+				</action>
+			</item>
+			<item label="qtfm">
+				<action name="Execute">
+					<execute>qtfm</execute>
+				</action>
+			</item>
+			<item label="tuxcmd">
+				<action name="Execute">
+					<execute>tuxcmd</execute>
+				</action>
+			</item>
+			<item label="doublecmd">
+				<action name="Execute">
+					<execute>doublecmd</execute>
+				</action>
+			</item>
+			<item label="fbpanel  ">
+				<action name="Execute">
+					<execute>fbpanel  </execute>
+				</action>
+			</item>
+			<item label="killall fbpanel">
+				<action name="Execute">
+					<execute>killall fbpanel</execute>
+				</action>
+			</item>
+			<item label="wesnoth">
+				<action name="Execute">
+					<execute>wesnoth</execute>
+				</action>
+			</item>
+		</menu>
+		<item label="Gmrun">
+			<action name="Execute">
+				<execute>gmrun</execute>
+			</action>
+		</item>
+		<item icon=".icons/Faenza/apps/16/gnome-package.png" label="Thunar">
+			<action name="Execute">
+				<execute>
+					thunar
+				</execute>
+			</action>
+		</item>
+		<item icon=".icons/Faenza/apps/16/xterm.png" label="Sakura">
+			<action name="Execute">
+				<execute>
+					sakura
+				</execute>
+			</action>
+		</item>
+		<item icon=".icons/Faenza/apps/16/meld.png" label="ROOT Htop">
+			<action name="Execute">
+				<execute>
+					sudo sakura -e htop
+				</execute>
+			</action>
+		</item>
+		<item label="ROOT Lxtask">
+			<action name="Execute">
+				<execute>
+					sudo lxtask
+				</execute>
+			</action>
+		</item>
+		<item icon=".icons/Faenza/apps/32/me-tv.png" label="Me-TV">
+			<action name="Execute">
+				<execute>
+					sh skripty/tv.sh
+				</execute>
+			</action>
+		</item>
+		<item label="TV VLC">
+			<action name="Execute">
+				<execute>vlc /home/d/.config/vlc/channels.xspf</execute>
+			</action>
+		</item>
+		<item icon=".icons/Faenza/VMware-Player-logo.png" label="WIN">
+			<action name="Execute">
+				<execute>sh skripty/xp.sh</execute>
+			</action>
+		</item>
+		<item label="Virtualbox oprava a spuštění">
+			<action name="Execute">
+				<execute>xterm -hold -e &quot;sudo /etc/init.d/vboxdrv setup &amp;&amp; virtualbox&quot;</execute>
+			</action>
+		</item>
+		<separator/>
+		<menu execute="~/.config/openbox/programy_top.bash" icon=".icons/Faenza/apps/16/netbeans.png" id="programy_top" label="PROGRAMY__TOP"/>
+		<separator/>
+		<menu execute="~/.config/openbox/programy.bash" id="programy" label="PROGRAMY"/>
+		<separator/>
+		<menu execute="~/.config/openbox/radia_online.bash" icon=".icons/Faenza/apps/16/devede.png" id="radia_online" label="RADIA__ONLINE"/>
+		<separator/>
+		<menu execute="~/.config/openbox/radia_online_2.bash" icon=".icons/Faenza/apps/16/dvdrip.png" id="radia_online_2" label="RADIA__ONLINE__2"/>
+		<separator/>
+		<item icon=".icons/Faenza/apps/16/jdownloader.png" label="FreeRapid">
+			<action name="Execute">
+				<execute>
+					sh /home/d/programy/frd/frd.sh
+				</execute>
+			</action>
+		</item>
+		<item icon=".icons/Faenza/apps/16/docky.png" label="Poznámky">
+			<action name="Execute">
+				<execute>leafpad cas.txt</execute>
+			</action>
+		</item>
+		<item label="Osmo">
+			<action name="Execute">
+				<execute>osmo</execute>
+			</action>
+		</item>
+		<item icon=".icons/Faenza/Dropbox-icon1.jpg" label="Dropbox daemon">
+			<action name="Execute">
+				<execute>~/.dropbox-dist/dropboxd</execute>
+			</action>
+		</item>
+		<item label="Co běží">
+			<action name="Execute">
+				<execute>sakura  -h -t &quot;Co běží&quot;  -e ps aux</execute>
+			</action>
+		</item>
+		<separator/>
+		<separator/>
+		<menu icon=".icons/Faenza/Games-icon.png" id="root-menu-493035" label="Hry">
+			<item label="Lugaru">
+				<action name="Execute">
+					<execute>lugaru</execute>
+				</action>
+			</item>
+			<item label="alienblaster">
+				<action name="Execute">
+					<execute>alienblaster</execute>
+				</action>
+			</item>
+			<item label="brutalchess">
+				<action name="Execute">
+					<execute>brutalchess</execute>
+				</action>
+			</item>
+			<item label="openarena">
+				<action name="Execute">
+					<execute>openarena</execute>
+				</action>
+			</item>
+			<item label="Sachy">
+				<action name="Execute">
+					<execute>dreamchess</execute>
+				</action>
+			</item>
+		</menu>
+		<menu icon=".icons/Faenza/apps/16/paprefs.png" id="root-menu-32635" label="Openbox">
+			<item label="co bylo odinstalováno">
+				<action name="Execute">
+					<execute>sakura -h -e dpkg -l | grep ^r</execute>
+				</action>
+			</item>
+			<item label="apt.conf">
+				<action name="Execute">
+					<execute>sudo leafpad /etc/apt/apt.conf</execute>
+				</action>
+			</item>
+			<item label="preferences">
+				<action name="Execute">
+					<execute>sudo leafpad /etc/apt/preferences</execute>
+				</action>
+			</item>
+			<item label="nainstalovane programy a verze">
+				<action name="Execute">
+					<execute>sakura -h -t &quot;nainstalovane programy a verze&quot; -e apt-show-versions -i</execute>
+				</action>
+			</item>
+			<item label="apt-cache policy">
+				<action name="Execute">
+					<execute>sakura -h -t &quot;apt-cache policy&quot; -e apt-cache policy</execute>
+				</action>
+			</item>
+			<item label="sudo synaptic">
+				<action name="Execute">
+					<execute>sakura -h -t &quot;synaptic&quot; -e sudo synaptic</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-32635-19818" label="lxpanel">
+			<item label="killall lxpanel">
+				<action name="Execute">
+					<execute>killall lxpanel</execute>
+				</action>
+			</item>
+			<item label="panel">
+				<action name="Execute">
+					<execute>leafpad .config/lxpanel/default/panels/panel</execute>
+				</action>
+			</item>
+			<item label="config">
+				<action name="Execute">
+					<execute>leafpad .config/lxpanel/default/config</execute>
+				</action>
+			</item>
+			<item label="lxpanel">
+				<action name="Execute">
+					<execute>lxpanel</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-32635-491218" label="fbpanel">
+			<item label="killall fbpanel">
+				<action name="Execute">
+					<execute>killall fbpanel</execute>
+				</action>
+			</item>
+			<item label="fbpanel">
+				<action name="Execute">
+					<execute>fbpanel</execute>
+				</action>
+			</item>
+			<item label="fbpanel config">
+				<action name="Execute">
+					<execute>sudo leafpad /home/d/.config/fbpanel/default</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-32635-251651" label="tint2">
+			<item label="tint2 spustit">
+				<action name="Execute">
+					<execute>tint2</execute>
+				</action>
+			</item>
+			<item label="tint2 kill">
+				<action name="Execute">
+					<execute>killall tint2</execute>
+				</action>
+			</item>
+			<item label="tint2 edit">
+				<action name="Execute">
+					<execute>sudo leafpad /home/d/.config/tint2/tint2rc</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-32635-33130" label="wbar">
+			<item label="wbar 1 spustit">
+				<action name="Execute">
+					<execute>wbar -config .wbar1 -vbar -pos left -nanim 3 -zoomf 1.8 -idist 5 -isize 24 -balfa 0 -falfa 100</execute>
+				</action>
+			</item>
+			<item label="wbar 2 spustit">
+				<action name="Execute">
+					<execute>wbar -config .wbar -vbar -pos right -nanim 3 -zoomf 1.8 -idist 5 -isize 24 -balfa 0 -falfa 100</execute>
+				</action>
+			</item>
+			<item label="wbar kill">
+				<action name="Execute">
+					<execute>killall wbar</execute>
+				</action>
+			</item>
+			<item label="wbar edit">
+				<action name="Execute">
+					<execute>leafpad .wbar</execute>
+				</action>
+			</item>
+			<item label="wbar1 edit">
+				<action name="Execute">
+					<execute>leafpad .wbar1</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-32635-391844" label="conky">
+			<item label="conky spustit 1 a 4">
+				<action name="Execute">
+					<execute>sh /home/d/skripty/dalsi.sh</execute>
+				</action>
+			</item>
+			<item label="conky kill">
+				<action name="Execute">
+					<execute>killall conky</execute>
+				</action>
+			</item>
+			<item label="conky edit 1">
+				<action name="Execute">
+					<execute>leafpad /home/d/.conkyrc</execute>
+				</action>
+			</item>
+			<item label="conky edit 4">
+				<action name="Execute">
+					<execute>leafpad /home/d/.conkyrc4</execute>
+				</action>
+			</item>
+			<item label="conky edit 5">
+				<action name="Execute">
+					<execute>leafpad /home/d/.conkyrc5</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-553511" label="dzen">
+			<item label=".Xresources">
+				<action name="Execute">
+					<execute>sudo leafpad .Xresources</execute>
+				</action>
+			</item>
+			<item label="/bin/dzconky">
+				<action name="Execute">
+					<execute>sudo leafpad /bin/dzconky</execute>
+				</action>
+			</item>
+			<item label=".conkyrcdzen">
+				<action name="Execute">
+					<execute>leafpad .conkyrcdzen</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-32635-174844" label="dalsi">
+			<item label="Alsa uložení zvuku">
+				<action name="Execute">
+					<execute>sudo alsactl store</execute>
+				</action>
+			</item>
+			<item label="Alsa restart zvuku">
+				<action name="Execute">
+					<execute>xterm -hold -e sudo service alsa-utils restart</execute>
+				</action>
+			</item>
+			<item label="/etc/fstab">
+				<action name="Execute">
+					<execute>sudo leafpad /etc/fstab</execute>
+				</action>
+			</item>
+			<item label="/etc/default/tmpfs">
+				<action name="Execute">
+					<execute>sudo leafpad /etc/default/tmpfs</execute>
+				</action>
+			</item>
+			<item label="lxpanel">
+				<action name="Execute">
+					<execute>sudo leafpad .config/lxpanel/default/panels/panel</execute>
+				</action>
+			</item>
+			<item label="font update">
+				<action name="Execute">
+					<execute>xterm -hold -e fc-cache -vf</execute>
+				</action>
+			</item>
+			<item label="java tmp tmpfs                   /tmp                    tmpfs   size=512m       0 0">
+				<action name="Execute">
+					<execute>export _JAVA_OPTIONS=-Djava.io.tmpdir=/tmp</execute>
+				</action>
+			</item>
+			<item label="Obsazenost adresaru">
+				<action name="Execute">
+					<execute>xdiskusage </execute>
+				</action>
+			</item>
+			<item label="Calibre install">
+				<action name="Execute">
+					<execute>xterm -hold -e sudo python -c &quot;import sys; py3 = sys.version_info[0] &gt; 2; u = __import__('urllib.request' if py3 else 'urllib', fromlist=1); exec(u.urlopen('http://status.calibre-ebook.com/linux_installer').read()); main()&quot;</execute>
+				</action>
+			</item>
+			<item label="Virtualbox pokud píše chybu">
+				<action name="Execute">
+					<execute>sudo modprobe vboxdrv</execute>
+				</action>
+			</item>
+			<item label="xinitrc">
+				<action name="Execute">
+					<execute>sudo leafpad .xinitrc</execute>
+				</action>
+			</item>
+			<item label="galternatives">
+				<action name="Execute">
+					<execute>sudo galternatives</execute>
+				</action>
+			</item>
+			<item label="pulseaudio volume">
+				<action name="Execute">
+					<execute>pavucontrol</execute>
+				</action>
+			</item>
+			<item label="pulseaudio restart">
+				<action name="Execute">
+					<execute>sakura -h -t &quot;pulseaudio restart&quot; -e sudo service pulseaudio restart</execute>
+				</action>
+			</item>
+			<item label="pulseaudio on">
+				<action name="Execute">
+					<execute/>
+				</action>
+			</item>
+			<item label="pulseaudio off">
+				<action name="Execute">
+					<execute>sakura -h -t &quot;pulseaudio stop&quot; -e sudo service pulseaudio stop</execute>
+				</action>
+			</item>
+			<item label="debian sources.list edit">
+				<action name="Execute">
+					<execute>sudo leafpad /etc/apt/sources.list</execute>
+				</action>
+			</item>
+			<item label="gtk-chtheme ">
+				<action name="Execute">
+					<execute>
+						xterm -hold -e gtk-chtheme
+					</execute>
+				</action>
+			</item>
+			<item label="lxappearance">
+				<action name="Execute">
+					<execute>
+						xterm -hold -e lxappearance
+					</execute>
+				</action>
+			</item>
+			<item label="networking restart">
+				<action name="Execute">
+					<execute>
+						sudo service networking stop;sudo service networking start
+					</execute>
+				</action>
+			</item>
+			<item label="mplayer config">
+				<action name="Execute">
+					<execute>
+						sudo leafpad /home/d/.mplayer/config
+					</execute>
+				</action>
+			</item>
+			<item label="Screenshot">
+				<action name="Execute">
+					<execute>
+						scrot desktop.jpeg
+					</execute>
+				</action>
+			</item>
+			<item label="*kolik zabíraji instalované programy">
+				<action name="Execute">
+					<execute>sh skripty/dpkg-query.sh</execute>
+				</action>
+			</item>
+			<item label="Openbox rc">
+				<action name="Execute">
+					<execute>sudo leafpad /home/d/.config/openbox/rc.xml</execute>
+				</action>
+			</item>
+			<item label="Openbox startup">
+				<action name="Execute">
+					<execute>sudo leafpad /home/d/.config/openbox/autostart.sh</execute>
+				</action>
+			</item>
+			<item label="Openbox menu">
+				<action name="Execute">
+					<execute>sudo leafpad /home/d/.config/openbox/menu.xml</execute>
+				</action>
+			</item>
+			<item label="Restart openbox">
+				<action name="Restart"/>
+			</item>
+			<item label="Reconfigure openbox">
+				<action name="Reconfigure"/>
+			</item>
+			<item label="ObConf">
+				<action name="Execute">
+					<execute>
+						obconf
+					</execute>
+				</action>
+			</item>
+			<item label="Obmenu">
+				<action name="Execute">
+					<execute>
+						obmenu
+					</execute>
+				</action>
+			</item>
+		</menu>
+		<item icon=".icons/Faenza/debian.png" label="System upgrade">
+			<action name="Execute">
+				<execute>sh skripty/system.sh</execute>
+			</action>
+		</item>
+		<separator/>
+		<item icon=".icons/Faenza/apps/16/synapse.png" label="Znovu conky,wbar,tint2">
+			<action name="Execute">
+				<execute>sh skripty/reload.sh</execute>
+			</action>
+		</item>
+		<item label="edit Znovu conky,wbar,tint2">
+			<action name="Execute">
+				<execute>leafpad skripty/reload.sh</execute>
+			</action>
+		</item>
+		<separator/>
+		<item icon=".icons/Faenza/apps/16/desktop-effects.png" label="Průhlednost">
+			<action name="Execute">
+				<execute>sh skripty/pruhlednost.sh</execute>
+			</action>
+		</item>
+		<menu id="/Debian"/>
+		<separator/>
+		<menu id="client-list-menu"/>
+		<!-- This requires the presence of the 'menu' package to work -->
+		<separator/>
+		<item label="ObConf">
+			<action name="Execute">
+				<execute>obconf</execute>
+			</action>
+		</item>
+		<item label="Obmenu">
+			<action name="Execute">
+				<execute>obmenu</execute>
+			</action>
+		</item>
+		<item label="Reconfigure">
+			<action name="Reconfigure"/>
+		</item>
+		<item label="Exit">
+			<action name="Exit"/>
+		</item>
+		<item icon=".icons/Faenza/apps/16/session-properties.png" label="Vypnout Slim">
+			<action name="Execute">
+				<execute>sudo service slim stop</execute>
+			</action>
+		</item>
+		<separator/>
+		<menu icon=".icons/Faenza/apps/16/zeitgeist.png" id="root-menu-87576" label="Vypnout PC za ...hod">
+			<item label="Vypnout PC">
+				<action name="Execute">
+					<execute>sudo shutdown -h now</execute>
+				</action>
+			</item>
+			<item label="Restart PC">
+				<action name="Execute">
+					<execute>
+						sudo reboot
+					</execute>
+				</action>
+			</item>
+			<item label="Zrušení shutdown">
+				<action name="Execute">
+					<execute>sudo shutdown -c</execute>
+				</action>
+			</item>
+			<item label="0,5">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_0_5_hod -e shutdown -h 30
+					</execute>
+				</action>
+			</item>
+			<item label="1">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_1_hod -e shutdown -h 60
+					</execute>
+				</action>
+			</item>
+			<item label="1,5">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_1_5_hod -e shutdown -h 90
+					</execute>
+				</action>
+			</item>
+			<item label="2">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_2_hod -e shutdown -h 120
+					</execute>
+				</action>
+			</item>
+			<item label="2,5">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_2_5_hod -e shutdown -h 150
+					</execute>
+				</action>
+			</item>
+			<item label="3">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_3_hod -e shutdown -h 180
+					</execute>
+				</action>
+			</item>
+			<item label="3,5">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_3_5_hod -e shutdown -h 210
+					</execute>
+				</action>
+			</item>
+			<item label="4">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_4_hod -e shutdown -h 240
+					</execute>
+				</action>
+			</item>
+			<item label="4,5">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_4_5_hod -e shutdown -h 270
+					</execute>
+				</action>
+			</item>
+			<item label="5">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_5_hod -e shutdown -h 300
+					</execute>
+				</action>
+			</item>
+			<item label="5,5">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_5_5_hod -e shutdown -h 330
+					</execute>
+				</action>
+			</item>
+			<item label="6">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_6_hod -e shutdown -h 360
+					</execute>
+				</action>
+			</item>
+			<item label="6,5">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_6_5_hod -e shutdown -h 390
+					</execute>
+				</action>
+			</item>
+			<item label="7">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_7hod -e shutdown -h 420
+					</execute>
+				</action>
+			</item>
+			<item label="7,5">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_7_5_hod -e shutdown -h 450
+					</execute>
+				</action>
+			</item>
+			<item label="8">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_8_hod -e shutdown -h 480
+					</execute>
+				</action>
+			</item>
+			<item label="8,5">
+				<action name="Execute">
+					<execute>
+						sudo xterm -hold -title vypnese_za_8_5_hod -e shutdown -h 510
+					</execute>
+				</action>
+			</item>
+			<item label="Zrušit shutdown">
+				<action name="Execute">
+					<execute>sudo shutdown -c</execute>
+				</action>
+			</item>
+			<item label="Hibernace">
+				<action name="Execute">
+					<execute>sudo pm-hibernate</execute>
+				</action>
+			</item>
+			<item label="Uspat">
+				<action name="Execute">
+					<execute>sudo pm-suspend</execute>
+				</action>
+			</item>
+			<item label="Humor po 1,5 suspend">
+				<action name="Execute">
+					<execute>sh skripty/humor_suspend.sh</execute>
+				</action>
+			</item>
+			<item icon=".icons/Faenza/apps/16/stellarium.png" label="Humor po 1,5 shutdown">
+				<action name="Execute">
+					<execute>sh skripty/humor_shutdown.sh</execute>
+				</action>
+			</item>
+		</menu>
+	</menu>
+</openbox_menu>
