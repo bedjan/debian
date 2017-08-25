@@ -1,0 +1,119 @@
+# conky configuration
+
+# set to yes if you want Conky to be forked in the background
+background yes
+
+# Use Xft?
+use_xft yes
+
+# Xft font when Xft is enabled
+#xftfont Liberation Mono:pixelsize=11
+#xftfont terminus:pixelsize=8
+xftfont standard 07_56:size=6
+
+# Text alpha when using Xft
+xftalpha 0.8
+
+# Print everything to console?
+
+# out_to_console no
+
+# Update interval in seconds
+update_interval 3.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Create own window instead of using desktop (required in nautilus)
+
+own_window yes
+own_window_transparent yes
+own_window_type override
+own_window_hints below,undecorated,sticky,skip_taskbar
+#own_window_colour 222222
+
+#own_window_type desktop
+
+#own_window_hints below
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 1276
+maximum_width 1276
+
+# Draw shades?
+draw_shades no 
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Stippled borders?
+#stippled_borders 0
+
+# border margins
+#border_margin 5
+
+# border width
+border_width 1
+
+# Default colors and also border colors
+default_color dddddd
+default_border_color white
+default_shade_color black
+default_outline_color black
+
+
+# Text alignment, other possible values are commented
+
+#alignment top_left
+
+alignment top_right
+
+#alignment bottom_left
+
+#alignment bottom_right
+
+# Gap between borders of screen and text
+
+# same thing as passing -x at command line
+gap_x 0
+gap_y 2
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# set to 1 to disable averaging
+net_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+
+override_utf8_locale yes
+
+use_spacer yes
+color0 white
+color1 00e6e6
+color2 00ace6
+color3 0073e6
+
+#ESSID: 
+#${execi 2 iwlist wlan0 scan | grep ESSID}
+
+#${execi 2 sudo iwlist wlan0 scanning | egrep 'Cell |Encryption|Quality|Last beacon|ESSID'}
+
+TEXT
+${color3}DPMS: ${color0}${execi 2 xset q |  grep "DPMS is" | cut -c 10-17}${color}  | ${color3}RAM: ${color1}${memeasyfree} ${color0}${membar 5,50} ${color}  | ${color3}SWAP: ${color0}${swap}${color1}/ $swapperc% ${color}  | ${color3}CPU 0-4:${color0} ${cpu cpu0}  ${cpu cpu1}  ${cpu cpu2}  ${cpu cpu3}  | ${color3}UP: ${color1}${uptime_short}  ${color}  | ${color3}DISK:${color1}  ~ ${color1}${fs_free /home} free   ${color1}/ ${color1}${fs_free /} free ${color} | ${color3} Baterie:  ${color1}${execi 60 acpi | grep -Eo '\w+,' | grep -Eo '\w+'} ${color0} ${battery_bar 5,30} ${color1}${battery_percent BAT0}% ${acpiacadapter}  | ${color3}SÍŤ: ${color1} ${wireless_essid wlan0} ${color0} ${wireless_link_bar  5,50 wlan0}${color1} ${wireless_link_qual_perc wlan0}% -  ${downspeed wlan0}  / ${color1}${upspeed wlan0} | ${color3}CPU:${color1} ${top name 1}  ${top cpu 1} | ${color3} RAM: ${color1}${top_mem name 1}${top_mem mem 1}
+
