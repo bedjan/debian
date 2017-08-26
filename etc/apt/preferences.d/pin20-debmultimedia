@@ -1,0 +1,14 @@
+Explanation: Pin to take as much as possible from debian regular repos,
+Explanation: and not to downgrade some apps such as vlc
+Explanation: ---
+Explanation: Package: *
+Explanation: Pin: release a=stretch-backports,n=stretch-backports
+Explanation: Pin-Priority: 500
+Explanation: ---
+Explanation: Package: libpulse0
+Explanation: Pin: version 5*
+Explanation: Pin-Priority: 999
+Explanation: ---
+Package: *
+Pin: origin *deb-multimedia.org
+Pin-Priority: 100

@@ -1,0 +1,14 @@
+Explanation: increase q4os repo priority
+Explanation: to be preferred to debian
+Explanation: ---
+Package: *
+Pin: release o=q4os.org,n=q4os-1-0-cn
+Pin-Priority: 501
+
+Package: *
+Pin: release o=q4os.org,n=q4os-2-0-cn
+Pin-Priority: 501
+
+Package: *
+Pin: release o=q4os.org,n=q4os-rpi-1-0-cn
+Pin-Priority: 501
