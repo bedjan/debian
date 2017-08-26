@@ -1,0 +1,1 @@
+konfigurace apt
