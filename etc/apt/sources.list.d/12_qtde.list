@@ -1,0 +1,6 @@
+# Q4OS essential repository
+# **** !!! NEVER touch this CRITICAL system file **** !!!
+
+# Trinity R14 - Q4OS mirror
+deb http://q4os.org/qtderepo jessie main
+# deb-src http://q4os.org/qtderepo jessie main

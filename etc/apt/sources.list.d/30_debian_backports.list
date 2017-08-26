@@ -1,0 +1,6 @@
+# Q4OS essential repository
+# **** !!! NEVER touch this CRITICAL system file **** !!!
+
+# jessie-backports
+deb http://ftp.debian.org/debian/ jessie-backports main contrib non-free
+# deb-src http://ftp.debian.org/debian/ jessie-backports main contrib non-free

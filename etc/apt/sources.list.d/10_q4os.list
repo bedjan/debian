@@ -1,0 +1,5 @@
+# Q4OS essential repository
+# **** !!! NEVER touch this CRITICAL system file **** !!!
+
+deb http://q4os.org/q4repo q4os-1-0-cn main
+# deb-src http://q4os.org/q4repo q4os-1-0-cn main
