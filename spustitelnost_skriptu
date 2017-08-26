@@ -1,0 +1,3 @@
+#!/bin/bash  
+# Skript pro spustitelnost skriptů z adresáře ~/debian/skripty 
+chmod -R +x ~/debian/skripty
