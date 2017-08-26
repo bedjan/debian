@@ -1,3 +1,9 @@
+#### Spustitelný skript
+
+1) soubor <code>chmod +x skript</code>
+
+2) adresář rekurzivně <code>chmod -R +x adresar</code>
+
 # debian nastaveni a skripty
 
 #### Debian sources.list
