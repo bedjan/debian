@@ -1,0 +1,12 @@
+# This is a static IP settings example,
+# modify it to your needs
+
+# The primary network interface
+auto eth0
+#iface eth0 inet dhcp
+iface eth0 inet static
+ address 10.0.0.201
+ broadcast 10.0.0.255
+ gateway 10.0.0.1
+ netmask 255.255.255.0
+ dns-nameservers 10.0.0.1 8.8.8.8 8.8.4.4
