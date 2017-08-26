@@ -4,6 +4,8 @@
 
 2) adresář rekurzivně <code>chmod -R +x adresar</code>
 
+3) odstranění spustitelnosti u souboru <code>chmod -x skript</code>, u adresáře <code>chmod -R -x adresar</code>
+
 # debian nastaveni a skripty
 
 #### Debian sources.list
