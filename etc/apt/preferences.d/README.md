@@ -1,0 +1,1 @@
+Nastaveni apt preference
