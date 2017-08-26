@@ -38,7 +38,7 @@ V Linuxu mechaniky „zjištění DVD mechaniky $ ls -l /dev/dvdrw“
 
 V Linuxu grafika = <code>xfburn, brasero, k3b</code>
 
-V Linuxu command = dvd+rw-tools „prázný = $ dvd+rw-tools -blank /dev/dvdrw“ „vypálení ISO = <code>$growisofs -speed=2 -dvd-compat -Z /dev/dvdrw=dvd_image.iso</code> „další příkazy = </code>$growisofs -Z /dev/dvdrw -R -J /some/files</code>; nová session vypalování = </code>$growisofs -M dev/dvdwriter additionaldata</code>
+V Linuxu command = dvd+rw-tools „prázný = <code>$ dvd+rw-tools -blank /dev/dvdrw</code> „vypálení ISO = <code>$growisofs -speed=2 -dvd-compat -Z /dev/dvdrw=dvd_image.iso</code> „další příkazy = </code>$growisofs -Z /dev/dvdrw -R -J /some/files</code>; nová session vypalování = </code>$growisofs -M dev/dvdwriter additionaldata</code>
 
 Ve Windows = [http://infrarecorder.sourceforge.net/](http://infrarecorder.sourceforge.net/ "http://infrarecorder.sourceforge.net/")
 
@@ -147,7 +147,7 @@ Nastavení disků a oddílů
 
 „noatime,commit=5000 ⇒ čas se nezapisuje na disk hned, časová prodleva zápisu na disk je 5000 s“
 
-“ $sudo leafpad /etc/fstab ⇒ může vypadat nějak takhle (editor nano = ctrl-o, ctrll-x)“
+<code>$sudo nano /etc/fstab</code> ⇒ může vypadat nějak takhle (editor nano = ctrl-o, ctrll-x)“
 
 <pre class="code">  >> # /etc/fstab: static file system information.</pre>
 
@@ -167,11 +167,11 @@ Nastavení disků a oddílů
 
 Nastavení jádra
 
-„$sudo sysctl -a = zjištění všech možností podporovaných v jádře“
+<code>$ sudo sysctl -a</code> = zjištění všech možností podporovaných v jádře“
 
-„$sudo leafpad /etc/sysctl.conf = úprava souboru dle předchozího výběru (editor nano = ctrl-o, ctrll-x)“
+<code>$ sudo nano /etc/sysctl.conf</code> = úprava souboru dle předchozího výběru (editor nano = ctrl-o, ctrll-x)“
 
-„$sudo sysctl -p = reaktivace souboru /etc/sysctl.conf s naší úpravou“
+„$ sudo sysctl -p = reaktivace souboru /etc/sysctl.conf s naší úpravou“
 
 <pre class="code">  >> #</pre>
 
