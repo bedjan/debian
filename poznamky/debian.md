@@ -1,6 +1,6 @@
-Debian
+#### Debian
 
-1) ISO – architektura i386, nebo amd64 ? :
+##### 1) ISO – architektura i386, nebo amd64 ? :
 
 Jakou architekturu máme? – jsou 4 způsoby jak to zjistit z CPU:
 
@@ -18,7 +18,7 @@ i386 netinst (180 <abbr title="Megabyte">MB</abbr>): [http://cdimage.debian.org/
 
 amd64 netinst (180 <abbr title="Megabyte">MB</abbr>): [http://cdimage.debian.org/debian-cd/7.1.0/amd64/iso-cd/debian-7.1.0-amd64-netinst.iso](http://cdimage.debian.org/debian-cd/7.1.0/amd64/iso-cd/debian-7.1.0-amd64-netinst.iso "http://cdimage.debian.org/debian-cd/7.1.0/amd64/iso-cd/debian-7.1.0-amd64-netinst.iso")
 
-2) Vypálení ISO obrazu (hlavní programy = xfburn, wodim,dvd+rw-format
+##### 2) Vypálení ISO obrazu (hlavní programy = xfburn, wodim,dvd+rw-format
 
 „rychlé zjištění CD a DVD machanik v systému = <code>$ ls -l /dev | grep -E „(cd|dvd)“</code>
 
@@ -42,7 +42,7 @@ V Linuxu command = dvd+rw-tools „prázný = <code>$ dvd+rw-tools -blank /dev/d
 
 Ve Windows = [http://infrarecorder.sourceforge.net/](http://infrarecorder.sourceforge.net/ "http://infrarecorder.sourceforge.net/")
 
-3) Instalace
+##### 3) Instalace
 
 „zapnout boot v BIOS, pokud již není“
 
