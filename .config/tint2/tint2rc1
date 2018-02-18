@@ -1,0 +1,59 @@
+# Tint2 config file
+# For information on manually configuring tint2 see http://code.google.com/p/tint2/wiki/Configure
+
+# Background definitions
+# ID 1
+rounded = 2
+border_width = 1
+background_color = #000000 80
+border_color = #929292 80
+
+# ID 2
+rounded = 3
+border_width = 0
+background_color = #5F92B8 100
+border_color = #ADADAD 40
+
+# ID 3
+rounded = 3
+border_width = 0
+background_color = #AFAFAF 40
+border_color = #FFFFFF 60
+
+# Panel
+panel_monitor = all
+panel_position = center left vertical
+panel_items = L
+panel_size = 230 35
+panel_margin = 0 0
+panel_padding = 0 0 
+panel_dock = 0
+wm_menu = 1
+panel_layer = top 
+panel_background_id = 0
+
+# Panel Autohide
+autohide = 1
+autohide_show_timeout = 0.1
+autohide_hide_timeout = 2
+autohide_height = 0
+#strut_policy = follow_size
+strut_policy = none
+
+# Launcher
+launcher_padding = 2 2 4
+launcher_background_id = 1
+launcher_icon_size = 24
+launcher_icon_theme = Flat Remix
+launcher_item_app = /usr/share/applications/google-chrome-beta.desktop
+launcher_item_app = /usr/share/applications/firefox-esr.desktop
+launcher_item_app = /usr/share/applications/sakura.desktop
+launcher_item_app = /usr/share/applications/Thunar.desktop
+launcher_item_app = /usr/share/applications/galculator.desktop  
+launcher_item_app = /usr/share/applications/datovka.desktop 
+launcher_item_app = /usr/share/applications/sylpheed.desktop
+launcher_item_app = /usr/share/applications/galculator.desktop 
+launcher_item_app = /usr/share/applications/torbrowser.desktop
+launcher_item_app = /usr/share/applications/lxtask.desktop
+
+# End of config
