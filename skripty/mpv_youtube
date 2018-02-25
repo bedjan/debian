@@ -1,7 +1,9 @@
 #!/bin/bash
 #přehraje video z youtube skopirovane do schránky, tedy "http://....."
 #leafpad ~/skr/mpv_youtube
-urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl --ytdl-format=243,134,43,18 --fs --ontop --initial-audio-sync --slang=cs --alang=cs  --hwdec-codecs=h264,mpeg2video"
+##urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl --ytdl-format=243,134,43,18 --fs --ontop --initial-audio-sync --slang=cs --alang=cs  --hwdec=auto --hwdec-codecs=h264,mpeg2video"
+urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl --ytdl-format=243,134,43,18 --fs --initial-audio-sync --slang=cs --alang=cs  --hwdec=auto --force-window"
+
 #; wait && kill $(pidof)
 #-title Video_online
 #xterm -title Video_online -e "mpv `youtube-dl $(xsel --clipboard) -f 36  -g`"
