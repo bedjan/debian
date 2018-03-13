@@ -1,6 +1,8 @@
 #!/bin/bash
 #vice info na https://github.com/chubin/wttr.in
 #zobrazeni v jinem jazyce http://wttr.in/:translation
+# nebo sudo apt-get install ansiweather &&  ansiweather -l Prague,CZ -f 10
+
 
 xterm -hold  -max -fa 'Monospace' -fs 11 -e  bash -c "
 which curl && echo curl_nainstalovan
