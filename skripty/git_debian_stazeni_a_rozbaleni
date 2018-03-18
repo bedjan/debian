@@ -1,0 +1,5 @@
+#!/bin/bash  
+
+#sakura -h -e "bash -c 'sudo apt-get update;wait; sudo apt list --upgradable -a;wait; sudo apt-get upgrade;wait;sudo apt autoremove; echo =====KONEC_UPGRADE=====' "
+#sleep 30 &
+sakura -h -e "bash -c 'echo ==_stazeni_git_debian_a_rozbaleni_do_adresare_debian-master_==;wget -c https://github.com/bedjan/debian/archive/master.zip && unzip master.zip && ls debian-master"
