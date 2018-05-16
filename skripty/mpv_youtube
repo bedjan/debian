@@ -10,9 +10,9 @@
 urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl-format=243,134,43,18 --fs --volume=50 --initial-audio-sync --slang=cs,en  --force-window";["$1" -ne "0"] & urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --fs --volume=50 --initial-audio-sync --force-window";["$2" -ne "0"] & urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "vlc '$(xsel --clipboard)'"
 
 
-#urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl-format=243,134,43,18 --fs --volume=50 --initial-audio-sync --slang=cs,en  --force-window";["$1" -ne "0"] || urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --fs --volume=50 --initial-audio-sync --force-window"
+#urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl-format=243,134,43,18 --fs --volume=50 --initial-audio-sync --slang=cs,en  --force-window"
 
-#urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl-format=243,134,43,18 --fs --volume=50 --initial-audio-sync --slang=cs,en  --hwdec=auto --force-window"
+#urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl-format=243,134,43,18 --fs --volume=50 --initial-audio-sync --slang=cs,en  --force-window";["$1" -ne "0"] || urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --fs --volume=50 --initial-audio-sync --force-window"
 
 
 #; wait && kill $(pidof)
