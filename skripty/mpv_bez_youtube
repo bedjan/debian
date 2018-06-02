@@ -6,7 +6,7 @@
 
 #urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl --ytdl-format=243,134,43,18 --fs --volume=50 --initial-audio-sync --slang=cs,en --alang=cs,en  -ytdl-raw-options=write-auto-sub=,sub-lang=cs --sub-ass-force-margins --sub-spacing=1 --sub-bold=yes --sub-border-size=3 --sub-shadow-offset=3 --sub-shadow-color=0/0/0/0.5 --sub-use-margins=no --no-sub-visibility --hwdec=auto --force-window --hwdec=vaapi-copy"
 
-urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo ===BEZ_PARAMETRU_YOUTUBE===;echo -----------;mpv '$(xsel --clipboard)' "
+urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo ===BEZ_PARAMETRU_YOUTUBE===;echo -----------;mpv -fs '$(xsel --clipboard)' "
 
 ##urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===1===;echo ===VIDEO===;echo -----------;mpv '$(xsel --clipboard)' --ytdl-format=243,134,43,18 --fs --volume=50 --initial-audio-sync --slang=cs,en  --force-window";['$(ps -aux | pgrep mpv)' -qt "0"] && exit 1 || urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===2===;echo ===VIDEO===;echo -----------;mpv '$(xsel --clipboard)' --fs --volume=50 --initial-audio-sync --force-window"
 
