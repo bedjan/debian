@@ -1,5 +1,9 @@
 #!/bin/bash
 #přehraje video z youtube skopirovane do schránky, tedy "http://....."
+
+urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo ====480====;echo -----------;mpv --ytdl-format='bestvideo[height<=?480]+bestaudio' --ytdl-raw-options=no-check-certificate= '$(xsel --clipboard)' || echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo ====PLNA====;echo -----------;mpv '$(xsel --clipboard)' || echo ===VIDEO===;echo ===NELZE===;echo ===PREHRAT===;echo ====BOHUZEL====;echo -----------"
+
+
 #leafpad ~/skr/mpv_youtube
 ##urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl --ytdl-format=243,134,43,18 --fs --ontop --initial-audio-sync --slang=cs --alang=cs  --hwdec=auto --hwdec-codecs=h264,mpeg2video"
 
@@ -9,7 +13,7 @@
 ###urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo -----------;mpv --ytdl-format='bestvideo[height<=?720]+bestaudio' --ytdl-raw-options=no-check-certificate= '$(xsel --clipboard)'" 1>&2  && urxvt -geometry 80x20+60+150 -title Video_online_bez_parametru +hold -e  bash -c "echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo ===BEZ_PARAMETRU_YOUTUBE===;echo -----------;mpv '$(xsel --clipboard)' "
 
 
-urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo -----------;mpv --ytdl-format='bestvideo[height<=?360]+bestaudio' --ytdl-raw-options=no-check-certificate= -fs '$(xsel --clipboard)'"
+#urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo -----------;mpv --ytdl-format='bestvideo[height<=?360]+bestaudio' --ytdl-raw-options=no-check-certificate= -fs '$(xsel --clipboard)'"
 
 
 
