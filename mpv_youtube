@@ -1,9 +1,10 @@
 #!/bin/bash
 #přehraje video z youtube skopirovane do schránky, tedy "http://....."
 
-echo "Spoustim video  v rozliseni 480p ..."  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1';mpv --ytdl-format='bestvideo[height<=?480]+bestaudio' --ytdl-raw-options=no-check-certificate= "$(xsel --clipboard)" || sleep 1;echo "Spoustene video neslo spustit ... spoustim bez parametru ..."  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1';mpv "$(xsel --clipboard)"
+urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo '=====Spoustim_video_v_rozliseni_480p ...=====';echo '=====Spoustim_video_v_rozliseni_480p ...====='  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1';mpv --ytdl-format='bestvideo[height<=?480]+bestaudio' --ytdl-raw-options=no-check-certificate= '$(xsel --clipboard)'  && exit 1;echo '=====Spoustim_video_v_plnem_rozliseni ...=====' || echo 'Spoustene video neslo spustit ... spoustim bez parametru ...'  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1';mpv '$(xsel --clipboard)'"
 
-#urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo ====480====;echo -----------;mpv --ytdl-format='bestvideo[height<=?480]+bestaudio' --ytdl-raw-options=no-check-certificate= '$(xsel --clipboard)'"
+##urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo ====480====;echo -----------;mpv --ytdl-format='bestvideo[height<=?480]+bestaudio' --ytdl-raw-options=no-check-certificate= '$(xsel --clipboard)'" || mpv "$(xsel --clipboard)"
+
 #  2>&1 |  pgrep mpv || echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo ====PLNA====;echo -----------;mpv '$(xsel --clipboard)'"
 
 
