@@ -1,0 +1,15 @@
+#!/bin/bash
+#přehraje video z youtube skopirovane do schránky, tedy "http://....."
+
+XSEL=$(xsel --clipboard)
+YOUTUBE_DL=$(youtube-dl --skip-download --get-title $(xsel --clipboard))
+
+#"${YOUTUBE_DL}" 
+
+echo "${XSEL}"  | osd_cat -d 2 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-misc-fixed-medium-r-normal--20-200-75-75-c-100-iso8859-2'
+
+echo "${YOUTUBE_DL}"   | osd_cat -d 2 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-misc-fixed-medium-r-normal--20-200-75-75-c-100-iso8859-2'
+
+xterm -geometry 80x20-40-40 -title "${YOUTUBE_DL}" +hold -e bash -c "echo '=====Spoustim_video_v_rozliseni_480p ...=====';echo '=====URL="${XSEL}"=====';echo '===========================';mpv --profile=pseudo-gui --no-video  '${XSEL}'  && exit 1;echo '=====Spoustim_video_v_plnem_rozliseni ...=====' || echo 'Spoustene video neslo spustit ... spoustim bez parametru ...'  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-2';mpv '${XSEL}'"   && exit 1;echo '=====upgraduj youtube_dl====='
+
+#xterm -geometry 80x20-40-40 -title "${YOUTUBE_DL}" +hold -e bash -c "echo '=====Spoustim_video_v_rozliseni_480p ...=====';echo '=====URL="${XSEL}"=====';echo '===========================';mpv --profile=pseudo-gui --no-video -vo null  '${XSEL}'  && exit 1;echo '=====Spoustim_video_v_plnem_rozliseni ...=====' || echo 'Spoustene video neslo spustit ... spoustim bez parametru ...'  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-2';mpv '${XSEL}'"   && exit 1;echo '=====upgraduj youtube_dl====='
