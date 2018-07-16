@@ -2,7 +2,7 @@
 
 #mpv zvuk zapne vypne - switch zapne/vypne 
 
-STATUS=`cat /home/d/.config/mpv/mpv.conf | grep mute=no`
+STATUS=`cat $(echo ~)/.config/mpv/mpv.conf | grep mute=no`
 if [ "$STATUS" = "mute=no" ]];
 then
 sed -i 's/mute=no/mute=yes/g' /home/d/.config/mpv/mpv.conf 

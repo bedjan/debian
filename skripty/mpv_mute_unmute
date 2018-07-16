@@ -1,16 +1,16 @@
 #!/bin/bash
 #mpv zvuk zapne vypne - switch zapne/vypne 
 #leafpad ~/skr/dpms
-STATUS=`cat /home/d/.config/mpv/mpv.conf | grep mute=no`
+STATUS=`cat $(echo ~)/.config/mpv/mpv.conf | grep mute=no`
 if [ "$STATUS" = "" ]] ;
-then sed -i 's/mute=yes/mute=no/g' /home/d/.config/mpv/mpv.conf 
+then sed -i 's/mute=yes/mute=no/g' $(echo ~)/.config/mpv/mpv.conf 
 echo "MPV se zvukem ..."  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'
 elif [ "$STATUS" = "mute=no" ]] ; 
-then sed -i 's/mute=no/mute=yes/g' /home/d/.config/mpv/mpv.conf 
+then sed -i 's/mute=no/mute=yes/g' $(echo ~)/.config/mpv/mpv.conf 
 echo "MPV bez zvuku ..."  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'
 fi
 # | echo "Hlasitost vypnuta/zapnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'
 
-#sed -i 's/mute=no/mute=yes/g' /home/d/.config/mpv/mpv.conf
-#sed -i 's/mute=yes/mute=no/g' /home/d/.config/mpv/mpv.conf
-#cat /home/d/.config/mpv/mpv.conf | grep mute=no
+#sed -i 's/mute=no/mute=yes/g' $(echo ~)/.config/mpv/mpv.conf
+#sed -i 's/mute=yes/mute=no/g' $(echo ~)/.config/mpv/mpv.conf
+#cat $(echo ~)/.config/mpv/mpv.conf | grep mute=no
