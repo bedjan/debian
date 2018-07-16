@@ -1,4 +1,4 @@
 #!/bin/bash
 
-mkdir ~/screenshot
-scrot ~/screenshot/%Y_%m_%d_%T__screenshot.png
+mkdir $(echo ~)/screenshot
+scrot $(echo ~)/screenshot/%Y_%m_%d_%T__screenshot.png
