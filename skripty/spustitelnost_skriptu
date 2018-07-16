@@ -1,4 +1,4 @@
 #!/bin/bash  
 # Skript pro spustitelnost skriptů z adresáře ~/debian/skripty 
 # odstaranění spustitelnosti chmod -R -x ~/debian/skripty
-chmod -R +x ~/debian/skripty
+chmod -R +x $(echo ~)/debian/skripty
