@@ -6,10 +6,10 @@ STATUS=`cat /home/d/.config/mpv/mpv.conf | grep mute=no`
 if [ "$STATUS" = "mute=no" ]];
 then
 sed -i 's/mute=no/mute=yes/g' /home/d/.config/mpv/mpv.conf 
-echo "MPV se zvukem ..."  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'
+echo "MPV bez zvuku ..."  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'
 else
 sed -i 's/mute=yes/mute=no/g' /home/d/.config/mpv/mpv.conf 
-echo "MPV bez zvuku ..."  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'
+echo "MPV se zvukem ..."  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'
 fi
 
 
