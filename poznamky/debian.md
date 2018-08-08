@@ -1,4 +1,4 @@
-#### Debian
+#### Debian 8.8.2018
 
 ##### 1) ISO – architektura i386, nebo amd64 ? :
 
