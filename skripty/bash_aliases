@@ -1,0 +1,32 @@
+alias ba='cat .bash_aliases | sed "s/alias //"'
+alias ll='ls -lh'
+alias la='ls -A'
+alias l='ls -CF'
+alias ai='sudo apt-get install'
+alias as='apt search'
+alias ar='sudo apt-get remove'
+alias bash='sudo mousepad .bashrc '
+alias h='history | grep '
+alias y='sh /home/d/skripty/youtubedl_video.sh'
+alias ya='sh /home/d/skripty/youtubedl_audio.sh'
+alias aup='sudo apt update -y &&  sudo apt upgrade -y'
+alias vb='echo Vypnout_v_00:00;sudo shutdown -h 00:00'
+alias vc='echo Vypnout_v_02:00; sudo shutdown -h 02:00'
+alias bash='sudo mousepad .bashrc'
+alias basha='sudo mousepad .bash_aliases'
+alias tc='trans -shell -brief  -p  -no-auto :cs'
+alias tn='trans -shell -brief  -p  -no-auto :de'
+alias ta='trans -shell -brief  -p  -no-auto :en'
+alias tcz='trans -shell -brief -b -p  -no-auto :cs'
+alias tnz='trans -shell -brief -b -p  -no-auto :de'
+alias taz='trans -shell -brief -b -p  -no-auto :en'
+alias ms='megacopy -l skripty -r /Root/skripty'
+alias md='megacopy -l dane -r /Root/dane'
+alias mss='mega-sync skripty skripty'
+alias mdd='mega-sync dane dane'
+
+
+
+#if [ -f ~/.bash_aliases ]; then
+#. ~/.bash_aliases
+#fi

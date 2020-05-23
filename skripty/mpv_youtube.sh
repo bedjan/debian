@@ -1,0 +1,53 @@
+#!/bin/bash
+#přehraje video z youtube skopirovane do schránky, tedy "http://....."
+
+XSEL=$(xsel --clipboard)
+YOUTUBE_DL=$(youtube-dl --skip-download --get-title $(xsel --clipboard))
+
+#"${YOUTUBE_DL}" 
+
+echo "${XSEL}"  | osd_cat -d 2 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-misc-fixed-medium-r-normal--20-200-75-75-c-100-iso8859-2'
+
+echo "${YOUTUBE_DL}"   | osd_cat -d 2 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-misc-fixed-medium-r-normal--20-200-75-75-c-100-iso8859-2'
+
+xterm -geometry 80x20-40-40 -title "${YOUTUBE_DL}" +hold -e bash -c "echo '=====Spoustim_video_v_rozliseni_480p ...=====';echo '=====URL="${XSEL}"=====';echo '===========================';mpv --ytdl-format='bestvideo[height<=?360]+bestaudio' --ytdl-raw-options=no-check-certificate= '${XSEL}'  && exit 1;echo '=====Spoustim_video_v_plnem_rozliseni ...=====' || echo 'Spoustene video neslo spustit ... spoustim bez parametru ...'  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-2';mpv '${XSEL}'"   && exit 1;echo '=====upgraduj youtube_dl====='
+
+#-------------------
+
+#urxvt -geometry 80x20+60+150 -title Video_z_URL_$(xsel --clipboard) +hold -e bash -c "echo '=====Spoustim_video_v_rozliseni_480p ...=====';echo '=====URL=$(xsel --clipboard)=====';echo '===========================';mpv --ytdl-format='bestvideo[height<=?480]+bestaudio' --ytdl-raw-options=no-check-certificate= '$(xsel --clipboard)'  && exit 1;echo '=====Spoustim_video_v_plnem_rozliseni ...=====' || echo 'Spoustene video neslo spustit ... spoustim bez parametru ...'  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-2';mpv '$(xsel --clipboard)'"
+
+##urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo ====480====;echo -----------;mpv --ytdl-format='bestvideo[height<=?480]+bestaudio' --ytdl-raw-options=no-check-certificate= '$(xsel --clipboard)'" || mpv "$(xsel --clipboard)"
+
+#  2>&1 |  pgrep mpv || echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo ====PLNA====;echo -----------;mpv '$(xsel --clipboard)'"
+
+
+#leafpad ~/skr/mpv_youtube
+##urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl --ytdl-format=243,134,43,18 --fs --ontop --initial-audio-sync --slang=cs --alang=cs  --hwdec=auto --hwdec-codecs=h264,mpeg2video"
+
+
+#urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl --ytdl-format=243,134,43,18 --fs --volume=50 --initial-audio-sync --slang=cs,en --alang=cs,en  -ytdl-raw-options=write-auto-sub=,sub-lang=cs --sub-ass-force-margins --sub-spacing=1 --sub-bold=yes --sub-border-size=3 --sub-shadow-offset=3 --sub-shadow-color=0/0/0/0.5 --sub-use-margins=no --no-sub-visibility --hwdec=auto --force-window --hwdec=vaapi-copy"
+
+###urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo -----------;mpv --ytdl-format='bestvideo[height<=?720]+bestaudio' --ytdl-raw-options=no-check-certificate= '$(xsel --clipboard)'" 1>&2  && urxvt -geometry 80x20+60+150 -title Video_online_bez_parametru +hold -e  bash -c "echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo ===BEZ_PARAMETRU_YOUTUBE===;echo -----------;mpv '$(xsel --clipboard)' "
+
+
+#urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===ONLINE===;echo ===VIDEO===;echo -----------;mpv --ytdl-format='bestvideo[height<=?360]+bestaudio' --ytdl-raw-options=no-check-certificate= -fs '$(xsel --clipboard)'"
+
+
+
+
+##urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===1===;echo ===VIDEO===;echo -----------;mpv '$(xsel --clipboard)' --ytdl-format=243,134,43,18 --fs --volume=50 --initial-audio-sync --slang=cs,en  --force-window";['$(ps -aux | pgrep mpv)' -qt "0"] && exit 1 || urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===2===;echo ===VIDEO===;echo -----------;mpv '$(xsel --clipboard)' --fs --volume=50 --initial-audio-sync --force-window"
+
+
+###urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===1===;echo ===VIDEO===;echo -----------;mpv '$(xsel --clipboard)' --ytdl-format=243,134,43,18 --fs --volume=50 --initial-audio-sync --slang=cs,en  --force-window";["$1" -qt "0"] & urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "echo ===SPOUSTIM===;echo ===2===;echo ===VIDEO===;echo -----------;mpv '$(xsel --clipboard)' --fs --volume=50 --initial-audio-sync --force-window"
+
+
+#urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl-format=243,134,43,18 --fs --volume=50 --initial-audio-sync --slang=cs,en  --force-window";["$1" -ne "0"] & urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --fs --volume=50 --initial-audio-sync --force-window";["$2" -ne "0"] & urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "vlc '$(xsel --clipboard)'"
+
+#urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --ytdl-format=243,134,43,18 --fs --volume=50 --initial-audio-sync --slang=cs,en  --force-window";["$1" -ne "0"] || urxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "mpv '$(xsel --clipboard)' --fs --volume=50 --initial-audio-sync --force-window"
+
+
+#; wait && kill $(pidof)
+#-title Video_online
+#xterm -title Video_online -e "mpv `youtube-dl $(xsel --clipboard) -f 36  -g`"
+#--msg-level=ytdl_hook=debug
+#  || echo "Video neprehraje mpv ani vlc prehravac" | osd_cat -d 10 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-2'
