@@ -47,10 +47,10 @@ key "Super+b"            xterm -title Vypnout_v_00:00 -e 'sudo shutdown -h 00:00
 key "Super+c"            xterm -title Vypnout_v_02:00 -e 'sudo shutdown -h 02:00'
 key "Alt+F2"			grun
 
-key "Super+q"            xterm -geometry 80x20-60-60 -title Humor_radio -e bash -c "mpg123 -b 10240 -v -@ http://mp3stream4.abradio.cz:8000/humor.mp3"
-key "Super+w"            xterm -geometry 80x20-60-60 -title 90_radio -e bash -c "mpg123 -b 10240 -v -@ http://ice.abradio.cz/city90128.mp3"
-key "Super+e"            xterm -geometry 80x20-60-60 -title 80_radio -e bash -c "mpg123 -b 10240 -v -@ http://ice.abradio.cz/city80128.mp3"
-key "Super+a"            bash -c "wget --timestamping  --tries=100 --wait=1 hhttps://raw.githubusercontent.com/bedjan/mm/master/radia_online.m3u;xterm -geometry 80x20-60-60 -title Online_radia_f_d -e mpg123 -@ radia_online.m3u"
+key "Super+q"            xterm -geometry 80x20-60-60 -title Humor_radio -e bash -c "mpg123 -b 10240 -v http://mp3stream4.abradio.cz:8000/humor.mp3"
+key "Super+w"            xterm -geometry 80x20-60-60 -title 90_radio -e bash -c "mpg123 -b 10240 -v http://ice.abradio.cz/city90128.mp3"
+key "Super+e"            xterm -geometry 80x20-60-60 -title 80_radio -e bash -c "mpg123 -b 10240 -v http://ice.abradio.cz/city80128.mp3"
+key "Super+a"            bash -c "wget --timestamping  --tries=100 --wait=1 https://raw.githubusercontent.com/bedjan/mm/master/radia_online.m3u && xterm -geometry 80x20-60-60 -title Online_radia_f_d -e mpg123 -b 10240 -v -@ radia_online.m3u"
 
 
 key "Super+k" killall mpg123 && killall vlc && killall mpv
