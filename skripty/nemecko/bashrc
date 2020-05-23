@@ -88,21 +88,8 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -lh'
-alias la='ls -A'
-alias l='ls -CF'
-alias ai='sudo apt-get install'
-alias as='apt search'
-alias ar='sudo apt-get remove'
-alias bash='sudo mousepad .bashrc '
-alias h='history | grep '
-alias y='sh /home/d/skripty/youtubedl_video.sh'
-alias ya='sh /home/d/skripty/youtubedl_audio.sh'
-alias aup='sudo apt update -y &&  sudo apt upgrade -y'
-alias vb='echo Vypnout_v_00:00;sudo shutdown -h 00:00'
-alias vc='echo Vypnout_v_02:00; sudo shutdown -h 02:00'
-alias bash='sudo mousepad .bashrc'
-alias t='trans -shell -brief -b -p  -no-auto'
+
+
 
 
 # Alias definitions.
@@ -137,3 +124,4 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
