@@ -1,0 +1,18 @@
+# This is a default toolbar definition file for IceWM
+#
+# Place your personal variant in $HOME/.icewm directory.
+
+#prog XTerm ! x-terminal-emulator
+#prog    "Chromium" ! chromium #x-www-browser
+#prog FTE fte fte
+#prog Netscape netscape netscape
+#prog    "Vim" vim /usr/bin/gvim -f
+prog Terminal /usr/share/icons/Faenza/apps/24/lxterminal.png sakura
+prog Web /usr/share/icons/Faenza/apps/24/chromium.png chromium
+prog Soubory /usr/share/icons/Faenza/apps/24/package-manager-icon.png pcmanfm
+prog Audacious /usr/share/icons/Faenza/apps/24/audacious.png audacious
+prog Web_lehci /usr/share/icons/Faenza/apps/24/midori.png midori
+prog Web_nejlehci netsurf netsurf
+prog Lxtask /usr/share/icons/Faenza/apps/24/gnome-settings-default-applications.png lxtask
+prog Viber /opt/viber/icons/16x16.png /opt/viber/Viber
+prog Bluetooth /usr/share/icons/Faenza/apps/24/blueman.png blueman-applet

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# enable numlock applet
+    sleep 1 &&
+    numlockx &
+
+# start network manager
+    sleep 2 &&
+    nm-applet &
+
+# enable bluetooth applet
+#    sleep 5 &&
+#    blueman-applet &
+    
+# enable volume
+    sleep 3 &&    
+    volumeicon &
