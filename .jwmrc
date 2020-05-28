@@ -21,6 +21,7 @@
 <!-- <StartupCommand>/bin/sync || /usr/bin/sudo /bin/sh -c '/bin/echo 3 >/proc/sys/vm/drop_caches'
 </StartupCommand> -->
 <StartupCommand>xset -display :0.0 dpms 0 0 300</StartupCommand>
+<StartupCommand>setxbmap cs</StartupCommand>
 <!-- <StartupCommand>sudo ntpdate -s time.nist.gov</StartupCommand> -->
 <StartupCommand>numlockx;which numlockx || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends numlockx</StartupCommand>
 <!-- <StartupCommand>clipit</StartupCommand> -->
@@ -44,33 +45,11 @@
 <Program label="Bluetooth applet">blueman-applet</Program>
 
 
-
-<Menu  label="Hlavni">
-<Program label="Prikaz">grun;which grun || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends grun</Program>
-<Program label="Htop ROOT">xterm -title HTOP_ROOT -e "sudo htop";which htop || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends htop</Program>
-<Program label="Lxtask ROOT">exec:sudo lxtask;which lxtask || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends lxtask</Program>
-<Program label="Terminal">sakura;which sakura || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends sakura</Program>
-<Program label="Midnight Commander ROOT">sudo mc;which mc || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends mc</Program>
-<Program label="Web-Netsurf">netsurf;which netsurf || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends netsurf</Program>
-<Program label="Web-Palemoon">firejail --noprofile ~/programy/palemoon/palemoon</Program>
-<Program label="Web-Chromium">chromium</Program>
-<Program label="Tor Browser">~/Downloads/tor-browser_en-US/Browser/start-tor-browser</Program>
-<Program label="#TV">freetuxtv;which freetuxtv || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends freetuxtv</Program>
-</Menu>
-
-
-
-<Menu  label="Kancelar">
-<Program label="Calculator">qalculate #xcalc;which qalculate || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends qalculate</Program>
-<Program label="Xpaint">xpaint;which xpaint || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends xpaint</Program>
-<Program label="Gimp">gimp;which gimp || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends gimp</Program>
-<Program label="Poznamky">mousepad poznamky.txt;which mousepad || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends mousepad</Program>
-<Program label="Konverze">winff;which winff || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends winff</Program>
-</Menu>
+<Separator/>
 <Menu label="System">
 <Program label="JWM Restart">jwm -restart</Program>
 <Program label="JWM kompatibilita">xterm -hold -e "jwm -p"</Program>
-<Program label="jwmrc">mousepad .jwmrc;which mousepad || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends mousepad</Program>
+<Program label="jwmrc">mousepad .jwmrc;which mousepad || xterm -title neni_nain<StartupCommand>xset -display :0.0 dpms 0 0 300</StartupCommand>talovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends mousepad</Program>
 <Program label="start">mousepad start;which mousepad || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends mousepad</Program>
 <Program label="znovu spuštění start">sh start</Program>
 <Program label="jwm webove stranky">netsurf https://joewing.net/projects/jwm/index.shtml</Program>
@@ -84,6 +63,7 @@
 </Menu>
  <Separator/>
 <Menu  label="Systemove upravy">
+<Program label="Debian upgrade">xterm -hold -e 'sudo apt update -y;wait;sudo apt upgrade -y'</Program>
 <Program label="zadat a najit balicek k instalaci, prohlizeni posuvnikem">rxvt -geometry 800x600+60+150 -title "zadat a najit balicek  k instalaci" -hold -e bash -c ' echo "zadej balicek ktery hledas  k instalaci"; read -n 100 -t 10 PROMENA ; apt-cache search "$PROMENA" #zadat a najit balicek'</Program>
 
 <Program label="zadat a zobrazit informace o balicku">rxvt -geometry 800x600+60+150 -title "zadat a zobrazit informace o balicku" -hold -e bash -c 'echo "zadej balicek ktery hledas";apt-cache show $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a zobrazit informace o balicku'</Program>
@@ -99,12 +79,13 @@
 </Menu>
  <Separator/>
 
-<Menu  label="Prehravani z webu = URL ve schrance a spustit">
-<Program label="vlc prehraje zvuk,video z url adresy, vlozit adresu zkopirovanim do schranky">rxvt -geometry 80x20+60+150 -title "vlc prehraje zvuk,video z url adresy, vlozit adresu zkopirovanim do schranky" -hold -e bash -c 'echo "prehravam vlc adresu $(xsel --clipboard)"; vlc --playlist-autostart --loop --playlist-tree  "$(xsel --clipboard)"  #vlc prehraje zvuk,video z url adresy'</Program>
+<Menu  label="Youtube=> URL + spustit">
+<Program label="stahnout audio z url adresy, vlozit adresu zkopirovanim do schranky">rxvt -geometry 80x20+60+150 -title "stahnout youtube-dl audio z url adresy, vlozit adresu zkopirovanim do schranky" -hold -e bash -c 'youtube-dl  --ignore-errors --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" "$(xsel --clipboard)"'</Program>
 
-<Program label="mplayer prehraje zvuk,video z url adresy, vlozit adresu zkopirovanim do schranky">rxvt -geometry 80x20+60+150 -title "mplayer prehraje zvuk,video z url adresy, vlozit adresu zkopirovanim do schranky" -hold -e bash -c 'echo "prehravam mplayerem adresu $(xsel --clipboard)";mplayer "$(xsel --clipboard)" #mplayer prehraje zvuk,video z url adresy'</Program>
+<Program label="stahnout video z url adresy, vlozit adresu zkopirovanim do schranky">rxvt -geometry 80x20+60+150 -title "stahnout youtube-dl video z url adresy, vlozit adresu zkopirovanim do schranky" -hold -e bash -c 'youtube-dl --ignore-errors  "$(xsel --clipboard)"'</Program>
 
-<Program label="stahnout video z url adresy, vlozit adresu zkopirovanim do schranky">rxvt -geometry 80x20+60+150 -title "stahnout youtube-dl video z url adresy, vlozit adresu zkopirovanim do schranky" -hold -e bash -c 'echo "stahuji video z adresy $(xsel --clipboard)";youtube-dl "$(xsel --clipboard)" '</Program>
+<Program label="Youtube-dl upgrade">rxvt -geometry 80x20+60+150 -title "youtube-dl upgrade" -hold -e bash -c 'xterm -title Youtube-dl-update -hold -e "pip install --upgrade youtube-dl"'</Program>
+
 
 </Menu>
 
@@ -118,11 +99,10 @@
 
 
 <Menu  label="Radia">
-<Program label="Humor">rxvt -geometry 80x20+60+150 -title Radio_Humor -hold -e mplayer http://mp3stream4.abradio.cz:8000/humor128.mp3 | echo "Radio Humor" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program>
-<Program label="Folk">rxvt -geometry 80x20+60+150 -title Radio_Folk -hold -e mplayer http://mp3stream2.abradio.cz:8000/folk128.mp3 | echo "Radio Folk" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program>
-<Program label="Pohadka">rxvt -geometry 80x20+60+150 -title Radio_Pohadka -hold -e mplayer http://ice3.abradio.cz/pohadka128.mp3 | echo "Radio Pohadka" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program>
-<Program label="Cimrman">rxvt -geometry 80x20+60+150 -title Radio_Cimrman -hold -e mplayer http://liquiddoom.net:8000/cimrman | echo "Radio Cimrman" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program>
-<Program label="Eurod">rxvt -geometry 80x20+60+150 -title Radio_C_ED -hold -e mplayer http://pub1.diforfree.org:8000/di_classiceurodance_hi | echo "Radio Classic Eurodance" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program>
+<Program label="Humor">xterm -geometry 80x20-60-60 -title Humor_radio -e bash -c "mpg123 -b 10240 -v http://mp3stream4.abradio.cz:8000/humor.mp3"</Program>
+<Program label="City90">xterm -geometry 80x20-60-60 -title 90_radio -e bash -c "mpg123 -b 10240 -v http://ice.abradio.cz/city90128.mp3"</Program>
+<Program label="City80">xterm -geometry 80x20-60-60 -title 80_radio -e bash -c "mpg123 -b 10240 -v http://ice.abradio.cz/city80128.mp3"</Program>
+<Program label="Radia online">bash -c "wget --timestamping  --tries=100 --wait=1 https://raw.githubusercontent.com/bedjan/mm/master/radia_online.m3u;xterm -geometry 80x20-60-60 -title Online_radia_f_d -e mpg123 -b 10240 -v -@ radia_online.m3u"</Program>
 </Menu>
  <Separator/>
 <Include>/etc/jwm/debian-menu</Include>
@@ -133,7 +113,9 @@
      <Exit label="Odhlásit | ctrl-c | startx" confirm="false" icon="exit.png"/>
      <Program  label="Restart PC">sudo shutdown -r now</Program>
      <Program  label="Vypnuti PC">sudo shutdown -h now</Program>
-     <Program  label="Vypnuti PC v 00:00">xterm -title PC_se_vypne_v_00:00 -hold -e "sudo shutdown -h 00:00"</Program>
+     <Program  label="Vypnuti PC v 00:00">xterm -title PC_se_vypne_v_00:00 -hold -e "sudo shutdown -c;sudo shutdown -h 00:00"</Program>
+     <Program  label="Vypnuti PC v 02:00">xterm -title PC_se_vypne_v_02:00 -hold -e "sudo shutdown -c;sudo shutdown -h 02:00"</Program>
+     <Program  label="PC zruseni vypnuti">xterm -title PC_zruseni_vypnuti -hold -e "sudo shutdown -c"</Program>
      </Menu>
 
   </RootMenu>
@@ -253,7 +235,7 @@
 
 
   <Tray valign="bottom"  layer="above"  halign="left" height="20" autohide="off">
-  <TrayButton  label="Start" icon="/usr/share/icons/Faenza/apps/scalable/docky.svg"   popup="Start - vyber programu na spusteni | v menu Debian= zde najdes vsechny nainstalovane programy">root:1</TrayButton>
+  <TrayButton  label="Linux" icon="/usr/share/icons/Faenza/apps/scalable/docky.svg"   popup="Start - vyber programu na spusteni | v menu Debian= zde najdes vsechny nainstalovane programy">root:1</TrayButton>
   <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/desktop-effects.svg" popup="Zobrazit plochu" >showdesktop</TrayButton>
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/terminal.svg"  popup="Terminal">exec:rxvt</TrayButton>
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/firefox-original.svg"  popup="Palemoon">exec:palemoon</TrayButton>
