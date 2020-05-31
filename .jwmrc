@@ -110,10 +110,10 @@
 <!-- <Program  label="Zamknout PC">slock</Program> -->
      <Restart label="Restart"/>
      <Menu  label="Odhlásit a vypnout">
-     <Program  label="Xorg restart">sudo killall Xorg</Program>
+     <Program  label="Xorg restart">xterm -hold -title Restart_Xorg -e sudo killall Xorg</Program>
      <Exit label="Odhlásit | ctrl-c | startx" confirm="false" icon="exit.png"/>
-     <Program  label="Restart PC">sudo shutdown -r now</Program>
-     <Program  label="Vypnuti PC">sudo shutdown -h now</Program>
+     <Program  label="Restart PC">xterm -hold -title Restart_PC -e sudo shutdown -r now</Program>
+     <Program  label="Vypnuti PC">xterm -hold -title Vypnuti_PC -e sudo shutdown -h now</Program>
      <Program  label="Vypnuti PC v 00:00">xterm -title PC_se_vypne_v_00:00 -hold -e "sudo shutdown -c;sudo shutdown -h 00:00"</Program>
      <Program  label="Vypnuti PC v 02:00">xterm -title PC_se_vypne_v_02:00 -hold -e "sudo shutdown -c;sudo shutdown -h 02:00"</Program>
      <Program  label="PC zruseni vypnuti">xterm -title PC_zruseni_vypnuti -hold -e "sudo shutdown -c"</Program>
@@ -192,7 +192,7 @@
 
  <!-- <Tray valign="bottom" layer="above" halign="left" height="20" autohide="top" x="0" y="0"> -->
 
-<Tray layout="vertical" valign="top" autohide="off" halign="left" width="22" height="0"  x="0" y="0" >
+<Tray layout="vertical" layer="above" valign="top" autohide="off" halign="left" width="22" height="0"  x="0" y="0" >
 
 
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/terminal.svg"  popup="Terminal">exec:rxvt</TrayButton>
