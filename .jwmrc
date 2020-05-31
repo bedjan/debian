@@ -21,7 +21,8 @@
 <!-- <StartupCommand>/bin/sync || /usr/bin/sudo /bin/sh -c '/bin/echo 3 >/proc/sys/vm/drop_caches'
 </StartupCommand> -->
 <StartupCommand>xset -display :0.0 dpms 0 0 300</StartupCommand>
-<StartupCommand>setxbmap cs</StartupCommand>
+<StartupCommand>setxkbmap -layout cz, us -option grp: alt_shift_toggle</StartupCommand>
+<StartupCommand>pnmixer</StartupCommand>
 <!-- <StartupCommand>sudo ntpdate -s time.nist.gov</StartupCommand> -->
 <StartupCommand>numlockx;which numlockx || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends numlockx</StartupCommand>
 <!-- <StartupCommand>clipit</StartupCommand> -->
@@ -133,15 +134,12 @@
       <Name>deadbeef</Name>
       <Option>desktop:2</Option>
       <Option>layer:above</Option>
+<Option>maximized</Option>
    </Group>
 
    <Group>
       <Name>palemoon</Name>
       <Option>maximized</Option>
-   </Group>
-   <Group>
-      <Name>vlc</Name>
-      <Option>layer:above</Option>
    </Group>
    <Group>
       <Name>sylpheed</Name>
@@ -184,76 +182,75 @@
       <Name>netsurf</Name>
       <Option>maximized</Option>
    </Group>
-   <Group>
-      <Name>vlc</Name>
-      <Option>layer:above</Option>
-      <Option>maximized</Option>
-   </Group>
+
    <Group>
       <Name>xterm -hold -e htop</Name>
       <Option>maximized</Option>
    </Group>
 
  <!-- <Tray  autohide="off" layer="above" layout="horizontal" valign="top" halign="left" height="20"> -->
-<Tray valign="top" layer="above" halign="left" height="20" autohide="top">
 
-  <!--
+ <!-- <Tray valign="bottom" layer="above" halign="left" height="20" autohide="top" x="0" y="0"> -->
 
-     <TrayButton label="? Run" popup="Spustit prikaz">exec:grun | echo "Spust" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-     <TrayButton label="$Term" popup="Terminal">exec:rxvt | echo "Terminal" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-     <TrayButton label="!Proc" popup="Vsechny procesy">exec:lxtask | echo "Procesy" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-     <TrayButton label=☣Sys" popup="System:cpu,ram,disk,swap,sit,page,baterie">exec:xosview | echo "Informace o systemu" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-     <TrayButton label="⌂Files" popup="Spravce souboru">exec:pcmanfm | echo "Soubory" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-     <TrayButton label="✌W"   popup="Internetovy prohlizec Google chrome">exec:chromium #google-chrome</TrayButton>
-     <TrayButton label="✌W1"  popup="Internetovy prohlizec Palemoon  pres firejail sandbox">exec:firejail --noprofile palemoon &amp; echo "Palemoon" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-     <TrayButton label="✌W1p"  popup="Internetovy prohlizec privatni Palemoon pres firejail sandbox">exec:firejail --noprofile palemoon -private-window &amp; echo "Palemoon privatni mod" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton label="✉Email" popup="Emailovy klient   pres firejail sandbox">exec:firejail --noprofile sylpheed &amp; echo "Email" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> <TrayButton label="✌W2"  popup="Internetovy prohlizec Qtweb">exec:~/programy/./QtWeb | echo "Qtweb" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton label="✌W2" popup="Internetovy prohlizec Netsurf">exec:netsurf | echo "Netsurf" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton label="✄YTB" popup="(youtube) V internetovem prohlizeci zkopiruj url online videa a spust video">exec:rxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "youtube-dl 'ytsearch:$(xsel --clipboard)' -f 43,243,134,18 --output - | mpv -" #přehraje video z youtube skopirovane do schránky, tedy "http://....." | echo "Youtube video" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton label="✄YTB" popup="(youtube) V internetovem prohlizeci zkopiruj url online videa a spust video">exec:rxvt -geometry 80x20+60+150 -title Video_online -hold -e bash -c "mpv '$(xsel --clipboard)' --fs --ontop --initial-audio-sync --slang=cs --alang=cs  --hwdec-codecs=h264,mpeg2video" #přehraje video z youtube skopirovane do schránky, tedy "http://....." | echo "Youtube video" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton label="✄Vid" popup="V internetovem prohlizeci zkopiruj url online videa a spust video">exec:rxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "vlc --video-on-top --loop '$(xsel --clipboard)' # --fullscreen" #přehraje video z webu skopirovane do schránky, tedy "http://....." | echo "Video online" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton popup="V internetovem prohlizeci zkopiruj url online videa a spust hudbu" label="✄Zvuk">exec:vlc --no-video $(xsel --clipboard) #přehraje video ze schránky | echo "Youtube jen zvuk" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton popup="V internetovem prohlizeci zkopiruj url online videa a spust hudbu" label="✄Zvuk">exec:rxvt -geometry 80x20+60+150 -title Jen_zvuk_z_Youtube -hold -e bash -c "mpv --no-video --ao=alsa --save-position-on-quit $(xsel --clipboard)" #přehraje video ze schránky | echo "Youtube jen zvuk" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> ->
-     <TrayButton popup="V internetovem prohlizeci zkopiruj url online videa a spust =prevedede se na mp3 a ulozi do ~/Hudba" label="✄Mp3">exec:rxvt -geometry 80x20+60+150 -title Online_do_mp3 -hold -e bash -c "mkdir ~/Hudba; cd ~/Hudba; youtube-dl --no-playlist --extract-audio --audio-format mp3 $(xsel --clipboard)" #prevede hudbu z youtube do mp3 a ulozi do adresare ~/Hudba | echo "Převede youtube do mp3" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton popup="Spusti TV online " label="☂TV">exec:vlc --playlist-autostart --loop --playlist-tree https://gist.github.com/bedjan/92f06608c30099c8215e7ce58db204d0/raw/037f26c1c2fbc44399055a22e4d50f41abc8bff8/tv_online.m3u | echo "Spusti TV online  playlist" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> 
-<TrayButton popup="V internetovem prohlizeci zkopiruj url online videa a spust stahovani videa do adresare Videa" label="✄Vid-s">exec:mkdir Videa;cd Videa;rxvt -geometry 80x20+60+150 -title Video_stahovani -hold -e bash -c "youtube-dl $(xsel --clipboard)" #stahne video ze schránky | echo "Stahuji video" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton popup="Spusti playlist Radia " label="☂Radia">exec:vlc --playlist-autostart --loop --playlist-tree https://gist.githubusercontent.com/bedjan/c3332ced0d80bed12a0d01cc068ab07e/raw/a8292c93760e662420ea0ed62825584b249594a7/radia_online.m3u | echo "Radia vsechna playlist" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton popup="Spusti playlist DI.FM " label="☂DI.FM">exec:vlc --playlist-autostart --loop --playlist-tree https://gist.githubusercontent.com/sim642/4f73e3e145fd1eac8c39/raw/43dbe82623404c0f549a7391b5a618f5fd89f4dc/DI.m3u | echo "Radia DI.FM playlist" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-     <TrayButton popup="Spusti nahravani radia Eurodance" label="♒E_n">exec:xterm -geometry 80x20-30+30 -title Eurodance_nahravani -e "streamripper http://pub1.diforfree.org:8000/di_classiceurodance_hi"</TrayButton>
-     <TrayButton popup="Spusti nahravani radia Epic_trance" label="♒T_n">exec:xterm -geometry 80x20-30-30 -title Epic_trance_nahravani -e "streamripper http://pub1.diforfree.org:8000/di_epictrance_hi"</TrayButton>       
-     <TrayButton label="½Calc" popup="Spusti kalkulacku">exec:qalculate #xcalc</TrayButton >
-<TrayButton popup="devices/display.png"  label="✍Dat" popup="Spusti program Datovka">exec:datovka</TrayButton>
-     <TrayButton label="∞UP" popup="Spusti upgrade debian systemu - bez potvrzovani ">exec:xterm -title system_update -hold -e bash -c "echo youtube-dl_upgrade;sudo -H pip install --upgrade youtube-dl;sudo apt-get update; wait;sudo apt-get dist-upgrade -y;wait;echo !!!_upgrade_youtube_dl_mpv_!!!!;sudo apt-get -t jessie-backports install mpv -y"</TrayButton >
-<TrayButton label="INFO" popup="Info o ovladani debian systemu">exec:rxvt -title Stahuji_soubor_jwm.txt +hold -e wget -c -O .jwmrc --progress=dot https://raw.githubusercontent.com/bedjan/debian/master/.jwmrc &amp;&amp; xterm  -geometry 800x600-0-0  -title Info_o_ovladani_debian_systemu -hold -e bash -c "cat .jwmrc"</TrayButton >
-
--->
-
-<Spacer width="5"/>
-<!-- <Swallow name="space" width="200">space</Swallow> -->
-
-  </Tray>
+<Tray layout="vertical" valign="top" autohide="off" halign="left" width="22" height="0"  x="0" y="0" >
 
 
-  <Tray valign="bottom"  layer="above"  halign="left" height="20" autohide="off">
-  <TrayButton  label="Linux" icon="/usr/share/icons/Faenza/apps/scalable/docky.svg"   popup="Start - vyber programu na spusteni | v menu Debian= zde najdes vsechny nainstalovane programy">root:1</TrayButton>
-  <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/desktop-effects.svg" popup="Zobrazit plochu" >showdesktop</TrayButton>
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/terminal.svg"  popup="Terminal">exec:rxvt</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/firefox-original.svg"  popup="Palemoon">exec:palemoon</TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/firefox.svg"  popup="Palemoon">exec:palemoon</TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/firefox-original.svg"  popup="Palemoon privatni">exec:palemoon -private-window </TrayButton>
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/file-manager.svg"  popup="Pcmanfm">exec:pcmanfm</TrayButton>
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/gnome-monitor.svg"  popup="Lxtask">exec:lxtask</TrayButton>
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/google-chrome.svg"  popup="Chromium">exec:chromium</TrayButton>
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/audacious.svg"  popup="Audacious">exec:audacious</TrayButton>
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/midori.svg" popup="Midori">exec:midori</TrayButton>
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/web-browser.svg" popup="Netsurf">exec:netsurf</TrayButton>
-
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/empathy.svg" popup="Viber">exec:/opt/viber/Viber</TrayButton>
 
+<!-- <TrayButton label="Sylpheed" popup="Emailovy klient   pres firejail sandbox">exec:firejail --noprofile sylpheed &amp; echo "Email" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> -->
+<!-- <TrayButton label="W2"  popup="Internetovy prohlizec Qtweb">exec:~/programy/./QtWeb | echo "Qtweb" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>  -->
+
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg"  popup="(youtube) V internetovem prohlizeci zkopiruj url online videa a spust video">exec:rxvt -geometry 80x20+60+150 -title Video_online -hold -e bash -c "mpv '$(xsel --clipboard)' --fs --ontop --initial-audio-sync --slang=cs --alang=cs  --hwdec-codecs=h264,mpeg2video" #přehraje video z youtube skopirovane do schránky, tedy "http://....." | echo "Youtube video" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg" popup="V internetovem prohlizeci zkopiruj url online videa a spust video">exec:rxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "vlc --video-on-top --loop '$(xsel --clipboard)' # --fullscreen" #přehraje video z webu skopirovane do schránky, tedy "http://....." | echo "Video online" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/sound-juicer.svg" popup="V internetovem prohlizeci zkopiruj url online videa a spust hudbu" >exec:vlc --no-video $(xsel --clipboard) #přehraje video ze schránky | echo "Youtube jen zvuk" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/sound-juicer.svg" popup="V internetovem prohlizeci zkopiruj url online videa a spust hudbu" >exec:rxvt -geometry 80x20+60+150 -title Jen_zvuk_z_Youtube -hold -e bash -c "mpv --no-video --ao=pulse --save-position-on-quit $(xsel --clipboard)" #přehraje video ze schránky | echo "Youtube jen zvuk" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> ->
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/soundconverter.svg" popup="V internetovem prohlizeci zkopiruj url online videa a spust =prevedede se na mp3 a ulozi do ~/Hudba" >exec:rxvt -geometry 80x20+60+150 -title Online_do_mp3 -hold -e bash -c "mkdir ~/Hudba; cd ~/Hudba; youtube-dl --no-playlist --extract-audio --audio-format mp3 $(xsel --clipboard)" #prevede hudbu z youtube do mp3 a ulozi do adresare ~/Hudba | echo "Převede youtube do mp3" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/tvtime.svg" popup="Spusti TV online " >exec:vlc --playlist-autostart --loop --playlist-tree http://database.freetuxtv.net/playlists/playlist_webtv_cs.m3u | echo "Spusti TV online  playlist" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> 
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/radiotray.svg" popup="Spusti playlist Ceska Radia " >exec:vlc --playlist-autostart --loop --playlist-tree https://raw.githubusercontent.com/bedjan/mm/master/radia_online.m3u | echo "Radia vsechna playlist" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/radio.svg" popup="Spusti playlist Anglicka Radia " >exec:vlc --playlist-autostart --loop --playlist-tree https://raw.githubusercontent.com/bedjan/mm/master/english_radia.m3u | echo "Radia anglicka playlist" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+
+
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/calc.svg"  popup="Spusti kalkulacku">exec:xcalc #qalculate </TrayButton >
+
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/update-manager.svg"  popup="Spusti upgrade debian systemu - bez potvrzovani ">exec:xterm -title system_update -hold -e bash -c "echo youtube-dl_upgrade;sudo -H pip install --upgrade youtube-dl;sudo apt-get update; wait;sudo apt-get upgrade -y;wait;echo !!!_upgrade_hotovy_!!!!"</TrayButton >
+
+
+
+<Spacer width="5"/>
+<!-- <Swallow name="space" width="200">space</Swallow> -->
+
+  </Tray> 
+
+
+
+
+  <Tray valign="bottom"  layer="above"  halign="left" height="22" autohide="off">
+  <TrayButton  label="Linux" icon="/usr/share/icons/Faenza/apps/scalable/docky.svg"   popup="Start - vyber programu na spusteni | v menu Debian= zde najdes vsechny nainstalovane programy">root:1</TrayButton>
+  <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/desktop-effects.svg" popup="Zobrazit plochu" >showdesktop</TrayButton>
+
 <Pager labeled="true"/>
-<TrayButton label="☠ "  popup="Ukončit nasilne zaseklou aplikaci" >exec:xkill</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/gnome-settings-sound.svg" popup="Nastaveni hlasitosti">exec:pnmixer #qasmixer &amp;&amp; sudo alsactl store #xterm -title Zvuk -e "alsamixer" #qasmixer</TrayButton>
+
+     <TrayButton label="-"  popup="Hlasitost snizi">exec:amixer set Master 3%- unmute | echo "Snizuju hlasitost = $(amixer get Master | tail -1 | awk '{print$5}')" | osd_cat -d 1 -s 1 -A center -l 1 -p bottom -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton label="+"  popup="Hlasitost zvysi">exec:amixer set Master 3%+ unmute | echo "Zvysuju hlasitost = $(amixer get Master | tail -1 | awk '{print$5}')" | osd_cat -d 1 -s 1 -A center -l 1 -p top -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/rhythmbox.svg" popup="Hlasitost vypne/zapne">exec:amixer set Master toggle;STATUS=`amixer get Master | egrep 'Left.*?\[o' | egrep -o '\[o.+\]'  | tr -d "[]"`; if  [ "$STATUS" = "on" ]; then $(echo "Hlasitost zapnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = "off" ] ;then $(echo "Hlasitost vypnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); fi #vypne usporu energie DPMS - switch zapne/vypne </TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/xfsm-hibernate.svg"  popup="Vypne monitor za 5s">exec:sleep 5 | echo "Monitor se za 5 s vypne" | osd_cat -d 1 -s 1 -A left -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'; xset dpms force off #vypne monitor za 5s</TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/xfsm-switch.svg"  popup="DPMS zapne/vypne">exec:STATUS=`xset -q | grep -e 'DPMS is'| cut -c 10-17`; if  [ "$STATUS" = " Disable" ]]; then $(xset s on +dpms; echo "Setrim ... zapinam DPMS ... setrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = " Enabled" ]] ;then $(xset s on -dpms ;echo "Nesetrim ... Vypinam DPMS ...nesetrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1');  fi #vypne usporu energie DPMS - switch zapne/vypne </TrayButton>
+ <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/gnome-settings-sound.svg" popup="Nastaveni hlasitosti">exec:pnmixer #qasmixer &amp;&amp; sudo alsactl store #xterm -title Zvuk -e "alsamixer" #qasmixer</TrayButton>
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/blueman.svg"  popup="Bluetooth">exec:blueman-applet</TrayButton>
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/shares.svg"  popup="Wifi">exec:nm-applet</TrayButton>
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/wine-notepad.svg"  popup="Schranka">exec:clipit</TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/terminator.svg" popup="Spustit prikaz">exec:grun | echo "Spust" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+
+<TrayButton label="☠ "  popup="Ukončit nasilne zaseklou aplikaci" >exec:xkill</TrayButton>
      <TaskList/>
 
 <!-- <TrayButton label="|" popup="Zamknout PC | zadat heslo pro odemknuti">exec:slock</TrayButton> -->
@@ -261,11 +258,6 @@
 
 <!--  <TrayButton  label="|" popup="Status baterie v ntb pres program xmessage">exec:xmessage  -timeout 10 "$(acpi -i -b)" #ukaze status baterie v ntb pres program xmessage</TrayButton> -->
 
-     <TrayButton label="▼"  popup="Hlasitost snizi">exec:amixer set Master 3%- unmute | echo "Snizuju hlasitost = $(amixer get Master | tail -1 | awk '{print$5}')" | osd_cat -d 1 -s 1 -A center -l 1 -p bottom -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-     <TrayButton label="▲"  popup="Hlasitost zvysi">exec:amixer set Master 3%+ unmute | echo "Zvysuju hlasitost = $(amixer get Master | tail -1 | awk '{print$5}')" | osd_cat -d 1 -s 1 -A center -l 1 -p top -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-     <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/rhythmbox.svg" popup="Hlasitost vypne/zapne">exec:amixer set Master toggle;STATUS=`amixer get Master | egrep 'Left.*?\[o' | egrep -o '\[o.+\]'  | tr -d "[]"`; if  [ "$STATUS" = "on" ]; then $(echo "Hlasitost zapnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = "off" ] ;then $(echo "Hlasitost vypnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); fi #vypne usporu energie DPMS - switch zapne/vypne </TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/xfsm-hibernate.svg"  popup="Vypne monitor za 5s">exec:sleep 5 | echo "Monitor se za 5 s vypne" | osd_cat -d 1 -s 1 -A left -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'; xset dpms force off #vypne monitor za 5s</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/xfsm-switch.svg"  popup="DPMS zapne/vypne">exec:STATUS=`xset -q | grep -e 'DPMS is'| cut -c 10-17`; if  [ "$STATUS" = " Disable" ]]; then $(xset s on +dpms; echo "Setrim ... zapinam DPMS ... setrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = " Enabled" ]] ;then $(xset s on -dpms ;echo "Nesetrim ... Vypinam DPMS ...nesetrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1');  fi #vypne usporu energie DPMS - switch zapne/vypne </TrayButton>
 
 
  
