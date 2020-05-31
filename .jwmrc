@@ -50,19 +50,19 @@
 <!-- <Program label="Sylpheed" label="Emailovy klient   pres firejail sandbox">firejail --noprofile sylpheed &amp; echo "Email" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program> -->
 <!-- <Program label="W2"  label="Internetovy prohlizec Qtweb">~/programy/./QtWeb </Program>  -->
 
-<Program icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg"  label="(youtube) V internetovem prohlizeci zkopiruj url online videa a spust video">rxvt -geometry 80x20+60+150 -title Video_online -hold -e bash -c "mpv '$(xsel --clipboard)' --fs --ontop --initial-audio-sync --slang=cs --alang=cs  --hwdec-codecs=h264,mpeg2video" #přehraje video z youtube skopirovane do schránky, tedy "http://....." </Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg" label="V internetovem prohlizeci zkopiruj url online videa a spust video">rxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "vlc --video-on-top --loop '$(xsel --clipboard)' # --fullscreen" #přehraje video z webu skopirovane do schránky, tedy "http://....." </Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/sound-juicer.svg" label="V internetovem prohlizeci zkopiruj url online videa a spust hudbu" >vlc --no-video $(xsel --clipboard) #přehraje video ze schránky </Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/sound-juicer.svg" label="V internetovem prohlizeci zkopiruj url online videa a spust hudbu" >rxvt -geometry 80x20+60+150 -title Jen_zvuk_z_Youtube -hold -e bash -c "mpv --no-video --ao=pulse --save-position-on-quit $(xsel --clipboard)" #přehraje video ze schránky </Program> ->
-<Program icon="/usr/share/icons/Faenza/apps/scalable/soundconverter.svg" label="V internetovem prohlizeci zkopiruj url online videa a spust =prevedede se na mp3 a ulozi do ~/Hudba" >rxvt -geometry 80x20+60+150 -title Online_do_mp3 -hold -e bash -c "mkdir ~/Hudba; cd ~/Hudba; youtube-dl --no-playlist --extract-audio --audio-format mp3 $(xsel --clipboard)" #prevede hudbu z youtube do mp3 a ulozi do adresare ~/Hudba </Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/tvtime.svg" label="Spusti TV online " >vlc --playlist-autostart --loop --playlist-tree http://database.freetuxtv.net/playlists/playlist_webtv_cs.m3u </Program> 
-<Program icon="/usr/share/icons/Faenza/apps/scalable/radiotray.svg" label="Spusti playlist Ceska Radia " >vlc --playlist-autostart --loop --playlist-tree https://raw.githubusercontent.com/bedjan/mm/master/radia_online.m3u</Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/radio.svg" label="Spusti playlist Anglicka Radia " >vlc --playlist-autostart --loop --playlist-tree https://raw.githubusercontent.com/bedjan/mm/master/english_radia.m3u</Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg"  label="Copy URL + Video">rxvt -geometry 80x20+60+150 -title Video_online -hold -e bash -c "mpv '$(xsel --clipboard)' --fs --ontop --initial-audio-sync --slang=cs --alang=cs  --hwdec-codecs=h264,mpeg2video" #přehraje video z youtube skopirovane do schránky, tedy "http://....." </Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg" label="Copy URL + Video">rxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "vlc --video-on-top --loop '$(xsel --clipboard)' # --fullscreen" #přehraje video z webu skopirovane do schránky, tedy "http://....." </Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/sound-juicer.svg" label="Copy URL + Hudba" >vlc --no-video $(xsel --clipboard) #přehraje video ze schránky </Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/sound-juicer.svg" label="Copy URL + Hudba" >rxvt -geometry 80x20+60+150 -title Jen_zvuk_z_Youtube -hold -e bash -c "mpv --no-video --ao=pulse --save-position-on-quit $(xsel --clipboard)" #přehraje video ze schránky </Program> ->
+<Program icon="/usr/share/icons/Faenza/apps/scalable/soundconverter.svg" label="Copy URL + mp3 do ~/Hudba" >rxvt -geometry 80x20+60+150 -title Online_do_mp3 -hold -e bash -c "mkdir ~/Hudba; cd ~/Hudba; youtube-dl --no-playlist --extract-audio --audio-format mp3 $(xsel --clipboard)" #prevede hudbu z youtube do mp3 a ulozi do adresare ~/Hudba </Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/tvtime.svg" label="TV online " >vlc --playlist-autostart --loop --playlist-tree http://database.freetuxtv.net/playlists/playlist_webtv_cs.m3u </Program> 
+<Program icon="/usr/share/icons/Faenza/apps/scalable/radiotray.svg" label="Ceska Radia " >vlc --playlist-autostart --loop --playlist-tree https://raw.githubusercontent.com/bedjan/mm/master/radia_online.m3u</Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/radio.svg" label="Anglicka Radia " >vlc --playlist-autostart --loop --playlist-tree https://raw.githubusercontent.com/bedjan/mm/master/english_radia.m3u</Program>
 
 
-<Program icon="/usr/share/icons/Faenza/apps/scalable/calc.svg"  label="Spusti kalkulacku">xcalc #qalculate </Program >
+<Program icon="/usr/share/icons/Faenza/apps/scalable/calc.svg"  label="Kalkulacka">xcalc #qalculate </Program >
 
-<Program icon="/usr/share/icons/Faenza/apps/scalable/update-manager.svg"  label="Spusti upgrade debian systemu - bez potvrzovani ">xterm -title system_update -hold -e bash -c "echo youtube-dl_upgrade;sudo -H pip install --upgrade youtube-dl;sudo apt-get update; wait;sudo apt-get upgrade -y;wait;echo !!!_upgrade_hotovy_!!!!"</Program >
+<Program icon="/usr/share/icons/Faenza/apps/scalable/update-manager.svg"  label="Upgrade debian">xterm -title system_update -hold -e bash -c "echo youtube-dl_upgrade;sudo -H pip install --upgrade youtube-dl;sudo apt-get update; wait;sudo apt-get upgrade -y;wait;echo !!!_upgrade_hotovy_!!!!"</Program >
 
 
 
