@@ -35,15 +35,36 @@
 
   <RootMenu height="16" onroot="123">
   
-<Program label="Terminal">rxvt #sakura</Program>
-<Program label="Web-Chromium">chromium</Program>
-<Program label="Pcmanfm">pcmanfm</Program>
-<Program label="audacious">audacious</Program>
-<Program label="Midori">midori</Program>
-<Program label="Netsurf">netsurf</Program>
-<Program label="Lxtask">lxtask</Program>
-<Program label="Viber">/opt/viber/Viber</Program>
-<Program label="Bluetooth applet">blueman-applet</Program>
+
+<Program icon="/usr/share/icons/Faenza/apps/scalable/terminal.svg"  label="Terminal">rxvt</Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/firefox.svg"  label="Palemoon">palemoon</Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/firefox-original.svg"  label="Palemoon privatni">palemoon -private-window </Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/file-manager.svg"  label="Pcmanfm">pcmanfm</Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/gnome-monitor.svg"  label="Lxtask">lxtask</Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/google-chrome.svg"  label="Chromium">chromium</Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/audacious.svg"  label="Audacious">audacious</Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/midori.svg" label="Midori">midori</Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/web-browser.svg" label="Netsurf">netsurf</Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/empathy.svg" label="Viber">/opt/viber/Viber</Program>
+
+<!-- <Program label="Sylpheed" label="Emailovy klient   pres firejail sandbox">firejail --noprofile sylpheed &amp; echo "Email" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program> -->
+<!-- <Program label="W2"  label="Internetovy prohlizec Qtweb">~/programy/./QtWeb </Program>  -->
+
+<Program icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg"  label="(youtube) V internetovem prohlizeci zkopiruj url online videa a spust video">rxvt -geometry 80x20+60+150 -title Video_online -hold -e bash -c "mpv '$(xsel --clipboard)' --fs --ontop --initial-audio-sync --slang=cs --alang=cs  --hwdec-codecs=h264,mpeg2video" #přehraje video z youtube skopirovane do schránky, tedy "http://....." </Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg" label="V internetovem prohlizeci zkopiruj url online videa a spust video">rxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "vlc --video-on-top --loop '$(xsel --clipboard)' # --fullscreen" #přehraje video z webu skopirovane do schránky, tedy "http://....." </Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/sound-juicer.svg" label="V internetovem prohlizeci zkopiruj url online videa a spust hudbu" >vlc --no-video $(xsel --clipboard) #přehraje video ze schránky </Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/sound-juicer.svg" label="V internetovem prohlizeci zkopiruj url online videa a spust hudbu" >rxvt -geometry 80x20+60+150 -title Jen_zvuk_z_Youtube -hold -e bash -c "mpv --no-video --ao=pulse --save-position-on-quit $(xsel --clipboard)" #přehraje video ze schránky </Program> ->
+<Program icon="/usr/share/icons/Faenza/apps/scalable/soundconverter.svg" label="V internetovem prohlizeci zkopiruj url online videa a spust =prevedede se na mp3 a ulozi do ~/Hudba" >rxvt -geometry 80x20+60+150 -title Online_do_mp3 -hold -e bash -c "mkdir ~/Hudba; cd ~/Hudba; youtube-dl --no-playlist --extract-audio --audio-format mp3 $(xsel --clipboard)" #prevede hudbu z youtube do mp3 a ulozi do adresare ~/Hudba </Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/tvtime.svg" label="Spusti TV online " >vlc --playlist-autostart --loop --playlist-tree http://database.freetuxtv.net/playlists/playlist_webtv_cs.m3u </Program> 
+<Program icon="/usr/share/icons/Faenza/apps/scalable/radiotray.svg" label="Spusti playlist Ceska Radia " >vlc --playlist-autostart --loop --playlist-tree https://raw.githubusercontent.com/bedjan/mm/master/radia_online.m3u</Program>
+<Program icon="/usr/share/icons/Faenza/apps/scalable/radio.svg" label="Spusti playlist Anglicka Radia " >vlc --playlist-autostart --loop --playlist-tree https://raw.githubusercontent.com/bedjan/mm/master/english_radia.m3u</Program>
+
+
+<Program icon="/usr/share/icons/Faenza/apps/scalable/calc.svg"  label="Spusti kalkulacku">xcalc #qalculate </Program >
+
+<Program icon="/usr/share/icons/Faenza/apps/scalable/update-manager.svg"  label="Spusti upgrade debian systemu - bez potvrzovani ">xterm -title system_update -hold -e bash -c "echo youtube-dl_upgrade;sudo -H pip install --upgrade youtube-dl;sudo apt-get update; wait;sudo apt-get upgrade -y;wait;echo !!!_upgrade_hotovy_!!!!"</Program >
+
+
 
 
 <Separator/>
@@ -192,43 +213,14 @@
 
  <!-- <Tray valign="bottom" layer="above" halign="left" height="20" autohide="top" x="0" y="0"> -->
 
-<Tray layout="vertical" layer="above" valign="center" autohide="off" halign="left" width="22" height="0"  x="0" y="0" >
-
-
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/terminal.svg"  popup="Terminal">exec:rxvt</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/firefox.svg"  popup="Palemoon">exec:palemoon</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/firefox-original.svg"  popup="Palemoon privatni">exec:palemoon -private-window </TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/file-manager.svg"  popup="Pcmanfm">exec:pcmanfm</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/gnome-monitor.svg"  popup="Lxtask">exec:lxtask</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/google-chrome.svg"  popup="Chromium">exec:chromium</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/audacious.svg"  popup="Audacious">exec:audacious</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/midori.svg" popup="Midori">exec:midori</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/web-browser.svg" popup="Netsurf">exec:netsurf</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/empathy.svg" popup="Viber">exec:/opt/viber/Viber</TrayButton>
-
-<!-- <TrayButton label="Sylpheed" popup="Emailovy klient   pres firejail sandbox">exec:firejail --noprofile sylpheed &amp; echo "Email" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> -->
-<!-- <TrayButton label="W2"  popup="Internetovy prohlizec Qtweb">exec:~/programy/./QtWeb | echo "Qtweb" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>  -->
-
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg"  popup="(youtube) V internetovem prohlizeci zkopiruj url online videa a spust video">exec:rxvt -geometry 80x20+60+150 -title Video_online -hold -e bash -c "mpv '$(xsel --clipboard)' --fs --ontop --initial-audio-sync --slang=cs --alang=cs  --hwdec-codecs=h264,mpeg2video" #přehraje video z youtube skopirovane do schránky, tedy "http://....." | echo "Youtube video" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg" popup="V internetovem prohlizeci zkopiruj url online videa a spust video">exec:rxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "vlc --video-on-top --loop '$(xsel --clipboard)' # --fullscreen" #přehraje video z webu skopirovane do schránky, tedy "http://....." | echo "Video online" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/sound-juicer.svg" popup="V internetovem prohlizeci zkopiruj url online videa a spust hudbu" >exec:vlc --no-video $(xsel --clipboard) #přehraje video ze schránky | echo "Youtube jen zvuk" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/sound-juicer.svg" popup="V internetovem prohlizeci zkopiruj url online videa a spust hudbu" >exec:rxvt -geometry 80x20+60+150 -title Jen_zvuk_z_Youtube -hold -e bash -c "mpv --no-video --ao=pulse --save-position-on-quit $(xsel --clipboard)" #přehraje video ze schránky | echo "Youtube jen zvuk" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> ->
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/soundconverter.svg" popup="V internetovem prohlizeci zkopiruj url online videa a spust =prevedede se na mp3 a ulozi do ~/Hudba" >exec:rxvt -geometry 80x20+60+150 -title Online_do_mp3 -hold -e bash -c "mkdir ~/Hudba; cd ~/Hudba; youtube-dl --no-playlist --extract-audio --audio-format mp3 $(xsel --clipboard)" #prevede hudbu z youtube do mp3 a ulozi do adresare ~/Hudba | echo "Převede youtube do mp3" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/tvtime.svg" popup="Spusti TV online " >exec:vlc --playlist-autostart --loop --playlist-tree http://database.freetuxtv.net/playlists/playlist_webtv_cs.m3u | echo "Spusti TV online  playlist" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton> 
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/radiotray.svg" popup="Spusti playlist Ceska Radia " >exec:vlc --playlist-autostart --loop --playlist-tree https://raw.githubusercontent.com/bedjan/mm/master/radia_online.m3u | echo "Radia vsechna playlist" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/radio.svg" popup="Spusti playlist Anglicka Radia " >exec:vlc --playlist-autostart --loop --playlist-tree https://raw.githubusercontent.com/bedjan/mm/master/english_radia.m3u | echo "Radia anglicka playlist" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-
-
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/calc.svg"  popup="Spusti kalkulacku">exec:xcalc #qalculate </TrayButton >
-
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/update-manager.svg"  popup="Spusti upgrade debian systemu - bez potvrzovani ">exec:xterm -title system_update -hold -e bash -c "echo youtube-dl_upgrade;sudo -H pip install --upgrade youtube-dl;sudo apt-get update; wait;sudo apt-get upgrade -y;wait;echo !!!_upgrade_hotovy_!!!!"</TrayButton >
+ <!--  <Tray layout="vertical" layer="above" valign="center" autohide="off" halign="left" width="22" height="0"  x="0" y="0" > -->
 
 
 
-<Spacer width="5"/>
+<!-- <Spacer width="5"/> -->
 <!-- <Swallow name="space" width="200">space</Swallow> -->
 
-  </Tray> 
+<!--  </Tray> -->
 
 
 
