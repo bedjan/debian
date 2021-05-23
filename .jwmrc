@@ -1,397 +1,282 @@
-<!-- konfigurace k JWM  -->
+<?xml version="1.0"?>
 <JWM>
-<!-- navod na links http://debianlinux.page.tl/Debian.htm -->
-<!-- INSTALOVAT sudo apt-get install  --no-install-recommends  xterm  xorg jwm sakura xterm xosd-bin ffmpeg links mc sudo fairjail rxvt-unicode-lite -->
-<!-- /etc/sudoers | zadat #visudo pridat tvoje_uzivatelske_heslo   ALL=NOPASSWD:ALL -->
-<!-- sudo nano /etc/inittab #1:2345:respawn:/sbin/getty 38400 tty1 zakomentovat a pridat 1:2345:respawn:/bin/login -f tvoje_uzivatelske_heslo tty1 </dev/tty1 >/dev/tty1 2>&1 -->
-<!-- sudo nano .xinitrc  pridat exec jwm -->
-<!-- start se po prvnim spusteni vytvori ale bude prazdny= doplnit prikazy  -->
-
-<!-- cat .jwmrc | grep "INSTALOVAT" | tr -d 'INSTALOVAT'> install &amp;&amp; apt-get install --no-install-recommends $(cat install) &amp;&amp; rm -f install -->
-
-<!-- oprava v config error &amp; $sed -i "s#&amp;#&amp;amp;#g" .jwmrc -->
-<!-- JWM themes http://puppy.b0x.me/jwm-themes -->
-<!-- JWM web https://joewing.net/projects/jwm/index.shtml -->
-<!-- sudo apt-get install xorg jwm sakura rxvt-unicode xterm fairjail xosview xosd-bin faenza-icon-theme scrot ffmpeg -->
-<!-- ikony windows10 na https://uloz.to/!CD2kZlcKA8Hq/windows10icons-v1-1-tar-gz -->
-<!-- symboly http://fsymbols.com/all/ -->
-<!-- <StartupCommand>sudo hdparm -a256 -W /dev/sda</StartupCommand> -->
-<!-- <StartupCommand>conky</StartupCommand> -->
-<!-- <StartupCommand>chmod +x start &amp;&amp; sh start | printf '%b\n' "$(cat start)" | osd_cat -d 1 -s 1 -A left -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</StartupCommand> -->
-<!-- <StartupCommand>/bin/sync || /usr/bin/sudo /bin/sh -c '/bin/echo 3 >/proc/sys/vm/drop_caches'
-</StartupCommand> -->
-<StartupCommand>xset -display :0.0 dpms 0 0 300</StartupCommand>
+<StartupCommand>numlockx</StartupCommand>
 <StartupCommand>setxkbmap -layout cz, us -option grp: alt_shift_toggle</StartupCommand>
-<StartupCommand>pnmixer</StartupCommand>
-<!-- <StartupCommand>sudo ntpdate -s time.nist.gov</StartupCommand> -->
-<StartupCommand>numlockx;which numlockx || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends numlockx</StartupCommand>
-<!-- <StartupCommand>clipit</StartupCommand> -->
 <StartupCommand>nm-applet</StartupCommand>
-<!-- <StartupCommand>blueman-applet</StartupCommand> -->
+    <!-- The root menu. -->
+    <RootMenu onroot="12">
+        <Program icon="terminal.png" label="Terminal">sakura</Program>
+        <Program label="Firefox">firefox</Program>
+        <Program label="Pcmanfm">pcmanfm</Program>
+        <Separator/>
+        <Program label="Youtube video">sh skripty/mpv_youtube.sh</Program>
+        <Program label="Youtube audio">sh skripty/mpv_youtube_only_audio.sh</Program>
+        <Program label="Youtube-dl upgrade">xterm -title Youtube-dl-upgrade -hold -e bash -c &quot;sudo pip install --upgrade youtube-dl&quot;</Program>
+	<Program label="Humor">xterm -geometry 80x20-60-60 -title Humor_radio -e bash -c &quot;mpg123 -b 10240 -v http://mp3stream4.abradio.cz:8000/humor.mp3&quot;</Program>
+	<Program label="City 80">xterm -geometry 80x20-60-60 -title 80_radio -e bash -c &quot;mpg123 -b 10240 -v http://ice.abradio.cz/city80128.mp3&quot;</Program>
+	<Program label="City 90">xterm -geometry 80x20-60-60 -title 90_radio -e bash -c &quot;mpg123 -b 10240 -v http://ice.abradio.cz/city90128.mp3&quot;</Program>
+	<Program label="4U">xterm -geometry 80x20-60-60 -title 4U_radio -e bash -c &quot;mpg123 -b 10240 -v http://mpc.mediacp.eu:8302/stream&quot;</Program>
+	<Separator/>
+        <Include>/etc/jwm/debian-menu</Include>			
+        <Program icon="lock.png" label="Lock">
+            xlock -mode blank
+        </Program>
+       <Program label="Edit .jwmrc">mousepad .jwmrc</Program>
+       <Program label="Kompatibilita .jwmrc">xterm -title Je_JWM_konfigurace_kompatibilni -hold -e "jwm -reload;jwm -restart; jwm -p"</Program>
+        <Separator/>
+        <Restart label="Restart" icon="restart.png"/>
+        
+        <Exit label="Exit" confirm="true" icon="quit.png"/>
+    </RootMenu>
 
-<RestartCommand>xterm -title Je_JWM_konfigurace_kompatibilni -hold -e "jwm -p"</RestartCommand>
+    <!-- Options for program groups. -->
+    <Group>
+        <Option>tiled</Option>
+        <Option>aerosnap</Option>
+    </Group>
+    <Group>
+        <Class>Pidgin</Class>
+        <Option>sticky</Option>
+    </Group>
+    <Group>
+        <Name>xterm</Name>
+        <Option>vmax</Option>
+    </Group>
+    <Group>
+        <Name>xclock</Name>
+        <Option>drag</Option>
+        <Option>notitle</Option>
+    </Group>
 
-<ShutdownCommand>xterm -title Vypinam_PC -hold -e echo Vypinam_PC</ShutdownCommand>
-
-  <RootMenu height="16" onroot="123">
-  
-
-<Program icon="/usr/share/icons/Faenza/apps/scalable/terminal.svg"  label="Terminal">rxvt</Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/firefox.svg"  label="Palemoon">palemoon</Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/firefox-original.svg"  label="Palemoon privatni">palemoon -private-window </Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/file-manager.svg"  label="Pcmanfm">pcmanfm</Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/gnome-monitor.svg"  label="Lxtask">lxtask</Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/google-chrome.svg"  label="Chromium">chromium</Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/audacious.svg"  label="Audacious">audacious</Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/midori.svg" label="Midori">midori</Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/web-browser.svg" label="Netsurf">netsurf</Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/empathy.svg" label="Viber">/opt/viber/Viber</Program>
-
-<!-- <Program label="Sylpheed" label="Emailovy klient   pres firejail sandbox">firejail --noprofile sylpheed &amp; echo "Email" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program> -->
-<!-- <Program label="W2"  label="Internetovy prohlizec Qtweb">~/programy/./QtWeb </Program>  -->
-
-<Program icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg"  label="Copy URL + Video">rxvt -geometry 80x20+60+150 -title Video_online -hold -e bash -c "mpv '$(xsel --clipboard)' --fs --ontop --initial-audio-sync --slang=cs --alang=cs  --hwdec-codecs=h264,mpeg2video" #přehraje video z youtube skopirovane do schránky, tedy "http://....." </Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg" label="Copy URL + Video">rxvt -geometry 80x20+60+150 -title Video_online +hold -e bash -c "vlc --video-on-top --loop '$(xsel --clipboard)' # --fullscreen" #přehraje video z webu skopirovane do schránky, tedy "http://....." </Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/sound-juicer.svg" label="Copy URL + Hudba" >vlc --no-video $(xsel --clipboard) #přehraje video ze schránky </Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/sound-juicer.svg" label="Copy URL + Hudba" >rxvt -geometry 80x20+60+150 -title Jen_zvuk_z_Youtube -hold -e bash -c "mpv --no-video --ao=pulse --save-position-on-quit $(xsel --clipboard)" #přehraje video ze schránky </Program> ->
-<Program icon="/usr/share/icons/Faenza/apps/scalable/soundconverter.svg" label="Copy URL + mp3 do ~/Hudba" >rxvt -geometry 80x20+60+150 -title Online_do_mp3 -hold -e bash -c "mkdir ~/Hudba; cd ~/Hudba; youtube-dl --no-playlist --extract-audio --audio-format mp3 $(xsel --clipboard)" #prevede hudbu z youtube do mp3 a ulozi do adresare ~/Hudba </Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/tvtime.svg" label="TV online " >vlc --playlist-autostart --loop --playlist-tree http://database.freetuxtv.net/playlists/playlist_webtv_cs.m3u </Program> 
-<Program icon="/usr/share/icons/Faenza/apps/scalable/radiotray.svg" label="Ceska Radia " >vlc --playlist-autostart --loop --playlist-tree https://raw.githubusercontent.com/bedjan/mm/master/radia_online.m3u</Program>
-<Program icon="/usr/share/icons/Faenza/apps/scalable/radio.svg" label="Anglicka Radia " >vlc --playlist-autostart --loop --playlist-tree https://raw.githubusercontent.com/bedjan/mm/master/english_radia.m3u</Program>
-
-
-<Program icon="/usr/share/icons/Faenza/apps/scalable/calc.svg"  label="Kalkulacka">xcalc #qalculate </Program >
-
-<Program icon="/usr/share/icons/Faenza/apps/scalable/update-manager.svg"  label="Upgrade debian">xterm -title system_update -hold -e bash -c "echo youtube-dl_upgrade;sudo -H pip install --upgrade youtube-dl;sudo apt-get update; wait;sudo apt-get upgrade -y;wait;echo !!!_upgrade_hotovy_!!!!"</Program >
-
-
-
-
-<Separator/>
-<Menu label="System">
-<Program label="JWM Restart">jwm -restart</Program>
-<Program label="JWM kompatibilita">xterm -hold -e "jwm -p"</Program>
-<Program label="jwmrc">mousepad .jwmrc;which mousepad || xterm -title neni_nain<StartupCommand>xset -display :0.0 dpms 0 0 300</StartupCommand>talovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends mousepad</Program>
-<Program label="start">mousepad start;which mousepad || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends mousepad</Program>
-<Program label="znovu spuštění start">sh start</Program>
-<Program label="jwm webove stranky">netsurf https://joewing.net/projects/jwm/index.shtml</Program>
-<Program label="Synaptic">sudo synaptic;which sakura || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends synaptic</Program>
-<Program label="Vzhled">xterm -e lxappearance;which lxappearance || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends lxappearance</Program>
-<Program label="Xorg restart">sudo killall Xorg</Program>
-<Program label="sysv-rc-conf">xterm -title sysv-rc-conf -e "sudo sysv-rc-conf";which sysv-rc-conf || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends sysv-rc-conf</Program>
-<Program label="Conky upraveni">xterm -title conky_upraveni -e "mousepad .conkyrc";which mousepad || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends mousepad</Program>
-<Program label="Simplescreenrecorder">simplescreenrecorder;which simplescreenrecorder || xterm -title neni_nainstalovano/instaluji/pak_spust_znovu -hold -e sudo apt-get install --no-install-recommends simplescreenrecorder</Program>
-<!-- <Program  label="Upgrade youtube-dl">xterm -title youtube-dl -e "sudo pip install --upgrade youtube-dl"</Program> -->
-</Menu>
- <Separator/>
-<Menu  label="Systemove upravy">
-<Program label="Debian upgrade">xterm -hold -e 'sudo apt update -y;wait;sudo apt upgrade -y'</Program>
-<Program label="zadat a najit balicek k instalaci, prohlizeni posuvnikem">rxvt -geometry 800x600+60+150 -title "zadat a najit balicek  k instalaci" -hold -e bash -c ' echo "zadej balicek ktery hledas  k instalaci"; read -n 100 -t 10 PROMENA ; apt-cache search "$PROMENA" #zadat a najit balicek'</Program>
-
-<Program label="zadat a zobrazit informace o balicku">rxvt -geometry 800x600+60+150 -title "zadat a zobrazit informace o balicku" -hold -e bash -c 'echo "zadej balicek ktery hledas";apt-cache show $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a zobrazit informace o balicku'</Program>
-<Program label="zadat a nainstalovat balicek bez zavislosti">rxvt -geometry 800x600+60+150 -title "zadat a nainstalovat balicek bez zavislosti" -hold -e bash -c 'echo "zadej balicek ktery hledas";sudo apt-get install --no-install-recommends $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a nainstalovat balicek bez zavislosti'</Program>
-<Program label="zadat a nainstalovat balicek se zavislostmi">rxvt -geometry 800x600+60+150 -title "zadat a nainstalovat balicek se zavislostmi" -hold -e bash -c 'echo "zadej balicek ktery chces nainstalovat";sudo apt-get install $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a nainstalovat balicek '</Program>
-<Program label="zadat a odstranit balicek">rxvt -geometry 800x600+60+150 -title "zadat a odstranit balicek" -hold -e bash -c 'echo "zadej balicek ktery chces odstanit";sudo apt-get remove $(read -n 100 -t 10 PROMENA ; echo $PROMENA) #zadat a odstranit balicek'</Program>
-<Program label="vypise vsechny nainstalovane balicky  do souboru dpkgl">dpkg -l | awk '{ print $2 }' | tr -s '\n' ' ' | sed 's/:i386//g' >dpkgl &amp;&amp; rxvt -geometry 800x600+60+150 -title "vypise vsechny nainstalovane balicky  do souboru dpkgl" -hold -e cat dpkgl #vypise vsechny nainstalovane balicky do souboru dpkgl</Program>
-<Program label="zadat a najit nainstalovany balicek">rxvt -geometry 800x600+60+150 -title "zadat a najit nainstalovany balicek" -hold -e bash -c 'echo "zadej vyraz ktery hledas v historii";read -n 100 -t 10 PROMENA ; echo "hledam $PROMENA"; dpkg -l | grep "$PROMENA" #zadat a najit nainstalovany balicek'</Program>
-<Program label="zadat a najit v historii zadavany prikaz">rxvt -geometry 800x600+60+150 -title "zadat a najit v historii zadavany prikaz" -hold -e bash -c 'read -n 100 -t 10 PROMENA ; echo "hledam $PROMENA"; history | grep "$PROMENA" #zadat a najit v historii zadavany prikaz'</Program>
-<Program label="vycisti nepotrebne balicky">rxvt -geometry 800x600+60+150 -title "vycisti nepotrebne balicky, nic vic neni potreba zadavat" -hold -e bash -c 'echo "automaticky mazu nepotrebne balicky";sudo apt-get autoremove #vycisti nepotrebne balicky'</Program>
-<Program label="chyby grafickeho serveru Xorg">rxvt -geometry 800x600+60+150 -title "chyby grafickeho serveru Xorg" -hold -e bash -c "egrep '\(EE\)|\(WW\)' /var/log/Xorg.1*"</Program>
-
-</Menu>
- <Separator/>
-
-<Menu  label="Youtube=> URL + spustit">
-<Program label="stahnout audio z url adresy, vlozit adresu zkopirovanim do schranky">rxvt -geometry 80x20+60+150 -title "stahnout youtube-dl audio z url adresy, vlozit adresu zkopirovanim do schranky" -hold -e bash -c 'youtube-dl  --ignore-errors --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" "$(xsel --clipboard)"'</Program>
-
-<Program label="stahnout video z url adresy, vlozit adresu zkopirovanim do schranky">rxvt -geometry 80x20+60+150 -title "stahnout youtube-dl video z url adresy, vlozit adresu zkopirovanim do schranky" -hold -e bash -c 'youtube-dl --ignore-errors  "$(xsel --clipboard)"'</Program>
-
-<Program label="Youtube-dl upgrade">rxvt -geometry 80x20+60+150 -title "youtube-dl upgrade" -hold -e bash -c 'xterm -title Youtube-dl-update -hold -e "pip install --upgrade youtube-dl"'</Program>
-
-
-</Menu>
-
- <Separator/>
-<Menu  label="TV online_prehled">
-<Program  label="TV program">palemoon -private-window http://tv.sms.cz/ | echo "TV program" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program> 
-<Program  label="Ivysilani">palemoon -private-window http://www.ceskatelevize.cz/ivysilani/podle-abecedy/ | echo "Ivysilani, kopirovat url adresu" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program> 
-<Program  label="Youtube">palemoon -private-window "https://www.youtube.com" | echo "Youtube, kopirovat url adresu" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Program> 
-</Menu>
-
-
-
-<Menu  label="Radia">
-<Program label="Humor">xterm -geometry 80x20-60-60 -title Humor_radio -e bash -c "mpg123 -b 10240 -v http://mp3stream4.abradio.cz:8000/humor.mp3"</Program>
-<Program label="City90">xterm -geometry 80x20-60-60 -title 90_radio -e bash -c "mpg123 -b 10240 -v http://ice.abradio.cz/city90128.mp3"</Program>
-<Program label="City80">xterm -geometry 80x20-60-60 -title 80_radio -e bash -c "mpg123 -b 10240 -v http://ice.abradio.cz/city80128.mp3"</Program>
-<Program label="Radia online">bash -c "wget --timestamping  --tries=100 --wait=1 https://raw.githubusercontent.com/bedjan/mm/master/radia_online.m3u;xterm -geometry 80x20-60-60 -title Online_radia_f_d -e mpg123 -b 10240 -v -@ radia_online.m3u"</Program>
-</Menu>
- <Separator/>
-<Include>/etc/jwm/debian-menu</Include>
-<!-- <Program  label="Zamknout PC">slock</Program> -->
-     <Restart label="Restart"/>
-     <Menu  label="Odhlásit a vypnout">
-     <Program  label="Xorg restart">xterm -hold -title Restart_Xorg -e sudo killall Xorg</Program>
-     <Exit label="Odhlásit | ctrl-c | startx" confirm="false" icon="exit.png"/>
-     <Program  label="Restart PC">xterm -hold -title Restart_PC -e sudo shutdown -r now</Program>
-     <Program  label="Vypnuti PC">xterm -hold -title Vypnuti_PC -e sudo shutdown -h now</Program>
-     <Program  label="Vypnuti PC v 00:00">xterm -title PC_se_vypne_v_00:00 -hold -e "sudo shutdown -c;sudo shutdown -h 00:00"</Program>
-     <Program  label="Vypnuti PC v 02:00">xterm -title PC_se_vypne_v_02:00 -hold -e "sudo shutdown -c;sudo shutdown -h 02:00"</Program>
-     <Program  label="PC zruseni vypnuti">xterm -title PC_zruseni_vypnuti -hold -e "sudo shutdown -c"</Program>
-     </Menu>
-
-  </RootMenu>
-<!--
-   <Group>
-      <Name>xterm</Name>
-      <Option>desktop:2</Option>
-   </Group>
-   <Group>
-      <Name>sakura</Name>
-      <Option>desktop:1</Option>
-      <Option>layer:above</Option>
-   </Group>
-   <Group>
-      <Name>deadbeef</Name>
-      <Option>desktop:2</Option>
-      <Option>layer:above</Option>
-<Option>maximized</Option>
-   </Group>
-
-   <Group>
-      <Name>palemoon</Name>
-      <Option>maximized</Option>
-   </Group>
-   <Group>
-      <Name>sylpheed</Name>
-      <Option>maximized</Option>
-   </Group>
-   <Group>
-      <Name>lxtask</Name>
-      <Option>layer:above</Option>
-      <Option>maximized</Option>
-   </Group>
-   <Group>
-      <Name>vlc</Name>
-      <Option>maximized</Option>
-   </Group>
---> 
-
-<Group>
-    <Class>Conky</Class>
-    <Option>nolist</Option>
-    <Option>noborder</Option>
-    <Option>notitle</Option>
-    <Option>sticky</Option>
-</Group>
-
-   <Group>
-      <Name>xosview</Name>
-      <Option>layer:above</Option>
-      <Option>border</Option>
-
-   </Group>
-   <Group>
-      <Name>rxvt</Name>
-      <Option>layer:above</Option>
-   </Group>
-   <Group>
-      <Name>mpv</Name>
-      <Option>layer:above</Option>
-   </Group>
-   <Group>
-      <Name>netsurf</Name>
-      <Option>maximized</Option>
-   </Group>
-
-   <Group>
-      <Name>xterm -hold -e htop</Name>
-      <Option>maximized</Option>
-   </Group>
-
- <!-- <Tray  autohide="off" layer="above" layout="horizontal" valign="top" halign="left" height="20"> -->
-
- <!-- <Tray valign="bottom" layer="above" halign="left" height="20" autohide="top" x="0" y="0"> -->
-
- <!--  <Tray layout="vertical" layer="above" valign="center" autohide="off" halign="left" width="22" height="0"  x="0" y="0" > -->
-
-
-
-<!-- <Spacer width="5"/> -->
-<!-- <Swallow name="space" width="200">space</Swallow> -->
-
-<!--  </Tray> -->
+    <!-- Tray at the bottom. -->
+    <Tray  width="32" height="700" x="0" y="-1"  autohide="left" valign="top" layout="vertical" valign="top" layer="above" >
 
 
 
 
-  <Tray valign="bottom"  layer="above"  halign="left" height="22" autohide="off">
-  <TrayButton  label="Linux" icon="/usr/share/icons/Faenza/apps/scalable/docky.svg"   popup="Start - vyber programu na spusteni | v menu Debian= zde najdes vsechny nainstalovane programy">root:1</TrayButton>
-  <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/desktop-effects.svg" popup="Zobrazit plochu" >showdesktop</TrayButton>
 
-<Pager labeled="true"/>
 
-     <TrayButton label="-"  popup="Hlasitost snizi">exec:amixer set Master 3%- unmute | echo "Snizuju hlasitost = $(amixer get Master | tail -1 | awk '{print$5}')" | osd_cat -d 1 -s 1 -A center -l 1 -p bottom -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-     <TrayButton label="+"  popup="Hlasitost zvysi">exec:amixer set Master 3%+ unmute | echo "Zvysuju hlasitost = $(amixer get Master | tail -1 | awk '{print$5}')" | osd_cat -d 1 -s 1 -A center -l 1 -p top -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
-     <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/rhythmbox.svg" popup="Hlasitost vypne/zapne">exec:amixer set Master toggle;STATUS=`amixer get Master | egrep 'Left.*?\[o' | egrep -o '\[o.+\]'  | tr -d "[]"`; if  [ "$STATUS" = "on" ]; then $(echo "Hlasitost zapnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = "off" ] ;then $(echo "Hlasitost vypnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); fi #vypne usporu energie DPMS - switch zapne/vypne </TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/xfsm-hibernate.svg"  popup="Vypne monitor za 5s">exec:sleep 5 | echo "Monitor se za 5 s vypne" | osd_cat -d 1 -s 1 -A left -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'; xset dpms force off #vypne monitor za 5s</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/xfsm-switch.svg"  popup="DPMS zapne/vypne">exec:STATUS=`xset -q | grep -e 'DPMS is'| cut -c 10-17`; if  [ "$STATUS" = " Disable" ]]; then $(xset s on +dpms; echo "Setrim ... zapinam DPMS ... setrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = " Enabled" ]] ;then $(xset s on -dpms ;echo "Nesetrim ... Vypinam DPMS ...nesetrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1');  fi #vypne usporu energie DPMS - switch zapne/vypne </TrayButton>
- <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/gnome-settings-sound.svg" popup="Nastaveni hlasitosti">exec:pnmixer #qasmixer &amp;&amp; sudo alsactl store #xterm -title Zvuk -e "alsamixer" #qasmixer</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/blueman.svg"  popup="Bluetooth">exec:blueman-applet</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/shares.svg"  popup="Wifi">exec:nm-applet</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/wine-notepad.svg"  popup="Schranka">exec:clipit</TrayButton>
-<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/terminator.svg" popup="Spustit prikaz">exec:grun | echo "Spust" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+
+
+
+
+        <TrayButton  icon="/usr/share/icons/Faenza/apps/scalable/terminal.svg"  popup="Terminal">exec:sakura</TrayButton>
+        <TrayButton  icon="/usr/share/icons/Faenza/apps/scalable/firefox.svg"   popup="Firefox">exec:firefox</TrayButton>
+        <TrayButton  icon="/usr/share/icons/Faenza/apps/scalable/thunar.svg"  popup="Pcmanfm">exec:pcmanfm</TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/lxtask.svg"  popup="Lxtask">exec:lxtask</TrayButton>
+        <TrayButton  icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg"  popup="Youtube video">exec:sh skripty/mpv_youtube.sh</TrayButton>
+        <TrayButton  icon="/usr/share/icons/Faenza/apps/scalable/audacity.svg"   popup="Youtube audio">exec:sh skripty/mpv_youtube_only_audio.sh</TrayButton>
+<Spacer height="2"/>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/time.svg"  popup="Vypne monitor za 5s">exec:sleep 5 | echo "Monitor se za 5 s vypne" | osd_cat -d 1 -s 1 -A left -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'; xset dpms force off #vypne monitor za 5s</TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/defcon.svg"  popup="DPMS zapne/vypne">exec:STATUS=`xset -q | grep -e 'DPMS is'| cut -c 10-17`; if  [ "$STATUS" = " Disable" ]]; then $(xset s on +dpms; echo "Setrim ... zapinam DPMS ... setrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = " Enabled" ]] ;then $(xset s on -dpms ;echo "Nesetrim ... Vypinam DPMS ...nesetrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1');  fi #vypne usporu energie DPMS - switch zapne/vypne </TrayButton>
+<!--  <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/blueman.svg"  popup="Bluetooth">exec:blueman-applet</TrayButton>  -->
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/wireshark.svg"  popup="Wifi">exec:nm-applet</TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/scribus.svg"  popup="Schranka">exec:clipit</TrayButton>
+<TrayButton icon="/usr/share/icons/Faenza/apps/scalable/terminator.svg" popup="Spustit prikaz">exec:gexec #grun | echo "Spust" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
 
 <TrayButton label="☠ "  popup="Ukončit nasilne zaseklou aplikaci" >exec:xkill</TrayButton>
-     <TaskList/>
 
-<!-- <TrayButton label="|" popup="Zamknout PC | zadat heslo pro odemknuti">exec:slock</TrayButton> -->
-<!-- <TrayButton label="|"  popup="Wifi zap/vyp | zadat heslo pro odemknuti">exec:sudo modprobe -r b43 || sudo modprobe b43 || sudo ifconfig wlan0 up || sudo wicd-gtk #spusti moduly k wifi, wifi a wicd-gtk</TrayButton> -->
+<Spacer height="20"/>
+	<TrayButton  label="-1-" popup="Humor">exec:xterm -geometry 80x20-60-60 -title Humor_radio -e bash -c &quot;mpg123 -b 10240 -v http://mp3stream4.abradio.cz:8000/humor.mp3&quot;</TrayButton >
+	<TrayButton  label="-2-" popup="City 80">exec:xterm -geometry 80x20-60-60 -title 80_radio -e bash -c &quot;mpg123 -b 10240 -v http://ice.abradio.cz/city80128.mp3&quot;</TrayButton >
+	<TrayButton  label="-3-" popup="City 90">exec:xterm -geometry 80x20-60-60 -title 90_radio -e bash -c &quot;mpg123 -b 10240 -v http://ice.abradio.cz/city90128.mp3&quot;</TrayButton >
+	<TrayButton  label="-4-" popup="City 90">exec:xterm -geometry 80x20-60-60 -title 4U_radio -e bash -c &quot;mpg123 -b 10240 -v http://mpc.mediacp.eu:8302/stream&quot;</TrayButton >
 
-<!--  <TrayButton  label="|" popup="Status baterie v ntb pres program xmessage">exec:xmessage  -timeout 10 "$(acpi -i -b)" #ukaze status baterie v ntb pres program xmessage</TrayButton> -->
-
-
-
- 
-<!-- <Swallow name="xload" width="44">
-         xload -nolabel -bg black -fg #000000 -hl black
-      </Swallow> 
--->
-
-<!-- <Clock  width="50" format="%H:%M %a">exec:xterm -geometry 150x36-0-0 -title Kalendar_cely_rok -hold -e ncal -M -y | echo Kalendar_cely_rok | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Clock> -->
-
-<Clock format="%H:%M %a">exec:xterm -geometry 100x36-0-0 -title Kalendar_cely_rok -hold -e "ncal -M -y" | echo Kalendar_cely_rok | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Clock>
-<Spacer width="5"/>
-<Dock/>
-       </Tray>
-
-<!-- <Font>-*-*-*-*-*-*-6-*-*-*-*-*-*-*</Font> -->
-<!-- evil #000000 glow -->
-
-
-<!-- <Font>-*-nimbus-*-*-*-*-6-*-*-*-*-*-*-*</Font> --> -->
-
-<WindowStyle>
-<Font antialias="false">traditional</Font>
-<Width>4</Width>
-<Height>20</Height>
-
-<Active>
-<!-- 
-<Text>grey</Text>
-<Title>darkgrey:blue</Title>
-<Outline>grey</Outline>
- -->
-</Active>
-
-<!-- 
-<Inactive>
-<Text>grey</Text>
-<Title>darkgrey:blue</Title>
-<Outline>darkgrey</Outline>
-</Inactive>
- -->
-
-</WindowStyle>
-
-<TaskListStyle>
-<Font antialias="false">traditional</Font>
-<!-- 
-<ActiveForeground>grey</ActiveForeground>
-<ActiveBackground>darkgrey:blue</ActiveBackground>
- -->
-<Foreground>white</Foreground>
-<Background>grey:grey13</Background>
-</TaskListStyle>
-
-<!-- Additional TrayStyle attribute: insert -->
-
-<TrayStyle>
-<Font antialias="false">traditional</Font>
-<Background>grey13</Background>
-<Foreground>grey</Foreground>
-</TrayStyle>
-
-<PagerStyle>
-<Outline>grey</Outline>
-<Foreground>black</Foreground>
-<Background>white</Background>
-<!-- 
-<ActiveForeground>grey</ActiveForeground>
-<ActiveBackground>darkgrey:grey13</ActiveBackground>
- -->
-</PagerStyle>
-
-<MenuStyle>
-<Font antialias="false">traditional</Font>
-<Foreground>white</Foreground>
-<Background>grey0</Background>
-<!-- 
-<ActiveForeground>grey</ActiveForeground>
-<ActiveBackground>darkgrey:grey13</ActiveBackground>
- -->
-</MenuStyle>
-
-<PopupStyle>
-<Font antialias="false">traditional</Font>
-<Outline>grey22</Outline>
-<Foreground>grey0</Foreground>
-<Background>grey</Background>
-</PopupStyle>
-
-<!--
-<ButtonClose>~/.icons/xbm2/close.xbm</ButtonClose>
-   <ButtonMax>~/.icons/xbm2/max.xbm</ButtonMax>
-   <ButtonMaxActive>~/.icons/xbm2/maxact.xbm</ButtonMaxActive>
-   <ButtonMin>~/.icons/xbm2/min.xbm</ButtonMin>
--->
-<!--
-   <IconPath>
-      $HOME/.icons/Windows10Icons
-   </IconPath>
-
--->
-
-  <Desktops count="2" width="2" height="1">
-<!--   <Background type="image">/usr/share/wallpapers/Grass/contents/images/1280x1024.jpg</Background> -->
-       <Desktop><Background type="solid">#000000</Background></Desktop>
-       <Desktop><Background type="solid">#000000</Background></Desktop>
-  </Desktops>
-
-  <DoubleClickSpeed>400</DoubleClickSpeed>
-  <DoubleClickDelta>2</DoubleClickDelta>
-  <FocusModel>click</FocusModel>
-  <SnapMode distance="10">border</SnapMode>
-  <MoveMode>outline</MoveMode>
-  <ResizeMode>outline</ResizeMode>
-
-  <Key key="Up">up</Key>
-  <Key key="Down">down</Key>
-  <Key key="Right">right</Key>
-  <Key key="Left">left</Key>
-  <Key key="Return">select</Key>
-  <Key key="Escape">escape</Key>
-
-<!-- #DEBIAN unused -->
-<Key mask="A" key="Tab">nextstacked</Key>
--->
-<!-- #DEBIAN add -->
-<Key mask="A" key="Tab">next</Key>
-<Key mask="A" key="F4">close</Key>
-<Key mask="C" key="F4">close</Key>
-<Key mask="C" key="#">desktop#</Key>
-<Key mask="C" key="F1">root:1</Key>
-<Key mask="C" key="F2">window</Key>
-<Key mask="4" key="j">exec:xterm -hold -e "jwm -p"</Key>
-<Key mask="4" key="x">exec:jwm -restart</Key>
-<Key mask="4" key="m">exec:sleep 5 | echo "Monitor se za 5 s vypne" | osd_cat -d 1 -s 1 -A left -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'; xset dpms force off #vypne monitor za 5s</Key>
-<Key mask="4" key="d">exec:STATUS=`xset -q | grep -e 'DPMS is'| cut -c 10-17`; if  [ "$STATUS" = " Disable" ]]; then $(xset s on +dpms; echo "Zapinam DPMS ...setrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = " Enabled" ]] ;then $(xset s on -dpms ;echo "Vypinam DPMS ...nesetrim"  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1');  fi #vypne usporu energie DPMS - switch zapne/vypne</Key>
-<Key mask="CA" key="Delete">exec:jwm -exit</Key>
-<!--  <Key mask="4" key="a">exec:wmctrl -r :ACTIVE: -b toggle,above</Key> -->
+    </Tray>
 
 
 
 
+<Tray height="22" autohide="off" insert="right" x="0" y="-1"  layer="above" layout="horizontal" halign="left" valign="bottom" >
+
+
+        <TrayButton   icon="/usr/share/icons/Faenza/apps/scalable/mendeley.svg"  popup="Linux">root:1</TrayButton>
+ <Spacer width="2"/>
+        <TrayButton   icon="/usr/share/icons/Faenza/apps/scalable/onboard.svg"  popup="Na plochu">showdesktop</TrayButton>
+        <Spacer width="2"/>
+
+        <Pager labeled="true"/>
+
+        <TaskList maxwidth="256"/>
+<TrayButton label="-"  popup="Hlasitost snizi">exec:amixer set Master 3%- unmute | echo "Snizuju hlasitost = $(amixer get Master | tail -1 | awk '{print$5}')" | osd_cat -d 1 -s 1 -A center -l 1 -p bottom -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton label="+"  popup="Hlasitost zvysi">exec:amixer set Master 3%+ unmute | echo "Zvysuju hlasitost = $(amixer get Master | tail -1 | awk '{print$5}')" | osd_cat -d 1 -s 1 -A center -l 1 -p top -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</TrayButton>
+     <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/rhythmbox.svg" popup="Hlasitost vypne/zapne">exec:amixer set Master toggle;STATUS=`amixer get Master | egrep 'Left.*?\[o' | egrep -o '\[o.+\]'  | tr -d "[]"`; if  [ "$STATUS" = "on" ]; then $(echo "Hlasitost zapnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = "off" ] ;then $(echo "Hlasitost vypnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); fi #vypne usporu energie DPMS - switch zapne/vypne </TrayButton>
+     <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/gnome-settings-sound.svg" popup="Nastaveni hlasitosti">exec:pnmixer #qasmixer &amp;&amp; sudo alsactl store #xterm -title Zvuk -e "alsamixer" #qasmixer</TrayButton>
+
+
+        <Clock format="%H:%M"><Button mask="123">exec:lxtask</Button></Clock>
+ <Dock/>
+	</Tray>
+
+
+
+
+    <!-- Visual Styles -->
+    <WindowStyle>
+        <Font>Sans-9:bold</Font>
+        <Width>4</Width>
+        <Height>21</Height>
+        <Corner>3</Corner>
+        <Foreground>#FFFFFF</Foreground>
+        <Background>#555555</Background>
+        <Outline>#000000</Outline>
+        <Opacity>0.5</Opacity>
+        <Active>
+            <Foreground>#FFFFFF</Foreground>
+            <Background>#0077CC</Background>
+            <Outline>#000000</Outline>
+            <Opacity>1.0</Opacity>
+        </Active>
+    </WindowStyle>
+    <TrayStyle group="true" list="all">
+        <Font>Sans-9</Font>
+        <Background>#333333</Background>
+        <Foreground>#FFFFFF</Foreground>
+        <Outline>#000000</Outline>
+        <Opacity>0.75</Opacity>
+    </TrayStyle>
+    <TaskListStyle>
+      <Font>Sans-9</Font>
+      <Active>
+        <Foreground>#FFFFFF</Foreground>
+        <Background>#555555</Background>
+      </Active>
+      <Foreground>#FFFFFF</Foreground>
+      <Background>#333333</Background>
+    </TaskListStyle>
+    <PagerStyle>
+        <Outline>#000000</Outline>
+        <Foreground>#555555</Foreground>
+        <Background>#333333</Background>
+        <Text>#FFFFFF</Text>
+        <Active>
+            <Foreground>#0077CC</Foreground>
+            <Background>#004488</Background>
+        </Active>
+    </PagerStyle>
+    <MenuStyle>
+        <Font>Sans-9</Font>
+        <Foreground>#FFFFFF</Foreground>
+        <Background>#333333</Background>
+        <Outline>#000000</Outline>
+        <Active>
+            <Foreground>#FFFFFF</Foreground>
+            <Background>#0077CC</Background>
+        </Active>
+        <Opacity>0.85</Opacity>
+    </MenuStyle>
+    <PopupStyle>
+        <Font>Sans-9</Font>
+        <Foreground>#000000</Foreground>
+        <Background>#999999</Background>
+    </PopupStyle>
+
+    <!-- Path where icons can be found.
+         IconPath can be listed multiple times to allow searching
+         for icons in multiple paths.
+      -->
+    <IconPath>/usr/share/icons/gnome/256x256/actions</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/apps</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/categories</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/devices</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/emblems</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/places</IconPath>
+    <IconPath>/usr/share/icons/gnome/256x256/status</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/actions</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/animations</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/apps</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/categories</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/devices</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/emblems</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/places</IconPath>
+    <IconPath>/usr/share/icons/gnome/32x32/status</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/actions</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/apps</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/categories</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/devices</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/emblems</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/places</IconPath>
+    <IconPath>/usr/share/icons/gnome/scalable/status</IconPath>
+    <IconPath>/usr/share/icons/hicolor/256x256/apps</IconPath>
+    <IconPath>/usr/share/icons/hicolor/256x256/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/actions</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/apps</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/categories</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/devices</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/emblems</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/hicolor/32x32/status</IconPath>
+    <IconPath>/usr/share/icons/hicolor/512x512/apps</IconPath>
+    <IconPath>/usr/share/icons/hicolor/512x512/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/actions</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/apps</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/categories</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/devices</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/emblems</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/mimetypes</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/places</IconPath>
+    <IconPath>/usr/share/icons/hicolor/scalable/status</IconPath>
+    <IconPath>/usr/share/icons</IconPath>
+    <IconPath>/usr/share/pixmaps</IconPath>
+    <IconPath>
+        /usr/local/share/jwm
+    </IconPath>
+
+    <!-- Virtual Desktops -->
+    <!-- Desktop tags can be contained within Desktops for desktop names. -->
+    <Desktops width="2" height="1">
+        <!-- Default background. Note that a Background tag can be
+              contained within a Desktop tag to give a specific background
+              for that desktop.
+         -->
+        <Background type="solid">#111111</Background>
+    </Desktops>
+
+    <!-- Double click speed (in milliseconds) -->
+    <DoubleClickSpeed>400</DoubleClickSpeed>
+
+    <!-- Double click delta (in pixels) -->
+    <DoubleClickDelta>2</DoubleClickDelta>
+
+    <!-- The focus model (sloppy or click) -->
+    <FocusModel>sloppy</FocusModel>
+
+    <!-- The snap mode (none, screen, or border) -->
+    <SnapMode distance="10">border</SnapMode>
+
+    <!-- The move mode (outline or opaque) -->
+    <MoveMode>opaque</MoveMode>
+
+    <!-- The resize mode (outline or opaque) -->
+    <ResizeMode>opaque</ResizeMode>
+
+    <!-- Key bindings -->
+    <Key key="Up">up</Key>
+    <Key key="Down">down</Key>
+    <Key key="Right">right</Key>
+    <Key key="Left">left</Key>
+    <Key key="h">left</Key>
+    <Key key="j">down</Key>
+    <Key key="k">up</Key>
+    <Key key="l">right</Key>
+    <Key key="Return">select</Key>
+    <Key key="Escape">escape</Key>
+
+    <Key mask="A" key="Tab">nextstacked</Key>
+    <Key mask="A" key="F4">close</Key>
+    <Key mask="A" key="#">desktop#</Key>
+    <Key mask="A" key="F1">root:1</Key>
+    <Key mask="A" key="F2">window</Key>
+    <Key mask="A" key="F10">maximize</Key>
+    <Key mask="A" key="Right">rdesktop</Key>
+    <Key mask="A" key="Left">ldesktop</Key>
+    <Key mask="A" key="Up">udesktop</Key>
+    <Key mask="A" key="Down">ddesktop</Key>
+
+ <!-- moje bindings -->
 <Key mask="4" key="Down">exec:amixer sset Master 5%-</Key>
 <Key mask="4" key="Up">exec:amixer sset Master 5%+</Key>
 <Key mask="4" key="End">exec:amixer set Master toggle;STATUS=`amixer get Master | egrep 'Left.*?\[o' | egrep -o '\[o.+\]'  | tr -d "[]"`; if  [ "$STATUS" = "on" ]; then $(echo "Hlasitost zapnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'); elif [ "$STATUS" = "off" ] ;then $(echo "Hlasitost vypnuta" | osd_cat -d 1 -s 1 -A center -l 1 -p middle -o 300 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1');  fi #vypne usporu energie DPMS - switch zapne/vypne</Key>
@@ -413,4 +298,9 @@
 <Key mask="" key="Print">exec:mkdir screenshot;scrot screenshot/$(date +%F_%H.%M.%S).png ;echo "Screenshot vyfocen" | osd_cat -d 1 -s 1 -A left -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1'</Key>
 <!--  <Key mask="" key="Print">exec:scrot screenshot/$(date +%F_%H.%M.%S).png # xmessage -geometry 200x100+60+150 -timeout 1 "Screenshot vyfocen"</Key> -->
 
-</JWM> 
+
+<Key mask="4" key="k">exec:bash -c "killall mpg123;killall vlc;killall mpv"</Key>
+
+
+
+</JWM>
