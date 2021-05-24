@@ -7,7 +7,7 @@
     <RootMenu onroot="12">
         <Program icon="terminal.png" label="Terminal">sakura</Program>
         <Program label="Firefox">firefox</Program>
-        <Program label="Pcmanfm">pcmanfm</Program>
+        <Program label="Pcmanfm">pcmanfm /media/sda2</Program>
         <Separator/>
         <Program label="Youtube video">sh skripty/mpv_youtube.sh</Program>
         <Program label="Youtube audio">sh skripty/mpv_youtube_only_audio.sh</Program>
@@ -47,9 +47,19 @@
         <Option>drag</Option>
         <Option>notitle</Option>
     </Group>
+   
+ <Group>
+        <Name>sakura</Name>
+        <Option>layer:above</Option>
+    </Group>
+
+ <Group>
+        <Name>lxtask</Name>
+        <Option>maximized</Option>
+    </Group>
 
     <!-- Tray at the bottom. -->
-    <Tray  width="32" height="700" x="0" y="-1"  autohide="left" valign="top" layout="vertical" valign="top" layer="above" >
+    <Tray  width="32" x="0" y="-2"  autohide="left" valign="center" layout="vertical" layer="above" >
 
 
 
@@ -62,7 +72,8 @@
 
         <TrayButton  icon="/usr/share/icons/Faenza/apps/scalable/terminal.svg"  popup="Terminal">exec:sakura</TrayButton>
         <TrayButton  icon="/usr/share/icons/Faenza/apps/scalable/firefox.svg"   popup="Firefox">exec:firefox</TrayButton>
-        <TrayButton  icon="/usr/share/icons/Faenza/apps/scalable/thunar.svg"  popup="Pcmanfm">exec:pcmanfm</TrayButton>
+        <TrayButton  icon="/usr/share/icons/Faenza/apps/scalable/thunar.svg"  popup="Pcmanfm">exec:pcmanfm /media/sda2</TrayButton>
+<TrayButton  icon="/usr/share/icons/Faenza/apps/scalable/file-manager.svg"  popup="Xfe">exec:xfe</TrayButton>
 <TrayButton icon="/usr/share/icons/Faenza/apps/scalable/lxtask.svg"  popup="Lxtask">exec:lxtask</TrayButton>
         <TrayButton  icon="/usr/share/icons/Faenza/apps/scalable/youtube.svg"  popup="Youtube video">exec:sh skripty/mpv_youtube.sh</TrayButton>
         <TrayButton  icon="/usr/share/icons/Faenza/apps/scalable/audacity.svg"   popup="Youtube audio">exec:sh skripty/mpv_youtube_only_audio.sh</TrayButton>
@@ -77,6 +88,7 @@
 <TrayButton label="☠ "  popup="Ukončit nasilne zaseklou aplikaci" >exec:xkill</TrayButton>
 
 <Spacer height="20"/>
+<TrayButton  icon="/usr/share/icons/Faenza/apps/scalable/radiotray.svg"   popup="Radiotray">exec:radiotray</TrayButton>
 	<TrayButton  label="-1-" popup="Humor">exec:xterm -geometry 80x20-60-60 -title Humor_radio -e bash -c &quot;mpg123 -b 10240 -v http://mp3stream4.abradio.cz:8000/humor.mp3&quot;</TrayButton >
 	<TrayButton  label="-2-" popup="City 80">exec:xterm -geometry 80x20-60-60 -title 80_radio -e bash -c &quot;mpg123 -b 10240 -v http://ice.abradio.cz/city80128.mp3&quot;</TrayButton >
 	<TrayButton  label="-3-" popup="City 90">exec:xterm -geometry 80x20-60-60 -title 90_radio -e bash -c &quot;mpg123 -b 10240 -v http://ice.abradio.cz/city90128.mp3&quot;</TrayButton >
