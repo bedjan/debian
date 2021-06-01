@@ -46,6 +46,9 @@ fi;;
    "easystroke") easystroke;;
    "mpc") mpc-qt;;
    "kalkulacka") calcoo;;
+   "links") links2 -g www.abclinuxu.cz;;
+   "netsurf") netsurf www.abclinuxu.cz #x-www-browser;;
+   "default_web_browser") x-www-browser;;
 
 ##VIDEO##
 
@@ -72,9 +75,9 @@ fi;;
    "obmenu") obmenu;;
    "orestart") xterm -hold -e 'openbox --restart';;
    "oreconfigure") xterm -hold -e 'openbox --reconfigure';;
-   "ostart") xterm -e 'sudo mousepad ~/.config/openbox/autostart';;
-   "omenu") xterm -e 'sudo mousepad ~/.config/openbox/menu.xml';;
-   "orc") xterm -e 'sudo mousepad ~/.config/openbox/rc.xml';;
+   "ostart") xterm -e 'mousepad ~/.config/openbox/autostart';;
+   "omenu") xterm -e 'mousepad ~/.config/openbox/menu.xml';;
+   "orc") xterm -e 'mousepad ~/.config/openbox/rc.xml';;
 
 ##SYSTEM##
    "github_all") firefox https://github.com/bedjan/debian/blob/master/skripty/all.sh;;
