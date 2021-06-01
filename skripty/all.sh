@@ -47,7 +47,7 @@ fi;;
    "mpc") mpc-qt;;
    "kalkulacka") calcoo;;
    "links") links2 -g www.abclinuxu.cz;;
-   "netsurf") netsurf www.abclinuxu.cz #x-www-browser;;
+   "netsurf") netsurf www.abclinuxu.cz;;
    "default_web_browser") x-www-browser;;
 
 ##VIDEO##
@@ -86,10 +86,115 @@ fi;;
   ## "history") xterm -hold -e "history";;
 
 ##RADIA##
+   "humor") xterm -geometry 80x20-60-60 -title Humor_radio -e bash -c "mpg123 -b 10240 -v http://mp3stream4.abradio.cz:8000/humor.mp3";;
+   "city90") xterm -geometry 80x20-60-60 -title 80_radio -e bash -c "mpg123 -b 10240 -v http://ice.abradio.cz/city80128.mp3";;
+   "city80") xterm -geometry 80x20-60-60 -title 90_radio -e bash -c "mpg123 -b 10240 -v http://ice.abradio.cz/city90128.mp3";;
+   "4u") xterm -geometry 80x20-60-60 -title 4U_radio -e bash -c "mplayer  http://mpc.mediacp.eu:8302/stream";;
    "radia") bash -c "wget --timestamping  --tries=100 --wait=1 https://raw.githubusercontent.com/bedjan/mm/master/radia_online.m3u & vlc radia_online.m3u";;
 
 ##TV##
 
+"Das_erste") vlc --loop https://mcdn.daserste.de/daserste/de/master.m3u8;;
+	
+
+"Hr") vlc --loop https://hrhls.akamaized.net/hls/live/2024525/hrhls/index.m3u8;;
+	
+
+"Kulturmd") vlc --loop https://58bd5b7a98e04.streamlock.net/medienasa-live/_definst_/mp4:kulturmd_high/playlist.m3u8;;
+	
+
+"Ndr_hamburg") vlc --loop https://ndrfs-lh.akamaihd.net/i/ndrfs_hh@430231/index_3776_av-p.m3u8;;
+	
+
+"Nrwision") vlc --loop https://fms.nrwision.de/live/livestreamHD.stream_source/chunklist.m3u8;;
+	
+
+"Okessau") vlc --loop rtmp://62.113.210.250/medienasa-live/ok-dessau_high;;
+	
+
+"Ok_kassel") vlc --loop https://s.ok54.de/mok-ks/kassel/playlist.m3u8;;
+	
+
+"Ok_kiel") vlc --loop https://d1lv1lpzlrjn3y.cloudfront.net/play/hls/kieltv/index.m3u8;;
+	
+
+"Ok_ludwigshafen") vlc --loop https://s.ok54.de/oklu/livestream/playlist.m3u8;;
+	
+
+"Ok_magdeburg") vlc --loop rtmp://62.113.210.250/medienasa-live/ok-magdeburg_high;;
+	
+
+"Ok_Merseburg") vlc --loop rtmp://62.113.210.250/medienasa-live/ok-merseburg_high;;
+	
+
+"Ok_nahetv") vlc --loop https://s.ok54.de/nahetv/webstream/chunks.m3u8;;
+	
+
+"Ok_rhein main") vlc --loop https://s.ok54.de/mok-rm/mok-rm/playlist.m3u8;;
+	
+
+"Ok_rheinlokal") vlc --loop https://s.ok54.de/rheinlokal/rheinlOKal_stream/chunks.m3u8;;
+	
+
+"Ok_salzwedel") vlc --loop rtmp://62.113.210.250/medienasa-live/ok-salzwedel_high;;
+	
+
+"Ok_stendal") vlc --loop rtmp://62.113.210.250/medienasa-live/ok-stendal_high;;
+	
+
+"Ok_suedwestpfalz") vlc --loop https://s.ok54.de/okswp/test/chunks.m3u8;;
+	
+
+"Ok_weinstrasse") vlc --loop https://s.ok54.de/okweinstrasse/okweinstrasse/chunks.m3u8;;
+	
+
+"Ok wernigerode") vlc --loop rtmp://62.113.210.250/medienasa-live/ok-wernigerode_high;;
+	
+
+"Ok54_trier") vlc --loop https://s.ok54.de/ott/webstream/tv/webstream_720p/chunks.m3u8;;
+	
+
+"Tagesschau24") vlc --loop https://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/index_3776_av-b.m3u8;;
+	
+
+"Tidetv") vlc --loop https://5889e7d0d6e28.streamlock.net/tide-live/_definst_/smil:livestream.smil/playlist.m3u8;;
+	
+
+"Tvhalle") vlc --loop https://58bd5b7a98e04.streamlock.net/medienasa-live/_definst_/mp4:tvhalle_high/playlist.m3u8;;
+	
+
+"Wdr") vlc --loop https://wdrfs247.akamaized.net/hls/live/681509/wdr_msl4_fs247/master_3628.m3u8;;
+	
+
+"Wtv_ok_wettin") vlc --loop rtmp://62.113.210.250/medienasa-live/ok-wettin_high;;
+	
+
+"Punktum") vlc --loop https://58bd5b7a98e04.streamlock.net/medienasa-live/_definst_/mp4:punktum_high/playlist.m3u8;;
+	
+
+"Ran1") vlc --loop https://58bd5b7a98e04.streamlock.net/medienasa-live/_definst_/mp4:ran1_high/playlist.m3u8;;
+	
+
+"Rockland") vlc --loop http://api.new.livestream.com/accounts/22300522/events/6680139/live.m3u8;;
+	
+
+"Rt") vlc --loop https://rt-news.secure.footprint.net/1103.m3u8;;
+	
+
+"Studio47") vlc --loop https://5852afe96c9bb.streamlock.net/studio47-live/_definst_/mp4:livestream/playlist.m3u8;;
+	
+
+"Dw_e") vlc --loop http://dwstream1-lh.akamaihd.net/i/dwstream1_live@120422/index_1_av-p.m3u8;;
+	
+
+"Dw") vlc --loop https://dwstream6-lh.akamaihd.net/i/dwstream6_live@123962/index_1_av-p.m3u8;;
+	
+
+"Dw+") vlc --loop http://dwstream52-lh.akamaihd.net/i/dwstream52_live@500528/index_1_av-p.m3u8;;
+	
+
+"Elbekanal") vlc --loop http://62.113.210.250/medienasa-live/_definst_/mp4:elbe_high/playlist.m3u8;;
+	
 ##WEB##
 
    "kalendar") firefox https://time.is/calendar;;
