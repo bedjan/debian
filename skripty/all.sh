@@ -201,6 +201,8 @@ fi;;
    "cas") firefox https://time.is/;;
    "zdrojak") firefox https://zdrojak.cz/;;
    "linuxexpress") firefox https://www.linuxexpres.cz/;;
+    "cs") firefox -private https://bezpecnost.csas.cz/login/?client_id=georgeclient_cz;echo "George - 7522952063/F1" | osd_cat -d 180 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1';;
+    "sparkasse") firefox -private https://www.ostsaechsische-sparkasse-dresden.de/de/home/service/online-mobile-banking.html;echo "Sparkasse - janbednar/1" | osd_cat -d 180 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1';;
 
    "gkeep") firefox https://keep.google.com/#home;echo "Keep - bedjan/od" | $osd;;
    "gmail") firefox https://mail.google.com/mail/u/0/#inbox;echo "Gmail - bedjan/od" | osd_cat -d 10 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-1';;
@@ -217,6 +219,7 @@ fi;;
    "gphotos") firefox https://photos.google.com/?hl=cs&pli=1;;
    "gsites") firefox https://sites.google.com/site/bedjansite/;;
    "gtranslate") firefox https://translate.google.cz/;;
+   "jobs") firefox https://www.jobs.cz/;;
    "seznam") firefox https://www.seznam.cz/;;
    "abclinuxu") firefox https://www.abclinuxu.cz/;;
    "tvprogram") firefox https://www.tvprogram.cz/;;
@@ -264,9 +267,21 @@ fi;;
    "github_windows") firefox https://github.com/bedjan/windows;;
    "github_home") firefox https://github.com/bedjan/home;;
 
+##FIREFOX_ROZSIRENI##
+
+   "open_with") firefox https://addons.mozilla.org/cs/firefox/addon/open-with/;;
+   "open_with_nastaveni") wget https://github.com/darktrojan/openwith/raw/master/webextension/native/open_with_linux.py;chmod u+x open_with_linux.py;./open_with_linux.py install;;
+
+##youtube video a audio
+mpv --force-window --ytdl 
+mpv --force-window  --no-video --ytdl
+
 
    *) echo "Error, Wrong!";;
 esac
+
+
+
 
 ##--Notes--##
 
@@ -286,3 +301,8 @@ esac
 #xterm -hold -e alsamixer
 #pavucontrol
 #pasystray
+
+##youtube video a audio
+mpv --force-window --ytdl 
+mpv --force-window  --no-video --ytdl
+
