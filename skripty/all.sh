@@ -235,6 +235,36 @@ fi;;
    "csfd") firefox https://www.csfd.cz/;;
    "tvonline") firefox https://www.spustit.cz/tv-ct1-online-zdarma/;;
    "nemcina_youtube") firefox https://www.youtube.com/channel/UC4LQ7gUVS5w45ba1VubmJpg/videos;;
+   "thinfi") firefox https://thinfi.com/;;
+   "bitly") firefox https://bitly.com/;;
+   "jdem") firefox http://jdem.cz/;;
+   "protectedtext") firefox https://www.protectedtext.com/;;
+   "dillinger") firefox https://dillinger.io/;;
+   "githack") firefox https://raw.githack.com/;;
+   "tinyurl") firefox https://tinyurl.com/app;;
+   "github_poznamky") firefox https://github.com/bedjan/github/blob/master/README.md;;
+   "programovani") firefox https://www.itnetwork.cz/prace-a-podnikani-v-it/jak-zacit-programovat-tvorit-aplikace-programy/;;
+   "linux") firefox https://translate.google.cz/translate?sl=en&tl=cs&js=y&prev=_t&hl=cs&ie=UTF-8&u=linux.press&edit-text=&act=url;;
+   "github_linux") firefox https://github.com/bedjan/debian/blob/master/poznamky/linux_cli.md;;
+   "enviweb") firefox http://www.enviweb.cz/;;
+   "mzp") firefox https://www.mzp.cz/;;
+   "pronaladu") firefox https://www.pronaladu.cz/;;
+   "github_akupresura") firefox https://github.com/bedjan/akupresura/blob/master/akupresura_prvni_pomoc.md;;
+   "psychologie") firefox https://psychologie.cz/clanky/;;
+   "epsychologie") firefox https://e-psycholog.eu/archiv;;
+   "statistiky") firefox https://www.czso.cz/csu/czso/statistiky;;
+   "zw") firefox https://arnika.org/zero-waste;;
+   "zw1") firefox https://www.czechzerowaste.cz/;;
+   "zw2") firefox http://zerowaste.bezobalu.org/;;
+   "zw3") firefox https://translate.google.cz/translate?sl=en&tl=cs&js=y&prev=_t&hl=cs&ie=UTF-8&u=zerowasteeurope.eu&edit-text=&act=url;;
+   "minimalismus") firefox https://zijememinimalismem.cz/minimalismus-co-to-je-prosim-te/;;
+   "minimalismus1") firefox https://translate.google.cz/translate?hl=cs?sl=en&tl=cs&u=www.becomingminimalist.com/most-popular-posts/;;
+   "github_zajmy") firefox https://github.com/bedjan/zajmy;;
+   "github_manipulace") firefox https://github.com/bedjan/manipulace;;
+   "github_windows") firefox https://github.com/bedjan/windows;;
+   "github_home") firefox https://github.com/bedjan/home;;
+
+
    *) echo "Error, Wrong!";;
 esac
 
