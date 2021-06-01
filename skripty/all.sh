@@ -52,6 +52,13 @@ fi;;
   "youtubedl_video") xterm -hold -e 'cd /media/sda2;youtube-dl --ignore-errors  "$(xsel --clipboard)"';;
   "youtubedl_audio") xterm -hold -e 'cd /media/sda2;youtube-dl  --ignore-errors --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" "$(xsel --clipboard)"';;
 
+  "mpv_youtube_mute") XSEL=$(xsel --clipboard);stterm -t Video_youtube -g 80x20-40-40 -e bash -c "echo '=====Spoustim_video_v_rozliseni_480p ...=====';echo '=====URL="${XSEL}"=====';echo '===========================';mpv --mute=yes --ytdl-format='bestvideo[height<=?360]+bestaudio' --ytdl-raw-options=no-check-certificate= '${XSEL}'  && exit 1;echo '=====Spoustim_video_v_plnem_rozliseni ...=====';mpv --mute=yes '${XSEL}'" ;;
+
+  "mpv_youtube")      XSEL=$(xsel --clipboard);stterm -t Video_youtube -g 80x20-40-40 -e bash -c "echo '=====Spoustim_video_v_rozliseni_480p ...=====';echo '=====URL="${XSEL}"=====';echo '===========================';mpv --ytdl-format='bestvideo[height<=?360]+bestaudio' --ytdl-raw-options=no-check-certificate= '${XSEL}'  && exit 1;echo '=====Spoustim_video_v_plnem_rozliseni ...=====' || echo 'Spoustene video neslo spustit ... spoustim bez parametru ...'  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-2';mpv '${XSEL}'" ;;
+
+  "mpv_youtube_audio")        XSEL=$(xsel --clipboard);stterm -t Audio_youtube -g 80x20-40-40 -e bash -c "echo '=====Spoustim_audio_v_kvalite_best ...=====';echo '=====URL="${XSEL}"=====';echo '===========================';mpv --no-video --cache-secs='60' --no-stop-screensaver --ytdl-raw-options=no-check-certificate= '${XSEL}'  && exit 1;echo '=====Spoustim_audio_v_plnem_rozliseni ...=====' || echo 'Spoustene video neslo spustit ... spoustim bez parametru ...'  | osd_cat -d 1 -s 1 -A right -l 1 -p middle -o 60 -c green -f '-adobe-helvetica-bold-r-normal--34-240-100-100-p-182-iso8859-2';mpv --no-video --cache-secs='60' --no-stop-screensaver --ytdl-raw-options=no-check-certificate=  '${XSEL}'" ;; 
+
+
 ##VYPNOUT##
 
    "restart") xterm -hold -e 'echo Vypnout_v_00:00;sudo reboot';;
@@ -61,7 +68,13 @@ fi;;
    "vypnout2") xterm -hold -e 'echo Vypnout_v_02:00; sudo shutdown -h 02:00';;
 
 ##OPENBOX##
-
+   "obconf") obconf;;
+   "obmenu") obmenu;;
+   "orestart") xterm -hold -e 'openbox --restart';;
+   "oreconfigure") xterm -hold -e 'openbox --reconfigure';;
+   "ostart") xterm -e 'sudo mousepad ~/.config/openbox/autostart';;
+   "omenu") xterm -e 'sudo mousepad ~/.config/openbox/menu.xml';;
+   "orc") xterm -e 'sudo mousepad ~/.config/openbox/rc.xml';;
 
 ##SYSTEM##
    "github_all") firefox https://github.com/bedjan/debian/blob/master/skripty/all.sh;;
@@ -70,6 +83,7 @@ fi;;
   ## "history") xterm -hold -e "history";;
 
 ##RADIA##
+   "radia") bash -c "wget --timestamping  --tries=100 --wait=1 https://raw.githubusercontent.com/bedjan/mm/master/radia_online.m3u & vlc radia_online.m3u";;
 
 ##TV##
 
@@ -134,4 +148,3 @@ esac
 #xterm -hold -e alsamixer
 #pavucontrol
 #pasystray
-
