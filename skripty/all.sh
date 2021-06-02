@@ -286,7 +286,7 @@ fi;;
 #mpv --force-window  --no-video --ytdl
 
 
-   *) echo "\n Error, Wrong!";;
+   *) echo "\n Error, Wrong choose!";;
 esac
 
 
