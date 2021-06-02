@@ -1,6 +1,15 @@
 #!/bin/bash
-# if no command line arg given
-# set volume to Unknown
+
+echo '~~OVLADANI~~ down ~ up ~ monitor ~ dpms ~ ytdl_update ~ ytdl_download ~ mixer \n'
+echo '~~PROGRAMY~~ terminal ~ aup ~ chromium ~ netsurf ~ procesy ~ streamtuner ~ gesta ~ easystroke ~ mpc ~ kalkulacka ~ links ~ netsurf ~ default_web_browser \n' echo '~~VIDEO~~ youtubedl_video ~ youtubedl_audio ~ mpv_youtube_mute ~ mpv_youtube ~ mpv_youtube_audio \n'
+echo '~~VYPNOUT~~ restart ~ vypnout ~ vypnout0 ~ vypnout1 ~ vypnout2 \n'
+echo '~~OPENBOX~~ obconf ~ obmenu ~ orestart ~ oreconfigure ~ ostart ~ omenu ~ orc \n'
+echo '~~SYSTEM~~  github_all ~ bash ~ bash_aliases \n '
+echo '~~RADIA~~ humor ~ city90 ~ city80 ~ 4u \n'
+echo '~~TV~~ Das_erste ~ Hr ~ Kulturmd ~ Ndr_hamburg ~ Nrwision \n Okessau ~ Ok_kassel ~ Ok_kiel ~ Ok_ludwigshafen ~ Ok_magdeburg ~ Ok_Merseburg ~ Ok_nahetv ~ Ok_rhein main ~ Ok_rheinlokal ~ Ok_salzwedel ~ Ok_stendal ~ Ok_suedwestpfalz ~ Ok_weinstrasse ~ Ok wernigerode ~ Ok54_trier \n Tagesschau24 ~ Tidetv ~ Tvhalle ~ Wdr ~ Wtv_ok_wettin ~ Punktum ~ Ran1 ~ Rockland ~ Rt ~ Studio47 ~ Dw_e ~ Dw ~ Dw+ ~ Elbekanal \n'
+echo '~~WEBY~~ kalendar ~ cas ~ zdrojak ~ linuxexpress ~ cs ~ sparkasse ~ gkeep ~ gmail ~ yahoo_email ~ seznam_email ~ seznam_sweb ~ seznam_ftp ~ ulozto ~ vinted ~ soundcloud ~ difm ~ gdisk ~ gdocs ~ gphotos ~ gsites ~ gtranslate \n jobs ~ seznam ~ abclinuxu ~ tvprogram ~ root ~ simplenote ~ gtakeout ~ web ~ dropbox ~ github ~ github_all ~ Facebook ~ youtube ~ bazos ~ ct ~ ctzive ~ csfd ~ tvonline ~ nemcina_youtube \n thinfi ~ bitly ~ jdem ~ protectedtext ~ dillinger ~ githack ~ tinyurl ~ github_poznamky ~ programovani ~ linux ~ github_linux ~ enviweb ~ mzp ~ pronaladu ~ github_akupresura ~ psychologie ~ epsychologie ~ statistiky ~ zw ~ zw1 ~ zw2 ~ zw3 ~ minimalismus ~ minimalismus1 \n github_zajmy ~ github_manipulace ~ github_windows ~ github_home ~ open_with ~ open_with_nastaveni \n'
+
+
 if [ -z $1 ]
 then
   choose="*** Unknown vehicle ***"
@@ -273,11 +282,11 @@ fi;;
    "open_with_nastaveni") wget https://github.com/darktrojan/openwith/raw/master/webextension/native/open_with_linux.py;chmod u+x open_with_linux.py;./open_with_linux.py install;;
 
 ##youtube video a audio
-mpv --force-window --ytdl 
-mpv --force-window  --no-video --ytdl
+#mpv --force-window --ytdl 
+#mpv --force-window  --no-video --ytdl
 
 
-   *) echo "Error, Wrong!";;
+   *) echo "\n Error, Wrong!";;
 esac
 
 
@@ -303,6 +312,6 @@ esac
 #pasystray
 
 ##youtube video a audio
-mpv --force-window --ytdl 
-mpv --force-window  --no-video --ytdl
+#mpv --force-window --ytdl 
+#mpv --force-window  --no-video --ytdl
 
